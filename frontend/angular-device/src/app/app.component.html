@@ -1,0 +1,71 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<noscript>
+  <h2 style="color: #ff0000">
+    Seems your browser doesn't support Javascript! Websocket relies on Javascript being enabled.
+    Please enable Javascript and reload this page!
+  </h2>
+</noscript>
+<div id="main-content" class="container">
+
+  <div class="row">
+    <div class="col-md-6">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="connect">WebSocket connection:</label>
+          <button (click)="connect()" class="btn btn-success" type="submit" id="connect">Connect</button>
+          <button (click)="disconnect()" class="btn btn-warning" type="submit">Disconnect
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="name">What is your name?</label>
+          <input type="text" [(ngModel)]="name" class="form-control" name="name" id="name"> <br>
+        </div>
+        <button (click)="sendMessage()" class="btn btn-success" type="submit">Send</button>
+        <button (click)="renderMessage()" class="btn btn-success" type="submit">Render</button>
+      </form>
+    </div>
+
+    <p> {{greeting}}</p>
+    <p> {{currentDateTime}}</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <table id="conversation" class="table table-striped">
+        <thead>
+        <tr>
+          <th>Greetings</th>
+        </tr>
+        </thead>
+        <tbody id="greetings">
+        <ng-container *ngFor="let message of arrayMessages; let i = index">
+          <tr>
+            <td>{{message}}</td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <canvas baseChart
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </div>
+
+
+</div>
+<router-outlet></router-outlet>
