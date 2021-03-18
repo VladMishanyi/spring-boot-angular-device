@@ -7,54 +7,54 @@
 </noscript>
 <div id="main-content" class="container-fluid">
 
-  <div class="row">
-    <div class="col-md-6">
-      <form class="form-inline">
-        <div class="form-group">
-          <label for="connect">WebSocket connection:</label>
-          <button (click)="connect()" class="btn btn-success" type="submit" id="connect">Connect</button>
-          <button (click)="disconnect()" class="btn btn-warning" type="submit">Disconnect
-          </button>
-        </div>
-      </form>
-    </div>
-    <div class="col-md-6">
-      <form class="form-inline">
-        <div class="form-group">
-          <label for="name">What is your name?</label>
-          <input type="text" [(ngModel)]="name" class="form-control" name="name" id="name"> <br>
-        </div>
-        <button (click)="sendMessage()" class="btn btn-success" type="submit">Send</button>
-      </form>
-    </div>
+<!--  <div class="row">-->
+<!--    <div class="col-md-6">-->
+<!--      <form class="form-inline">-->
+<!--        <div class="form-group">-->
+<!--          <label for="connect">WebSocket connection:</label>-->
+<!--          <button (click)="connect()" class="btn btn-success" type="submit" id="connect">Connect</button>-->
+<!--          <button (click)="disconnect()" class="btn btn-warning" type="submit">Disconnect-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--    <div class="col-md-6">-->
+<!--      <form class="form-inline">-->
+<!--        <div class="form-group">-->
+<!--          <label for="name">What is your name?</label>-->
+<!--          <input type="text" [(ngModel)]="name" class="form-control" name="name" id="name"> <br>-->
+<!--        </div>-->
+<!--        <button (click)="sendMessage()" class="btn btn-success" type="submit">Send</button>-->
+<!--      </form>-->
+<!--    </div>-->
 
-    <p> {{greeting}}</p>
-    <p> {{currentDateTime}}</p>
-  </div>
+<!--    <p> {{greeting}}</p>-->
+<!--    <p> {{currentDateTime}}</p>-->
+<!--  </div>-->
+
+<!--  <div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--      <table id="conversation" class="table table-striped">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--          <th>Greetings</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody id="greetings">-->
+<!--        <ng-container *ngFor="let message of arrayMessages; let i = index">-->
+<!--          <tr>-->
+<!--            <td>{{message}}</td>-->
+<!--          </tr>-->
+<!--        </ng-container>-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <div class="row">
-    <div class="col-md-12">
-      <table id="conversation" class="table table-striped">
-        <thead>
-        <tr>
-          <th>Greetings</th>
-        </tr>
-        </thead>
-        <tbody id="greetings">
-        <ng-container *ngFor="let message of arrayMessages; let i = index">
-          <tr>
-            <td>{{message}}</td>
-          </tr>
-        </ng-container>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-2 col-lg-offset-2">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <h4 class="modal-title" id="myModalLabel" style="margin-top: 40px; text-align: center">
-        Отчет сформирован:  <i id="datePart">{{currentDateTime}}</i>
+        Отчет сформирован: {{currentDateTime}}
       </h4>
     </div>
   </div>
@@ -89,22 +89,24 @@
       <td>
           <div class="input-group input-group-sm">
             <span class="input-group-addon" id="startMark">Начало</span>
-            <input [(ngModel)]="startChart" type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" value="2017-12-19T07:30">
+            <input [ngModel]="startChart | date:'yyyy-MM-ddTHH:mm'" type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" >
           </div>
       </td>
       <td>
           <div class="input-group input-group-sm">
             <span class="input-group-addon" id="endMark">Конец</span>
-            <input [(ngModel)]="endChart" type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" value="2017-12-19T18:00">
+            <input [ngModel]="endChart | date:'yyyy-MM-ddTHH:mm'" type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" >
         </div>
       </td>
       <td>
             <input type="button" id="generateChart" name="generateChart" (click)="sendChartBody()" class="btn btn-sm btn-success" value="Сгенерировать">
-            <a href="/" id="back" class="btn btn-sm btn-success" (click)="disconnect()" value="Сохранить график"> Назад</a>
+            <a href="/" id="back" class="btn btn-sm btn-success" (click)="disconnect()"> Назад</a>
             <input type="button" id="saveChart" name="saveChart" (click)="saveChart()" class="btn btn-sm btn-success" value="Сохранить график">
       </td>
     </tr>
   </table>
+  {{startChart}}
+  {{endChart}}
 
   <table class="table">
     <tr>

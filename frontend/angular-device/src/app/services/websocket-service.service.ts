@@ -14,6 +14,7 @@ declare var Stomp: any;
 export class WebsocketServiceService {
   webSocketEndPoint = 'http://localhost:8080/ws';
   topic = '/topic/greetings';
+  topicLocalDateTime = '/topic/date-from-server';
   stompClient: any;
 
 
@@ -28,9 +29,8 @@ export class WebsocketServiceService {
 
     const entity = this;
     entity.stompClient.connect({}, function() {
-      entity.stompClient.subscribe(entity.topic, function(sdkEvent: any) {
-        entity.onMessageReceived(sdkEvent);
-      });
+      entity.stompClient.subscribe(entity.topic, function(sdkEvent: any) {entity.onMessageReceived(sdkEvent);});
+      entity.stompClient.subscribe(entity.topicLocalDateTime, function(sdkEvent: any) {entity.onDateReceived(sdkEvent);});
       // entity.stompClient.reconnect_delay = 2000;
     }, this.errorCallBack);
   }
@@ -59,8 +59,18 @@ export class WebsocketServiceService {
     this.stompClient.send('/app/hello', {}, JSON.stringify(message));
   }
 
+  _sendDate(message: any) {
+    console.log('calling logout api via web socket');
+    this.stompClient.send('/date-to-server', {}, JSON.stringify(message));
+  }
+
   onMessageReceived(message: any) {
     const mes = JSON.parse(message.body).content;
     this.bodyMessage.newMessage(mes);
+  }
+
+  onDateReceived(message: any) {
+    const mes = JSON.parse(message.body);
+    this.bodyMessage.newDate(mes);
   }
 }

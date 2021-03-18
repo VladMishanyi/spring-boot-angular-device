@@ -21,8 +21,8 @@ export class AppComponent implements OnInit{
   name = '';
   arrayMessages: Array<string> = ['first', 'second'];
   currentDateTime: string;
-  startChart: string = "";
-  endChart: string = "";
+  startChart: Date = new Date();
+  endChart: Date = new Date();
   bufferChart: number = 1000;
 
   lineChartData: ChartDataSets[] = [
@@ -48,6 +48,7 @@ export class AppComponent implements OnInit{
 
 
   constructor(private webSocketAPI: WebsocketServiceService, private bodyMessage: MessageService) {
+    this.webSocketAPI._connect();
     this.currentDateTime = this.readCurrentDateTime();
     saveAs(new Blob(), "dd");
     bodyMessage.messageStream$.subscribe(
@@ -63,12 +64,17 @@ export class AppComponent implements OnInit{
     return  moment().format("YYYY-MM-DD HH:mm:ss");
   }
 
+  generateDate(): Date{
+    return new Date();
+  }
+
   sendChartBody(): void{
+    this.startChart = this.generateDate();
 
   }
 
   saveChart(): void{
-
+    this.webSocketAPI._sendDate({'start' : this.startChart, 'end' : this.endChart});
   }
 
   increaseChart(): void{
