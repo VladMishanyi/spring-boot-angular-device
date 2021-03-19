@@ -3,6 +3,7 @@ package com.vk.springbootangulardevice.controller;
 import com.vk.springbootangulardevice.model.Greeting;
 import com.vk.springbootangulardevice.model.HelloMessage;
 import com.vk.springbootangulardevice.model.JsonBodyLocalDateTimeFromChart;
+import com.vk.springbootangulardevice.model.User;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
@@ -25,10 +26,22 @@ public class GreetingController {
 
     @MessageMapping("/date-to-server")
     @SendTo("/topic/date-from-server")
-    public JsonBodyLocalDateTimeFromChart tryToParseLocalDateTime(@RequestBody JsonBodyLocalDateTimeFromChart jsonBodyLocalDateTimeFromChart){
-        System.out.println("---this is local date time from user :" + jsonBodyLocalDateTimeFromChart.getStart() + "---" + jsonBodyLocalDateTimeFromChart.getEnd());
-        return jsonBodyLocalDateTimeFromChart;
+    public JsonBodyLocalDateTimeFromChart tryToParseLocalDateTime(JsonBodyLocalDateTimeFromChart jsonBodyLocalDateTimeFromChart) throws Exception{
+        System.out.println("---this is local date time from user :" + jsonBodyLocalDateTimeFromChart.toString());
+        JsonBodyLocalDateTimeFromChart jbdtf = new JsonBodyLocalDateTimeFromChart();
+            jbdtf.setStart(jsonBodyLocalDateTimeFromChart.getStart().minusMinutes(30));
+            jbdtf.setEnd(jsonBodyLocalDateTimeFromChart.getEnd().minusMinutes(30));
+            Thread.sleep(2000); // simulated delay
+         return jbdtf;
     }
+
+//    @MessageMapping("/date-to-server")
+//    @SendTo("/topic/date-from-server")
+//    public User tryToParseLocalDateTime(User user) throws Exception{
+//        System.out.println("---this is local date time from user :" + user.getName() + "---" + user.getAge());
+//        Thread.sleep(2000); // simulated delay
+//        return user;
+//    }
 
 //    @MessageMapping("/date-to-server")
 //    @SendTo("/topic/date-from-server")

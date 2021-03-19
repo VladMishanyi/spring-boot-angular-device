@@ -7,50 +7,6 @@
 </noscript>
 <div id="main-content" class="container-fluid">
 
-<!--  <div class="row">-->
-<!--    <div class="col-md-6">-->
-<!--      <form class="form-inline">-->
-<!--        <div class="form-group">-->
-<!--          <label for="connect">WebSocket connection:</label>-->
-<!--          <button (click)="connect()" class="btn btn-success" type="submit" id="connect">Connect</button>-->
-<!--          <button (click)="disconnect()" class="btn btn-warning" type="submit">Disconnect-->
-<!--          </button>-->
-<!--        </div>-->
-<!--      </form>-->
-<!--    </div>-->
-<!--    <div class="col-md-6">-->
-<!--      <form class="form-inline">-->
-<!--        <div class="form-group">-->
-<!--          <label for="name">What is your name?</label>-->
-<!--          <input type="text" [(ngModel)]="name" class="form-control" name="name" id="name"> <br>-->
-<!--        </div>-->
-<!--        <button (click)="sendMessage()" class="btn btn-success" type="submit">Send</button>-->
-<!--      </form>-->
-<!--    </div>-->
-
-<!--    <p> {{greeting}}</p>-->
-<!--    <p> {{currentDateTime}}</p>-->
-<!--  </div>-->
-
-<!--  <div class="row">-->
-<!--    <div class="col-md-12">-->
-<!--      <table id="conversation" class="table table-striped">-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--          <th>Greetings</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody id="greetings">-->
-<!--        <ng-container *ngFor="let message of arrayMessages; let i = index">-->
-<!--          <tr>-->
-<!--            <td>{{message}}</td>-->
-<!--          </tr>-->
-<!--        </ng-container>-->
-<!--        </tbody>-->
-<!--      </table>-->
-<!--    </div>-->
-<!--  </div>-->
-
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <h4 class="modal-title" id="myModalLabel" style="margin-top: 40px; text-align: center">
@@ -76,7 +32,16 @@
     </tr>
     <tr>
       <td>
-        инфо
+        Кінцевий вимикач
+      </td>
+      <td>
+        On
+      </td>
+      <td>
+        Таймер
+      </td>
+      <td>
+        On
       </td>
     </tr>
   </table>
@@ -87,26 +52,30 @@
     </tr>
     <tr>
       <td>
-          <div class="input-group input-group-sm">
-            <span class="input-group-addon" id="startMark">Начало</span>
-            <input [ngModel]="startChart | date:'yyyy-MM-ddTHH:mm'" type="datetime-local" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" >
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="startMark">Начало</span>
+            </div>
+            <input [ngModel]="startChart  | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="valueChangeStartChart($event)" type="datetime-local" style="width: 350px" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" >
           </div>
       </td>
       <td>
-          <div class="input-group input-group-sm">
-            <span class="input-group-addon" id="endMark">Конец</span>
-            <input [ngModel]="endChart | date:'yyyy-MM-ddTHH:mm'" type="datetime-local" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" >
-        </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="endMark">Конец</span>
+            </div>
+            <input [ngModel]="endChart | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="valueChangeEndChart($event)" type="datetime-local" style="width: 350px" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" >
+          </div>
       </td>
+    </tr>
+    <tr>
       <td>
-            <input type="button" id="generateChart" name="generateChart" (click)="sendChartBody()" class="btn btn-sm btn-success" value="Сгенерировать">
-            <a href="/" id="back" class="btn btn-sm btn-success" (click)="disconnect()"> Назад</a>
-            <input type="button" id="saveChart" name="saveChart" (click)="saveChart()" class="btn btn-sm btn-success" value="Сохранить график">
+        <input type="button" id="generateChart" name="generateChart" (click)="sendChartBody()" class="btn btn-md btn-success" value="Сгенерировать">
+        <input type="button" id="saveChart" name="saveChart" (click)="saveChart()" class="btn btn-md btn-success" value="Сохранить график">
+        <input type="button" id="removeChart" name="removeChart" (click)="clearChart()" class="btn btn-md btn-success" value="Стереть график">
       </td>
     </tr>
   </table>
-  {{startChart}}
-  {{endChart}}
 
   <table class="table">
     <tr>
@@ -114,8 +83,10 @@
     </tr>
     <tr>
       <td>
-        <div class="input-group input-group-sm">
-          <span class="input-group-addon" id="bufferChartMark">Буфер графика</span>
+        <div class="input-group ьи-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="bufferChartMark">Буфер графика</span>
+          </div>
           <input [(ngModel)]="bufferChart" type="number" width="5" style="width: 100px;" class="form-control" aria-describedby="bufferChartMark" id="bufferChart" name="bufferChart" value="10000">
         </div>
       </td>
@@ -148,7 +119,7 @@
           <input type="checkbox" id="id_switch_tred">
           <span class="slider round"></span>
         </label>
-        <input type="button" id="removeChart" name="removeChart" (click)="clearChart()" class="btn btn-sm btn-success" value="Стереть">
+        <a href="/" id="back" class="btn btn-md btn-success" (click)="disconnect()"> Назад</a>
       </td>
     </tr>
   </table>

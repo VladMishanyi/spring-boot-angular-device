@@ -5,9 +5,7 @@ import * as moment from "moment";
 import { saveAs } from 'file-saver';
 import {ChartDataSets, ChartType} from "chart.js";
 import {Color, Label} from "ng2-charts";
-import DateTimeFormat = Intl.DateTimeFormat;
-// import * as saveAs from 'file-saver';
-// declare function saveAs();
+import {RangeDateTimeWithZone, UserService} from "./objects/objectsSourse";
 
 
 @Component({
@@ -24,6 +22,11 @@ export class AppComponent implements OnInit{
   startChart: Date = new Date();
   endChart: Date = new Date();
   bufferChart: number = 1000;
+  fromServer: any;
+  user: UserService = {'name': 'egor', 'age': 44};
+  rangeDate: RangeDateTimeWithZone = {'start': new Date(), 'end': new Date()};
+  start: Date = new Date();
+  end: Date = new Date();
 
   lineChartData: ChartDataSets[] = [
     { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
@@ -49,32 +52,45 @@ export class AppComponent implements OnInit{
 
   constructor(private webSocketAPI: WebsocketServiceService, private bodyMessage: MessageService) {
     this.webSocketAPI._connect();
+
     this.currentDateTime = this.readCurrentDateTime();
+
     saveAs(new Blob(), "dd");
-    bodyMessage.messageStream$.subscribe(
-      mes => {
-        this.addMessage(mes);
-      }
-    );
+
+    bodyMessage.messageStream$.subscribe(mes => {this.addMessage(mes);});
+    bodyMessage.dateStream$.subscribe( mes => {this.writeDateTimeFromServer(mes);});
+
   }
 
+
   ngOnInit() {}
+
+  writeDateTimeFromServer(range: RangeDateTimeWithZone): void{
+    this.startChart = range.start;
+    this.endChart = range.end;
+    this.start = range.start;
+    this.end = range.end;
+  }
 
   readCurrentDateTime(): string{
     return  moment().format("YYYY-MM-DD HH:mm:ss");
   }
 
-  generateDate(): Date{
-    return new Date();
+  valueChangeStartChart(valueStart: Date): void{
+    this.start = valueStart;
+  }
+
+  valueChangeEndChart(valueEnd: Date): void{
+    this.end = valueEnd;
   }
 
   sendChartBody(): void{
-    this.startChart = this.generateDate();
-
   }
 
   saveChart(): void{
-    this.webSocketAPI._sendDate({'start' : this.startChart, 'end' : this.endChart});
+    this.rangeDate.start = this.start;
+    this.rangeDate.end = this.end;
+    this.webSocketAPI._sendDate(this.rangeDate);
   }
 
   increaseChart(): void{

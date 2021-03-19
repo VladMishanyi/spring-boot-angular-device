@@ -61,7 +61,8 @@ export class WebsocketServiceService {
 
   _sendDate(message: any) {
     console.log('calling logout api via web socket');
-    this.stompClient.send('/date-to-server', {}, JSON.stringify(message));
+    this.stompClient.send('/app/date-to-server', {}, JSON.stringify(message));
+    // this.stompClient.send('/app/date-to-server', {}, message);
   }
 
   onMessageReceived(message: any) {
