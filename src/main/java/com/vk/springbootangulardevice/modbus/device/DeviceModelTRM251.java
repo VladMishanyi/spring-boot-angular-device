@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * Created by KIP-PC99 on 20.09.2018.
  */
 @Component
-public class DeviceModelTRM251 {
+public class DeviceModelTRM251 implements DeviceModel {
 
     @JsonIgnore
     private transient final int deviceAddress = 16;//16-24 reserved for this device
@@ -87,6 +87,7 @@ public class DeviceModelTRM251 {
         return modbusLocator1i;
     }
 
+    @Override
     public boolean hysteresis(){
         boolean inner = HysComparator.compare(oldInputRegister0,
                 inputRegister0,

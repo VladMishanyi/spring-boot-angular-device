@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * Created by KIP-PC99 on 20.09.2018.
  */
 @Component
-public class DeviceModelMB110_1TD {
+public class DeviceModelMB110_1TD implements DeviceModel {
 
     @JsonIgnore
     private transient final int deviceAddress = 16;//16-24 reserved for this device
@@ -25,6 +25,18 @@ public class DeviceModelMB110_1TD {
     private transient float oldHoldingRegister0 = 0F;
     @JsonIgnore
     private transient final ModbusLocator modbusLocator0h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 70, DataType.FOUR_BYTE_FLOAT);
+
+    private int holdingRegister1 = 0;
+    @JsonIgnore
+    private transient int oldHoldingRegister1 = 0;
+    @JsonIgnore
+    private transient final ModbusLocator modbusLocator1h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 49, DataType.TWO_BYTE_INT_UNSIGNED);
+
+    private int holdingRegister2 = 0;
+    @JsonIgnore
+    private transient int oldHoldingRegister2 = 0;
+    @JsonIgnore
+    private transient final ModbusLocator modbusLocator2h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 57, DataType.TWO_BYTE_INT_UNSIGNED);
 
 
     public DeviceModelMB110_1TD(){}
@@ -61,6 +73,47 @@ public class DeviceModelMB110_1TD {
         return modbusLocator0h;
     }
 
+    public int getHoldingRegister1() {
+        return holdingRegister1;
+    }
+
+    public void setHoldingRegister1(int holdingRegister1) {
+        this.holdingRegister1 = holdingRegister1;
+    }
+
+    public int getOldHoldingRegister1() {
+        return oldHoldingRegister1;
+    }
+
+    public void setOldHoldingRegister1(int oldHoldingRegister1) {
+        this.oldHoldingRegister1 = oldHoldingRegister1;
+    }
+
+    public ModbusLocator getModbusLocator1h() {
+        return modbusLocator1h;
+    }
+
+    public int getHoldingRegister2() {
+        return holdingRegister2;
+    }
+
+    public void setHoldingRegister2(int holdingRegister2) {
+        this.holdingRegister2 = holdingRegister2;
+    }
+
+    public int getOldHoldingRegister2() {
+        return oldHoldingRegister2;
+    }
+
+    public void setOldHoldingRegister2(int oldHoldingRegister2) {
+        this.oldHoldingRegister2 = oldHoldingRegister2;
+    }
+
+    public ModbusLocator getModbusLocator2h() {
+        return modbusLocator2h;
+    }
+
+    @Override
     public boolean hysteresis(){
         boolean inner = HysComparator.compare(oldHoldingRegister0,
                 holdingRegister0,
