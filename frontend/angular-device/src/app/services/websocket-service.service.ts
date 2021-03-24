@@ -12,7 +12,7 @@ declare var Stomp: any;
   providedIn: 'root'
 })
 export class WebsocketServiceService {
-  webSocketEndPoint = 'http://localhost:8080/ws';
+  webSocketEndPoint = 'http://localhost:8080/guide-websocket';
   topic = '/topic/greetings';
   topicLocalDateTime = '/topic/date-from-server';
   stompClient: any;

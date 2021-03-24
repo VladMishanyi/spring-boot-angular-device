@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS mv110_1td;
 CREATE TABLE mv110_1td (
                              id                 int UNSIGNED NOT NULL AUTO_INCREMENT,
                              date               TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                             holdingRegister0   FLOAT        NOT NULL DEFAULT 0
+                             holdingRegister0   FLOAT        NOT NULL DEFAULT 0,
                              PRIMARY KEY (id)
 )
     ENGINE = InnoDB
