@@ -23,9 +23,5 @@ public interface ServiceRoot<T extends TableModel, J extends JsonBodyListRoot<T>
 
     void websocketSendDevice(final D deviceModelDevice);
 
-    DeviceModelMB110_1TD modbusReadDataFromRegisterAll();
-    DeviceModelMB110_1TD modbusReadDataFromRegister0();
-    DeviceModelMB110_1TD modbusReadDataFromRegister1();
-    DeviceModelMB110_1TD modbusWriteDataToRegister0(final short value);
-    DeviceModelMB110_1TD modbusWriteDataToRegister1(final short value);
+    D modbusReadDataFromRegisterAll();
 }

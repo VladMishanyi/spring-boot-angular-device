@@ -1,4 +1,4 @@
-package com.vk.springbootangulardevice.repository.data;
+package com.vk.springbootangulardevice.repository.database;
 
 import com.vk.springbootangulardevice.database.table.TableModel;
 import org.springframework.data.jpa.repository.JpaRepository;

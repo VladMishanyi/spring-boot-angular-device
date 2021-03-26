@@ -22,7 +22,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.vk.springbootangulardevice.repository.data")
+@EnableJpaRepositories(basePackages = "com.vk.springbootangulardevice.repository.database")
 @ComponentScan(basePackages = "com.vk.springbootangulardevice")
 @PropertySource("classpath:databaseFirst.properties")
 public class DatabaseFirstConfig {
