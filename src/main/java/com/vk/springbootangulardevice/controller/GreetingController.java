@@ -1,19 +1,12 @@
 package com.vk.springbootangulardevice.controller;
 
+import com.vk.springbootangulardevice.json.JsonBodyLocalDateTimeFromChart;
 import com.vk.springbootangulardevice.model.Greeting;
 import com.vk.springbootangulardevice.model.HelloMessage;
-import com.vk.springbootangulardevice.model.JsonBodyLocalDateTimeFromChart;
-import com.vk.springbootangulardevice.model.User;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.HtmlUtils;
-
-import java.time.LocalDateTime;
-import java.util.Map;
 
 @RestController
 public class GreetingController {
