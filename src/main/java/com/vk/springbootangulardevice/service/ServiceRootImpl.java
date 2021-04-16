@@ -5,10 +5,12 @@ import com.vk.springbootangulardevice.json.JsonBodyListRoot;
 import com.vk.springbootangulardevice.modbus.device.DeviceModel;
 import com.vk.springbootangulardevice.modbus.device.DeviceModelMB110_1TD;
 import com.vk.springbootangulardevice.modbus.en.DigsFloat;
+import com.vk.springbootangulardevice.model.ModelRaspberry;
 import com.vk.springbootangulardevice.repository.database.RepositoryDatabaseMB110_1TD;
 import com.vk.springbootangulardevice.repository.database.RepositoryDatabaseRoot;
 import com.vk.springbootangulardevice.repository.modbus.RepositoryModbusMB110_1TD;
 import com.vk.springbootangulardevice.repository.modbus.RepositoryModbusRoot;
+import com.vk.springbootangulardevice.repository.raspberry.RepositoryRaspberry;
 import com.vk.springbootangulardevice.repository.websocket.RepositoryWebsocketRoot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -29,11 +31,14 @@ public abstract class ServiceRootImpl<T extends TableModel, J extends JsonBodyLi
 
     private final W repositoryWebsocket;
 
+    private final RepositoryRaspberry repositoryRaspberry;
+
 //    @Autowired
-    public ServiceRootImpl(K repositoryDatabase, Y repositoryModbus, W repositoryWebsocket) {
+    public ServiceRootImpl(final K repositoryDatabase, final Y repositoryModbus, final W repositoryWebsocket, final RepositoryRaspberry repositoryRaspberry) {
         this.repositoryDatabase = repositoryDatabase;
         this.repositoryModbus = repositoryModbus;
         this.repositoryWebsocket = repositoryWebsocket;
+        this.repositoryRaspberry = repositoryRaspberry;
     }
 
     @Transactional(readOnly = true)
@@ -60,5 +65,15 @@ public abstract class ServiceRootImpl<T extends TableModel, J extends JsonBodyLi
 
     public D modbusReadDataFromRegisterAll(){
         return repositoryModbus.readDataFromRegisterAll(true, (short) 0, (short) 500, DigsFloat.ONE_DIG, false);
+    }
+
+    @Override
+    public ModelRaspberry raspberryReadGPIO27(){
+        return repositoryRaspberry.raspberryReadGPIO27();
+    }
+
+    @Override
+    public ModelRaspberry raspberryWriteGPI26(final boolean state){
+        return repositoryRaspberry.raspberryWriteGPI26(state);
     }
 }

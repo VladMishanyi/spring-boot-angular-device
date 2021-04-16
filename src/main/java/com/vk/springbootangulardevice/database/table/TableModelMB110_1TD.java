@@ -1,8 +1,6 @@
 package com.vk.springbootangulardevice.database.table;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -11,6 +9,11 @@ public class TableModelMB110_1TD extends TableModel{
 
     @Column(name = "holdingRegister0", columnDefinition = "float default 0")
     private Float holdingRegister0 = 0F;
+
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_recipe")
+    private TableModelRecipe tableModelRecipe;
 
     public TableModelMB110_1TD() {
     }
@@ -21,6 +24,14 @@ public class TableModelMB110_1TD extends TableModel{
 
     public void setHoldingRegister0(Float holdingRegister0) {
         this.holdingRegister0 = holdingRegister0;
+    }
+
+    public TableModelRecipe getRecipe() {
+        return tableModelRecipe;
+    }
+
+    public void setRecipe(TableModelRecipe tableModelRecipe) {
+        this.tableModelRecipe = tableModelRecipe;
     }
 
     @Override

@@ -6,6 +6,7 @@ import com.vk.springbootangulardevice.database.table.TableModel;
 import com.vk.springbootangulardevice.json.JsonBodyListRoot;
 import com.vk.springbootangulardevice.modbus.device.DeviceModel;
 import com.vk.springbootangulardevice.modbus.device.DeviceModelMB110_1TD;
+import com.vk.springbootangulardevice.model.ModelRaspberry;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -24,4 +25,7 @@ public interface ServiceRoot<T extends TableModel, J extends JsonBodyListRoot<T>
     void websocketSendDevice(final D deviceModelDevice);
 
     D modbusReadDataFromRegisterAll();
+
+    public ModelRaspberry raspberryReadGPIO27();
+    public ModelRaspberry raspberryWriteGPI26(final boolean state);
 }

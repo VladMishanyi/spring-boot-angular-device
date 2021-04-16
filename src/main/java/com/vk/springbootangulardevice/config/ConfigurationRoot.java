@@ -20,9 +20,9 @@ public class ConfigurationRoot {
         return new BatchRead<>();
     }
 
-    public BatchRead<Integer> getNewBatchRead(){
-        return new AnnotationConfigWebApplicationContext().getBean(BatchRead.class);
-    }
+//    public BatchRead<Integer> getNewBatchRead(){
+//        return new AnnotationConfigWebApplicationContext().getBean(BatchRead.class);
+//    }
 
     @Bean
     @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)

@@ -29,17 +29,15 @@ public class ChainModbus extends Thread{
 
     @Override
     public void run(){
-        while (!this.isInterrupted()){
-            try {
-
+        try {
+            while (!this.isInterrupted()){
                 taskMB110_1TD.readModbusAndWriteToTable();
-
-                this.sleep(1000);
-            }catch (InterruptedException e){
+                Thread.sleep(1000);
+            }
+        }catch (InterruptedException e){
                 String message = e.getMessage();
                 LOGGER.error("Interrupted"+this.getClass()+"thread --"+message);
                 System.out.println("Interrupted"+this.getClass()+"thread --"+message);
-            }
         }
     }
 }
