@@ -1,6 +1,7 @@
 package com.vk.springbootangulardevice.chain;
 
 import com.vk.springbootangulardevice.modbus.entity.ModbusBodyQuery;
+import com.vk.springbootangulardevice.repository.raspberry.RepositoryRaspberry;
 import com.vk.springbootangulardevice.service.ServiceMB110_1TD;
 import com.vk.springbootangulardevice.tasks.TaskMB110_1TD;
 import org.slf4j.Logger;
@@ -14,20 +15,15 @@ import java.util.Queue;
 
 @Component
 @ComponentScan(basePackages = {"com.vk.springbootangulardevice.tasks", "com.vk.springbootangulardevice.service"})
-public class ChainModbus extends Thread{
+public class ChainRaspberry extends Thread{
 
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
-    public static Queue<ModbusBodyQuery> modbusBodyQueryQueue = new LinkedList<>();
-
-    private final TaskMB110_1TD taskMB110_1TD;
-
-    private final ServiceMB110_1TD serviceMB110_1TD;
+    private final RepositoryRaspberry repositoryRaspberry;
 
     @Autowired
-    public ChainModbus(final TaskMB110_1TD taskMB110_1TD, final ServiceMB110_1TD serviceMB110_1TD){
-        this.taskMB110_1TD = taskMB110_1TD;
-        this.serviceMB110_1TD = serviceMB110_1TD;
+    public ChainRaspberry(final RepositoryRaspberry repositoryRaspberry){
+        this.repositoryRaspberry = repositoryRaspberry;
         this.start();
     }
 
@@ -35,8 +31,7 @@ public class ChainModbus extends Thread{
     public void run(){
         try {
             while (!this.isInterrupted()){
-//                taskMB110_1TD.readModbusAndWriteToTable();
-                serviceMB110_1TD.modbusReadDataFromRegisterAll();
+                repositoryRaspberry.raspberryReadGPIO27();
                 Thread.sleep(100);
             }
         }catch (InterruptedException e){

@@ -7,8 +7,8 @@ import {Subject} from "rxjs";
 export class MessageService {
   private messageSource = new Subject<string>();
   private dateSource = new Subject<any>();
-  messageStream$ = this.messageSource.asObservable();
-  dateStream$ = this.dateSource.asObservable();
+  public messageStream$ = this.messageSource.asObservable();
+  public dateStream$ = this.dateSource.asObservable();
 
   constructor() { }
 

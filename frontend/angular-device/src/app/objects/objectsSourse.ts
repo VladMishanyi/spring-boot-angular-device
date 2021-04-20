@@ -9,6 +9,5 @@ export class RangeDateTimeWithZone {
   start: Date = new Date();
   end: Date = new Date();
 
-  constructor() {
-  }
+  constructor() {}
 }

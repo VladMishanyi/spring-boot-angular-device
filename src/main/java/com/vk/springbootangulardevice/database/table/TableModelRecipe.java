@@ -1,6 +1,7 @@
 package com.vk.springbootangulardevice.database.table;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +20,17 @@ public class TableModelRecipe extends TableModel{
     private List<TableModelMB110_1TD> tableModelMB110_1TDList = new ArrayList<>();
 
     public TableModelRecipe(){}
+
+    public TableModelRecipe(String name, int time) {
+        this.name = name;
+        this.time = time;
+    }
+
+    public TableModelRecipe(long id, LocalDateTime date, String name, int time) {
+        super(id, date);
+        this.name = name;
+        this.time = time;
+    }
 
     public String getName() {
         return name;
