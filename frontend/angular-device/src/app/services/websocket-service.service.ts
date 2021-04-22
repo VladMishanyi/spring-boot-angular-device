@@ -15,6 +15,7 @@ export class WebsocketServiceService {
   webSocketEndPoint = 'http://localhost:8080/guide-websocket';
   topic = '/topic/greetings';
   topicLocalDateTime = '/topic/date-from-server';
+  topicListOfTable = '/topic/generate-chart-laboratory-reometr';
   stompClient: any;
 
 
@@ -31,6 +32,7 @@ export class WebsocketServiceService {
     entity.stompClient.connect({}, function() {
       entity.stompClient.subscribe(entity.topic, function(sdkEvent: any) {entity.onMessageReceived(sdkEvent);});
       entity.stompClient.subscribe(entity.topicLocalDateTime, function(sdkEvent: any) {entity.onDateReceived(sdkEvent);});
+      entity.stompClient.subscribe(entity.topicListOfTable, function(sdkEvent: any) {entity.onListOfTablesReceive(sdkEvent);});
       // entity.stompClient.reconnect_delay = 2000;
     }, this.errorCallBack);
   }
@@ -73,5 +75,10 @@ export class WebsocketServiceService {
   onDateReceived(message: any) {
     const mes = JSON.parse(message.body);
     this.bodyMessage.newDate(mes);
+  }
+
+  onListOfTablesReceive(tables: any){
+    const mes = JSON.parse(tables.body);
+    this.bodyMessage.newListOfTable(mes);
   }
 }

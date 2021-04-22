@@ -16,7 +16,7 @@ import { ChartsModule } from 'ng2-charts';
     FormsModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [{ provide: Window, useValue: window }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
