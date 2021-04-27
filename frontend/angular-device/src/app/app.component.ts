@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {MessageService} from "./services/message.service";
 import {WebsocketServiceService} from "./services/websocket-service.service";
 import * as moment from "moment";
@@ -69,7 +69,7 @@ type DistributionNative = 'linear' | 'series';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, AfterViewInit{
   title = 'angular8-springboot-websocket';
   greeting = 'scrach';
   name = '';
@@ -90,8 +90,16 @@ export class AppComponent implements OnInit{
   globalY2: Array<number> = [];
   increaseDecriaseZoom: number = 0;
   leftRightPosition: number = 0;
+  dataLegend1: Array<number> = [85, 72, 78, 75, 77, 75];
+  dataLegend2: Array<number> = [15, 42, 23, 102, 120, 48];
+  nameItem: string = "empty";
+  timeItem: number = 7;
+  valueInRealTimeStretch: number = 0;
+  informationInRealTime: string = "Почато випробування";
+  contactorInRealTime: boolean = false;
+  timerInRealTime: boolean = false;
 
-
+  @ViewChild("baseChart") baseChart: ElementRef;
 
   public generateNewChartTitle(start: string, end: string) {
     this.vTitle = 'Объект/Киевгума/Отдел ГЭ/Температура помещения'+' с '+start+' по '+end;
@@ -112,7 +120,7 @@ export class AppComponent implements OnInit{
       borderJoinStyle: 'miter',
       // borderSkipped?: PositionType | PositionType[] | Scriptable<PositionType>;
       // categoryPercentage?: number;
-      data: [85, 72, 78, 75, 77, 75],
+      data: this.dataLegend1,
       fill: false,
       // hitRadius?: number | number[] | Scriptable<number>;
       // hoverBackgroundColor?: ChartColor | ChartColor[] | Scriptable<ChartColor>;
@@ -162,7 +170,7 @@ export class AppComponent implements OnInit{
       borderJoinStyle: 'miter',
       // borderSkipped?: PositionType | PositionType[] | Scriptable<PositionType>;
       // categoryPercentage?: number;
-      data: [15, 42, 23, 102, 120, 48],
+      data: this.dataLegend2,
       fill: false,
       // hitRadius?: number | number[] | Scriptable<number>;
       // hoverBackgroundColor?: ChartColor | ChartColor[] | Scriptable<ChartColor>;
@@ -656,12 +664,16 @@ export class AppComponent implements OnInit{
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
-  constructor(private webSocketAPI: WebsocketServiceService, private bodyMessage: MessageService, private window: Window) {
+  constructor(private webSocketAPI: WebsocketServiceService,
+              private bodyMessage: MessageService,
+              private window: Window,
+              baseChart: ElementRef) {
+    this.baseChart = baseChart;
     this.webSocketAPI._connect();
 
     this.currentDateTime = this.readCurrentDateTime();
 
-    saveAs(new Blob(), "dd");
+    // saveAs(new Blob(), "dd");
 
     bodyMessage.messageStream$.subscribe(mes => {this.addMessage(mes);});
     bodyMessage.dateStream$.subscribe( mes => {this.writeDateTimeFromServer(mes);});
@@ -670,6 +682,10 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit() {}
+
+  ngAfterViewInit(){}
+
+  sendNameAndTimeItem(){}
 
   writeDateTimeFromServer(range: RangeDateTimeWithZone): void{
     this.startChart = range.start;
@@ -691,9 +707,6 @@ export class AppComponent implements OnInit{
   }
 
   sendChartBody(): void{
-  }
-
-  saveChart(): void{
     this.rangeDate.start = this.start;
     this.rangeDate.end = this.end;
     this.webSocketAPI._sendDate(this.rangeDate);
@@ -729,7 +742,7 @@ export class AppComponent implements OnInit{
     let x: Array<string> = [];
     let y1: Array<number> = [];
     let y2: Array<number> = [];
-    let utcLocalDateTimeOffset = getUtcOffset(data[0]["date"]);
+    let utcLocalDateTimeOffset = this.getUtcOffset(data[0]["date"]);
     for (let i: number=0; i < data.length; i++){
       if (data.hasOwnProperty(i)){
         try {
@@ -772,8 +785,10 @@ export class AppComponent implements OnInit{
     this.globalY1.push(Y1);
     this.globalY2.push(Y2);
     this.lineChartLabels.push(X1);
-    this.lineChartData[0].data.push(Y1);
-    this.lineChartData[1].data.push(Y2);
+    // this.lineChartData[0].data.push(Y1);
+    this.dataLegend1.push(Y1);
+    // this.lineChartData[1].data.push(Y1);
+    this.dataLegend2.push(Y2);
     // this.window.myLine.update();
   }
 
@@ -782,9 +797,11 @@ export class AppComponent implements OnInit{
     this.globalY1.shift();
     this.globalY2.shift();
     this.lineChartLabels.shift();
-    this.lineChartData.forEach(function(dataset) {
-      dataset.data.shift();
-    });
+    this.dataLegend1.shift();
+    this.dataLegend2.shift();
+    // this.lineChartData.forEach(function(dataset) {
+    //   dataset.data.shift();
+    // });
     // window.myLine.update();
   }
 
@@ -865,7 +882,7 @@ export class AppComponent implements OnInit{
   }
 
   public saveChart() {
-    $("#myChart").get(0).toBlob(function(blob) {
+    this.baseChart.nativeElement.toBlob(function(blob: any) {
       let dt = moment().format("YYYY-MM-DD HH:mm:ss");
       saveAs(blob, dt+"_chart");
     });

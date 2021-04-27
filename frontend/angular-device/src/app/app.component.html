@@ -17,11 +17,11 @@
   </div>
 
   <div class="row highlight-bocks">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
       <span style="color: black; font-size: 24px; font-weight: bold">Поточне значення натягу</span>
     </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-      <span id="realTrmValue" style="color: red; font-size: 24px; font-weight: bold"> </span> H
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+      <span id="realTrmValue" style="color: red; font-size: 24px; font-weight: bold">{{valueInRealTimeStretch}} </span> H
     </div>
   </div>
 
@@ -30,7 +30,7 @@
       <h4>Інформація</h4>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <span>Почато випробування</span>
+      <span>{{informationInRealTime}}</span>
     </div>
   </div>
 
@@ -39,14 +39,14 @@
       <span>Кінцевий вимикач</span>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <span>On</span>
+      <span>{{contactorInRealTime}}</span>
     </div>
 
     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
       <span>Таймер</span>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <span>On</span>
+      <span>{{timerInRealTime}}</span>
     </div>
   </div>
 
@@ -118,7 +118,12 @@
     </div>
 
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <input [(ngModel)]="zoomChart" type="number" id="zoom-chart" name="zoom-chart" width="5" class="btn btn-sm btn-default" value="10">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="zoom-chart-value">Масштаб</span>
+        </div>
+        <input [(ngModel)]="zoomChart" type="number" width="5" class="form-control" aria-describedby="zoom-chart-value" id="zoom-chart" name="zoom-chart" value="10">
+      </div>
     </div>
 
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
@@ -150,9 +155,31 @@
     </div>
   </div>
 
+  <div class="row highlight-bocks mb-3">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="name-of-item">Назва екземпляру</span>
+        </div>
+        <input [(ngModel)]="nameItem" type="text" class="form-control" aria-describedby="name-of-item" id="name-item" placeholder="empty">
+      </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="label-for-time-item">Час хв.</span>
+        </div>
+        <input [(ngModel)]="timeItem" type="number" class="form-control" aria-describedby="label-for-time-item" id="time-item" value="5">
+      </div>
+    </div>
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+      <a href="" id="send-name-and-time-item" class="btn btn-md btn-success" (click)="sendNameAndTimeItem()"> Назад</a>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      <canvas id="myChart" width="500" height="320" baseChart
+      <canvas id="myChart" width="500" height="320" #baseChart baseChart
               [datasets]="lineChartData"
               [labels]="lineChartLabels"
               [options]="lineChartOptions"
