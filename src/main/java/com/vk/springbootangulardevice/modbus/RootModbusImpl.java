@@ -119,9 +119,9 @@ public abstract class RootModbusImpl<E extends Number> implements RootModbus<E> 
                 modbusMaster.destroy();
             }
             //-----------------------------------------------------------------------------
-            String form = "---";
+            String form = "___";
             for (int i=0; i < modbusLocator.length; i++){
-                form = form + list.get(i) + "---";
+                form = form + list.get(i) + "___";
             }
             System.out.println("Device №" + adr + "  "+ form);
             //-----------------------------------------------------------------------------

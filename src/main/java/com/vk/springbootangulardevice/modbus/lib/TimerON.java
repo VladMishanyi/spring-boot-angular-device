@@ -1,7 +1,5 @@
 package com.vk.springbootangulardevice.modbus.lib;
 
-import jdk.nashorn.internal.ir.WhileNode;
-
 public class TimerON extends Thread{
     private final static long SEC = 1000;
 

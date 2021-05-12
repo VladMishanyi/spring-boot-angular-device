@@ -23,12 +23,19 @@ public class DeviceModelMB110_1TD implements DeviceModel {
     private float holdingRegister0 = 0F;
     @JsonIgnore
     private transient float oldHoldingRegister0 = 0F;
+    /**
+     * This modbusLocator0h uses for read real value of stretching
+     */
     @JsonIgnore
     private transient final ModbusLocator modbusLocator0h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 70, DataType.FOUR_BYTE_FLOAT);
 
     private int holdingRegister1 = 0;
     @JsonIgnore
     private transient int oldHoldingRegister1 = 0;
+    /**
+     * This modbusLocator1h uses for write a current not correct value on sensor as zero point. Pay attention it will apply just after INIT command.
+     * Only 0 value is allowed
+     */
     @JsonIgnore
     private transient final ModbusLocator modbusLocator1h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 49, DataType.TWO_BYTE_INT_UNSIGNED);
 
@@ -36,7 +43,21 @@ public class DeviceModelMB110_1TD implements DeviceModel {
     @JsonIgnore
     private transient int oldHoldingRegister2 = 0;
     @JsonIgnore
+    /**
+     * This modbusLocator2h uses for commit all changes. It is INIT command.
+     * Only 0 value is allowed
+     */
     private transient final ModbusLocator modbusLocator2h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 57, DataType.TWO_BYTE_INT_UNSIGNED);
+
+    private int holdingRegister3 = 0;
+    @JsonIgnore
+    private transient int oldHoldingRegister3 = 0;
+    @JsonIgnore
+    /**
+     * This modbusLocator3h uses to apply weight of item to zero point measure.
+     * Only 0 or 1 value is allowed
+     */
+    private transient final ModbusLocator modbusLocator3h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 13, DataType.TWO_BYTE_INT_UNSIGNED);
 
 
     public DeviceModelMB110_1TD(){}
@@ -111,6 +132,26 @@ public class DeviceModelMB110_1TD implements DeviceModel {
 
     public ModbusLocator getModbusLocator2h() {
         return modbusLocator2h;
+    }
+
+    public int getHoldingRegister3() {
+        return holdingRegister3;
+    }
+
+    public void setHoldingRegister3(int holdingRegister3) {
+        this.holdingRegister3 = holdingRegister3;
+    }
+
+    public int getOldHoldingRegister3() {
+        return oldHoldingRegister3;
+    }
+
+    public void setOldHoldingRegister3(int oldHoldingRegister3) {
+        this.oldHoldingRegister3 = oldHoldingRegister3;
+    }
+
+    public ModbusLocator getModbusLocator3h() {
+        return modbusLocator3h;
     }
 
     @Override

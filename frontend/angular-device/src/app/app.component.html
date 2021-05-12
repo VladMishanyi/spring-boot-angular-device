@@ -57,6 +57,27 @@
   </div>
 
   <div class="row highlight-bocks">
+    <div class="input-group justify-content-center">
+      <div class="form-outline mr-2">
+        <input type="search" list="browsers" name="browser" id="browser" class="form-control"/>
+        <datalist id="browsers">
+          <option value="Edge">
+          <option value="Firefox">
+          <option value="Chrome">
+          <option value="Opera">
+          <option value="Safari">
+        </datalist>
+      </div>
+      <button type="button" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+        <i class="ml-1">Search</i>
+      </button>
+    </div>
+  </div>
+
+  <div class="row highlight-bocks">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -173,7 +194,7 @@
       </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <a href="" id="send-name-and-time-item" class="btn btn-md btn-success" (click)="sendNameAndTimeItem()"> Назад</a>
+      <a href="" id="send-name-and-time-item" class="btn btn-md btn-success" (click)="sendNameAndTimeItem()"> Застосувати</a>
     </div>
   </div>
 

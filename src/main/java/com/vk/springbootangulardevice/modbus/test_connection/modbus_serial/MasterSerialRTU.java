@@ -1,12 +1,14 @@
 package com.vk.springbootangulardevice.modbus.test_connection.modbus_serial;
 
 import com.serotonin.modbus4j.BatchRead;
+import com.vk.springbootangulardevice.modbus.device.DeviceModelMB110_1TD;
 import com.vk.springbootangulardevice.modbus.device.DeviceModelTRM251;
 import com.vk.springbootangulardevice.modbus.*;
 import com.vk.springbootangulardevice.modbus.en.DigsFloat;
 import com.vk.springbootangulardevice.modbus.entity.ModbusMasterSerialModel;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by User on 2017-05-15.
@@ -16,32 +18,50 @@ public class MasterSerialRTU {
 
     public static void main(String[] args) throws Exception {
         long startTime = 0;
-        final ModbusMasterSerialModel modbusMasterSerialModel3 = new ModbusMasterSerialModel("COM26", 9600, 8, 1, 0, 200, 1);
+        final ModbusMasterSerialModel modbusMasterSerialModel = new ModbusMasterSerialModel("COM29", 9600, 8, 1, 0, 200, 1);
 
-
+        final ModbusShort modbusShort = new ModbusShortImpl();
+        modbusShort.setUseBorders(false);
         final ModbusInteger modbusInteger = new ModbusIntegerImpl();
         modbusInteger.setUseBorders(false);
         final ModbusFloat modbusFloat = new ModbusFloatImpl();
         modbusFloat.setUseBorders(false);
 
         final DeviceModelTRM251 deviceModelTRM138 = new DeviceModelTRM251();
+        final DeviceModelMB110_1TD deviceModelMB110_1TD = new DeviceModelMB110_1TD();
 
         int i = 0;
         while (true){
-            System.out.println("----"+i);
+            System.out.println("----" + i);
             startTime = System.currentTimeMillis();
             BatchRead<Integer> batchRead = new BatchRead<>();
+
             List<Float> valFloat = modbusFloat.readDataFromModBusDigs(
                     DigsFloat.ONE_DIG,
-                    modbusMasterSerialModel3,
-                    deviceModelTRM138.getDeviceAddress(),
+                    modbusMasterSerialModel,
+                    deviceModelMB110_1TD.getDeviceAddress(),
                     batchRead,
                     false,
-                    deviceModelTRM138.getModbusLocator0i(),
-                    deviceModelTRM138.getModbusLocator1i());
+                    deviceModelMB110_1TD.getModbusLocator0h()
+            );
+
+            if (i == 0){
+                modbusShort.writeDataToModBus(modbusMasterSerialModel, deviceModelMB110_1TD.getDeviceAddress(), (short) 0, deviceModelMB110_1TD.getModbusLocator3h());
+                System.out.println("try to use current weight with zero point");
+            }
+
+//            if (i == 0){
+//                modbusShort.writeDataToModBus(modbusMasterSerialModel, deviceModelMB110_1TD.getDeviceAddress(), (short) 0, deviceModelMB110_1TD.getModbusLocator1h());
+//                System.out.println("try to set zero value");
+//            }
+
+//            if (i == 0){
+//                modbusShort.writeDataToModBus(modbusMasterSerialModel, deviceModelMB110_1TD.getDeviceAddress(), (short) 0, deviceModelMB110_1TD.getModbusLocator2h());
+//                System.out.println("try to commit a changes");
+//            }
 
             System.out.println("Time elapsed: " + (System.currentTimeMillis() - startTime) + "ms");
-            valFloat.forEach(System.out::println);
+//            valFloat.forEach(System.out::println);
             System.out.println("----------------------------------------------------------------------------------------");
             Thread.sleep(1000);
             i++;
