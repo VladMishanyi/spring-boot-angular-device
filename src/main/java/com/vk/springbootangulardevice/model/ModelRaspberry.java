@@ -56,7 +56,15 @@ public class ModelRaspberry {
     private boolean gpio24;
     @JsonIgnore
     private boolean gpio25;
+    /**
+     * A internal LED connected to this PIN. It show state of internal start/stop contact.
+     * gpio26 used as OUTPUT
+     */
     private boolean gpio26;
+    /**
+     * A internal contact enable disable connect to this PIN.
+     * gpio27 used as INPUT.
+     */
     private boolean gpio27;
     @JsonIgnore
     private boolean gpio28;

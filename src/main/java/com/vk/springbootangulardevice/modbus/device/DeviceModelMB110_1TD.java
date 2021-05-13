@@ -24,7 +24,11 @@ public class DeviceModelMB110_1TD implements DeviceModel {
     @JsonIgnore
     private transient float oldHoldingRegister0 = 0F;
     /**
-     * This modbusLocator0h uses for read real value of stretching
+     * This modbusLocator0h uses for read real value of stretching.
+     * Marked as Rd.fF
+     * Registers 0x46-0x47
+     * Read only.
+     * Range values FLOAT.
      */
     @JsonIgnore
     private transient final ModbusLocator modbusLocator0h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 70, DataType.FOUR_BYTE_FLOAT);
@@ -34,7 +38,10 @@ public class DeviceModelMB110_1TD implements DeviceModel {
     private transient int oldHoldingRegister1 = 0;
     /**
      * This modbusLocator1h uses for write a current not correct value on sensor as zero point. Pay attention it will apply just after INIT command.
-     * Only 0 value is allowed
+     * Marked as U.Wgh
+     * Register 0x31
+     * Write only.
+     * Range values 0 only.
      */
     @JsonIgnore
     private transient final ModbusLocator modbusLocator1h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 49, DataType.TWO_BYTE_INT_UNSIGNED);
@@ -42,22 +49,80 @@ public class DeviceModelMB110_1TD implements DeviceModel {
     private int holdingRegister2 = 0;
     @JsonIgnore
     private transient int oldHoldingRegister2 = 0;
-    @JsonIgnore
     /**
      * This modbusLocator2h uses for commit all changes. It is INIT command.
-     * Only 0 value is allowed
+     * Marked as Init
+     * Register 0x39
+     * Write Only.
+     * Range values 0 only.
      */
+    @JsonIgnore
     private transient final ModbusLocator modbusLocator2h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 57, DataType.TWO_BYTE_INT_UNSIGNED);
 
     private int holdingRegister3 = 0;
     @JsonIgnore
     private transient int oldHoldingRegister3 = 0;
-    @JsonIgnore
     /**
-     * This modbusLocator3h uses to apply weight of item to zero point measure.
-     * Only 0 or 1 value is allowed
+     * This modbusLocator3h uses to apply enable or disable weight of item as zero point measure.
+     * Marked as Cnt.P
+     * Register 0xD
+     * Write and Read.
+     * Range values 0 - 1 only
      */
+    @JsonIgnore
     private transient final ModbusLocator modbusLocator3h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 13, DataType.TWO_BYTE_INT_UNSIGNED);
+
+    private int holdingRegister4 = 0;
+    @JsonIgnore
+    private transient int oldHoldingRegister4 = 0;
+    /**
+     * This modbusLocator4h uses to set sensitivity sensor.
+     * Marked as Sens
+     * Register 0x11
+     * Write and Read.
+     * Range values 0 - 6 only
+     */
+    @JsonIgnore
+    private transient final ModbusLocator modbusLocator4h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 17, DataType.TWO_BYTE_INT_UNSIGNED);
+
+    private int holdingRegister5 = 0;
+    @JsonIgnore
+    private transient int oldHoldingRegister5 = 0;
+    /**
+     * This modbusLocator5h uses to set min value for sensor.
+     * Marked as v.Min
+     * Register 0x15-0x16
+     * Write and Read.
+     * Range values FLOAT.
+     */
+    @JsonIgnore
+    private transient final ModbusLocator modbusLocator5h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 21, DataType.FOUR_BYTE_FLOAT);
+
+    private int holdingRegister6 = 0;
+    @JsonIgnore
+    private transient int oldHoldingRegister6 = 0;
+    /**
+     * This modbusLocator6h uses to set max value for sensor.
+     * Marked as v.Max
+     * Register 0x1D-0x1E
+     * Write and Read.
+     * Range values FLOAT.
+     */
+    @JsonIgnore
+    private transient final ModbusLocator modbusLocator6h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 29, DataType.FOUR_BYTE_FLOAT);
+
+    private int holdingRegister7 = 0;
+    @JsonIgnore
+    private transient int oldHoldingRegister7 = 0;
+    /**
+     * This modbusLocator7h uses to set weight of item.
+     * Marked as P.Wgh
+     * Register 0x25-0x26
+     * Write and Read.
+     * Range values FLOAT.
+     */
+    @JsonIgnore
+    private transient final ModbusLocator modbusLocator7h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 37, DataType.FOUR_BYTE_FLOAT);
 
 
     public DeviceModelMB110_1TD(){}
@@ -152,6 +217,86 @@ public class DeviceModelMB110_1TD implements DeviceModel {
 
     public ModbusLocator getModbusLocator3h() {
         return modbusLocator3h;
+    }
+
+    public int getHoldingRegister4() {
+        return holdingRegister4;
+    }
+
+    public void setHoldingRegister4(int holdingRegister4) {
+        this.holdingRegister4 = holdingRegister4;
+    }
+
+    public int getOldHoldingRegister4() {
+        return oldHoldingRegister4;
+    }
+
+    public void setOldHoldingRegister4(int oldHoldingRegister4) {
+        this.oldHoldingRegister4 = oldHoldingRegister4;
+    }
+
+    public ModbusLocator getModbusLocator4h() {
+        return modbusLocator4h;
+    }
+
+    public int getHoldingRegister5() {
+        return holdingRegister5;
+    }
+
+    public void setHoldingRegister5(int holdingRegister5) {
+        this.holdingRegister5 = holdingRegister5;
+    }
+
+    public int getOldHoldingRegister5() {
+        return oldHoldingRegister5;
+    }
+
+    public void setOldHoldingRegister5(int oldHoldingRegister5) {
+        this.oldHoldingRegister5 = oldHoldingRegister5;
+    }
+
+    public ModbusLocator getModbusLocator5h() {
+        return modbusLocator5h;
+    }
+
+    public int getHoldingRegister6() {
+        return holdingRegister6;
+    }
+
+    public void setHoldingRegister6(int holdingRegister6) {
+        this.holdingRegister6 = holdingRegister6;
+    }
+
+    public int getOldHoldingRegister6() {
+        return oldHoldingRegister6;
+    }
+
+    public void setOldHoldingRegister6(int oldHoldingRegister6) {
+        this.oldHoldingRegister6 = oldHoldingRegister6;
+    }
+
+    public ModbusLocator getModbusLocator6h() {
+        return modbusLocator6h;
+    }
+
+    public int getHoldingRegister7() {
+        return holdingRegister7;
+    }
+
+    public void setHoldingRegister7(int holdingRegister7) {
+        this.holdingRegister7 = holdingRegister7;
+    }
+
+    public int getOldHoldingRegister7() {
+        return oldHoldingRegister7;
+    }
+
+    public void setOldHoldingRegister7(int oldHoldingRegister7) {
+        this.oldHoldingRegister7 = oldHoldingRegister7;
+    }
+
+    public ModbusLocator getModbusLocator7h() {
+        return modbusLocator7h;
     }
 
     @Override

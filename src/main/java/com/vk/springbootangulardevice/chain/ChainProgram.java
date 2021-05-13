@@ -26,25 +26,22 @@ public class ChainProgram extends Thread{
 
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
-    private ServiceMB110_1TD serviceMB110_1TD;
-    private RepositoryRaspberry repositoryRaspberry;
-    private RiseFront riseFront = new RiseFront();
-    private TimerON timerON = new TimerON();
-    private DeviceModelMB110_1TD deviceModelMB110_1TD;
-    private ModelRaspberry modelRaspberry;
-    private DeviceToTableMB110_1TD deviceToTableMB110_1TD;
+    private final ServiceMB110_1TD serviceMB110_1TD;
+    private final RiseFront riseFront = new RiseFront();
+    private final TimerON timerON = new TimerON();
+    private final DeviceModelMB110_1TD deviceModelMB110_1TD;
+    private final ModelRaspberry modelRaspberry;
+    private final DeviceToTableMB110_1TD deviceToTableMB110_1TD;
     private TableModelRecipe tableModelRecipe = new TableModelRecipe("empty", 10);
-    private RepositoryDatabaseRecipe repositoryDatabaseRecipe;
+    private final RepositoryDatabaseRecipe repositoryDatabaseRecipe;
 
     @Autowired
     public ChainProgram(final ServiceMB110_1TD serviceMB110_1TD,
-                        final RepositoryRaspberry repositoryRaspberry,
                         final DeviceModelMB110_1TD deviceModelMB110_1TD,
                         final ModelRaspberry modelRaspberry,
                         final DeviceToTableMB110_1TD deviceToTableMB110_1TD,
                         final RepositoryDatabaseRecipe repositoryDatabaseRecipe) {
         this.serviceMB110_1TD = serviceMB110_1TD;
-        this.repositoryRaspberry = repositoryRaspberry;
         this.deviceModelMB110_1TD = deviceModelMB110_1TD;
         this.modelRaspberry = modelRaspberry;
         this.deviceToTableMB110_1TD = deviceToTableMB110_1TD;

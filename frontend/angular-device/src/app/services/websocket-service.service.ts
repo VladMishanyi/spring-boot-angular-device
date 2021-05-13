@@ -3,8 +3,9 @@
 // import { Client, Message, Stomp } from 'stompjs/lib/stomp.js';
 // import * as SockJS from 'sockjs-client';
 // import {  SockJS } from 'sockjs/lib/sockjs.js';
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {MessageService} from "./message.service";
+import {GraphicsService} from "./graphics.service";
 declare var SockJS: any;
 declare var Stomp: any;
 
@@ -15,11 +16,14 @@ export class WebsocketServiceService {
   webSocketEndPoint = 'http://localhost:8080/guide-websocket';
   topic = '/topic/greetings';
   topicLocalDateTime = '/topic/date-from-server';
-  topicListOfTable = '/topic/generate-chart-laboratory-reometr';
+  topicDeviceFromModbus = '/topic/table-model-mv110-1td';
+  topicArrayTablesFromDatabase = '/topic/generate-chart-laboratory-reometr';
+  sendChartDateRange = '/generate-chart-laboratory-reometr';
+  sendHello: string = '/app/hello';
+  sendDateRange: string = '/app/date-to-server';
   stompClient: any;
 
-
-  constructor(private bodyMessage: MessageService) {
+  constructor(private bodyMessage: MessageService, private graphics: GraphicsService) {
 
   }
 
@@ -30,9 +34,22 @@ export class WebsocketServiceService {
 
     const entity = this;
     entity.stompClient.connect({}, function() {
-      entity.stompClient.subscribe(entity.topic, function(sdkEvent: any) {entity.onMessageReceived(sdkEvent);});
-      entity.stompClient.subscribe(entity.topicLocalDateTime, function(sdkEvent: any) {entity.onDateReceived(sdkEvent);});
-      entity.stompClient.subscribe(entity.topicListOfTable, function(sdkEvent: any) {entity.onListOfTablesReceive(sdkEvent);});
+
+      entity.stompClient.subscribe(entity.topic, function(sdkEvent: any) {
+        entity.onMessageReceived(sdkEvent);
+      });
+
+      entity.stompClient.subscribe(entity.topicLocalDateTime, function(sdkEvent: any) {
+        entity.onDateReceived(sdkEvent);
+      });
+
+      entity.stompClient.subscribe(entity.topicArrayTablesFromDatabase, function(sdkEvent: any) {
+        entity.onListOfTablesReceive(sdkEvent);
+      });
+
+      entity.stompClient.subscribe(entity.topicDeviceFromModbus, function(sdkEvent: any) {
+        entity.onModbusDeviceReceive(sdkEvent);
+      });
       // entity.stompClient.reconnect_delay = 2000;
     }, this.errorCallBack);
   }
@@ -58,12 +75,12 @@ export class WebsocketServiceService {
    */
   _send(message: any) {
     console.log('calling logout api via web socket');
-    this.stompClient.send('/app/hello', {}, JSON.stringify(message));
+    this.stompClient.send(this.sendHello, {}, JSON.stringify(message));
   }
 
-  _sendDate(message: any) {
+  _sendRangeDateForChart(message: any) {
     console.log('calling logout api via web socket');
-    this.stompClient.send('/app/date-to-server', {}, JSON.stringify(message));
+    this.stompClient.send(this.topicArrayTablesFromDatabase, {}, JSON.stringify(message));
     // this.stompClient.send('/app/date-to-server', {}, message);
   }
 
@@ -79,6 +96,13 @@ export class WebsocketServiceService {
 
   onListOfTablesReceive(tables: any){
     const mes = JSON.parse(tables.body);
+    this.graphics.genChart(mes);
     this.bodyMessage.newListOfTable(mes);
+  }
+
+  onModbusDeviceReceive(device: any){
+    const mes = JSON.parse(device.body);
+    if (this.graphics.onDraw) this.graphics.drawInRealTime(mes);
+    this.bodyMessage.newDevice(mes);
   }
 }

@@ -121,7 +121,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="bufferChartMark">Буфер графіку</span>
         </div>
-        <input [(ngModel)]="bufferChart" type="number" width="5" style="width: 100px;" class="form-control" aria-describedby="bufferChartMark" id="bufferChart" name="bufferChart" value="10000">
+        <input [(ngModel)]="bufferChart" (change)="checkBufferValue()" type="number" width="5" style="width: 100px;" class="form-control" aria-describedby="bufferChartMark" id="bufferChart" name="bufferChart" value="10000">
       </div>
     </div>
 
@@ -143,7 +143,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="zoom-chart-value">Масштаб</span>
         </div>
-        <input [(ngModel)]="zoomChart" type="number" width="5" class="form-control" aria-describedby="zoom-chart-value" id="zoom-chart" name="zoom-chart" value="10">
+        <input [(ngModel)]="zoomChart" (change)="checkZoomValue()" type="number" width="5" class="form-control" aria-describedby="zoom-chart-value" id="zoom-chart" name="zoom-chart" value="10">
       </div>
     </div>
 
@@ -166,7 +166,7 @@
 
     <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
       <label class="switch">
-        <input type="checkbox" id="id_switch_tred">
+        <input type="checkbox" #checkboxOnRealTimeRender (change)="checkTheRenderStatus()" id="id_switch_tred">
         <span class="slider round"></span>
       </label>
     </div>

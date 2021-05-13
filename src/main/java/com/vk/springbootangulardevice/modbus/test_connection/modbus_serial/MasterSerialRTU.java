@@ -45,23 +45,43 @@ public class MasterSerialRTU {
                     deviceModelMB110_1TD.getModbusLocator0h()
             );
 
-            if (i == 0){
-                modbusShort.writeDataToModBus(modbusMasterSerialModel, deviceModelMB110_1TD.getDeviceAddress(), (short) 0, deviceModelMB110_1TD.getModbusLocator3h());
-                System.out.println("try to use current weight with zero point");
-            }
-
+//            if (i == 0){
+//                modbusFloat.writeDataToModBus(modbusMasterSerialModel, deviceModelMB110_1TD.getDeviceAddress(),  0.0F, deviceModelMB110_1TD.getModbusLocator7h());
+//                System.out.println("try to set weight item as zero");
+//            }
+//
+//            if (i == 0){
+//                modbusFloat.writeDataToModBus(modbusMasterSerialModel, deviceModelMB110_1TD.getDeviceAddress(),  100.0F, deviceModelMB110_1TD.getModbusLocator6h());
+//                System.out.println("try to set maximum value for sensor");
+//            }
+//
+//            if (i == 0){
+//                modbusFloat.writeDataToModBus(modbusMasterSerialModel, deviceModelMB110_1TD.getDeviceAddress(),  0.0F, deviceModelMB110_1TD.getModbusLocator5h());
+//                System.out.println("try to set minimum value for sensor");
+//            }
+//
+//            if (i == 0){
+//                modbusShort.writeDataToModBus(modbusMasterSerialModel, deviceModelMB110_1TD.getDeviceAddress(), (short) 1, deviceModelMB110_1TD.getModbusLocator4h());
+//                System.out.println("try to set sensitivity sensor");
+//            }
+//
+//            if (i == 0){
+//                modbusShort.writeDataToModBus(modbusMasterSerialModel, deviceModelMB110_1TD.getDeviceAddress(), (short) 1, deviceModelMB110_1TD.getModbusLocator3h());
+//                System.out.println("try to enable or disable use current weight as zero point");
+//            }
+//
 //            if (i == 0){
 //                modbusShort.writeDataToModBus(modbusMasterSerialModel, deviceModelMB110_1TD.getDeviceAddress(), (short) 0, deviceModelMB110_1TD.getModbusLocator1h());
 //                System.out.println("try to set zero value");
 //            }
-
+//
 //            if (i == 0){
 //                modbusShort.writeDataToModBus(modbusMasterSerialModel, deviceModelMB110_1TD.getDeviceAddress(), (short) 0, deviceModelMB110_1TD.getModbusLocator2h());
 //                System.out.println("try to commit a changes");
 //            }
-
+//
             System.out.println("Time elapsed: " + (System.currentTimeMillis() - startTime) + "ms");
-//            valFloat.forEach(System.out::println);
+            valFloat.forEach(System.out::println);
             System.out.println("----------------------------------------------------------------------------------------");
             Thread.sleep(1000);
             i++;
