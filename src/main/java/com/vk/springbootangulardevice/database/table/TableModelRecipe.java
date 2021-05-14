@@ -16,7 +16,7 @@ public class TableModelRecipe extends TableModel{
     @Column(name = "time", nullable = false)
     private int time;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "recipe", orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "tableModelRecipe", orphanRemoval = true)
     private List<TableModelMB110_1TD> tableModelMB110_1TDList = new ArrayList<>();
 
     public TableModelRecipe(){}

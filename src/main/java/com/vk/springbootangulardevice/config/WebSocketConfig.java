@@ -13,7 +13,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @EnableScheduling
 @EnableWebSocketMessageBroker
 @ComponentScan(basePackages = "com.vk.springbootangulardevice")
-@PropertySource("classpath:websoket.properties")
+@PropertySource("classpath:application.properties")
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Value("${websoket.simpleBroker}")

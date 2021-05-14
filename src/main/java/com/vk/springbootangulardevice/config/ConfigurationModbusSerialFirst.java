@@ -9,7 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan(basePackages = {"com.vk.springbootangulardevice.modbus"})
-@PropertySource(value = "classpath:modbusSerialFirst.properties")
+@PropertySource(value = "classpath:application.properties")
 public class ConfigurationModbusSerialFirst {
 
     @Value("${modbusFirst.commPortId}")

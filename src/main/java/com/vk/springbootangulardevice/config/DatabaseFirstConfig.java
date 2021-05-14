@@ -24,7 +24,7 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.vk.springbootangulardevice.repository.database")
 @ComponentScan(basePackages = "com.vk.springbootangulardevice")
-@PropertySource("classpath:databaseFirst.properties")
+@PropertySource("classpath:application.properties")
 public class DatabaseFirstConfig {
 
     @Value("${jdbc.driver}")
