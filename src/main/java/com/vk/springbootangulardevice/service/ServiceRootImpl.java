@@ -64,7 +64,7 @@ public abstract class ServiceRootImpl<T extends TableModel, J extends JsonBodyLi
     }
 
     public D modbusReadDataFromRegisterAll(){
-        return repositoryModbus.readDataFromRegisterAll(true, (short) 0, (short) 500, DigsFloat.ONE_DIG, false);
+        return repositoryModbus.readDataFromRegisterAll(true, (short) -1000, (short) 1000, DigsFloat.ONE_DIG, false);
     }
 
     @Override

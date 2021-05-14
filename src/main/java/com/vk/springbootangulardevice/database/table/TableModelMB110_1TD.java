@@ -11,7 +11,7 @@ public class TableModelMB110_1TD extends TableModel{
     private Float holdingRegister0 = 0F;
 
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_recipe")
     private TableModelRecipe tableModelRecipe;
 

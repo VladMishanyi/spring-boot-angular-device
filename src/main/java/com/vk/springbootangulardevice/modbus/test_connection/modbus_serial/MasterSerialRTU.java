@@ -18,7 +18,8 @@ public class MasterSerialRTU {
 
     public static void main(String[] args) throws Exception {
         long startTime = 0;
-        final ModbusMasterSerialModel modbusMasterSerialModel = new ModbusMasterSerialModel("COM29", 9600, 8, 1, 0, 200, 1);
+        final ModbusMasterSerialModel modbusMasterSerialModel = new ModbusMasterSerialModel("/dev/ttyUSB0", 9600, 8, 1, 0, 200, 1);
+//        final ModbusMasterSerialModel modbusMasterSerialModel = new ModbusMasterSerialModel("COM29", 9600, 8, 1, 0, 200, 1);
 
         final ModbusShort modbusShort = new ModbusShortImpl();
         modbusShort.setUseBorders(false);

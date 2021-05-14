@@ -53,10 +53,10 @@ public class ServiceRootMB110_1TDImpl
     }
 
     public DeviceModelMB110_1TD modbusReadDataFromRegister0(){
-        return repositoryModbus.readDataFromRegister0(true, (short) 0, (short) 500, DigsFloat.ONE_DIG, false);
+        return repositoryModbus.readDataFromRegister0(true, (short) -1000, (short) 1000, DigsFloat.ONE_DIG, false);
     }
     public DeviceModelMB110_1TD modbusReadDataFromRegister1(){
-        return repositoryModbus.readDataFromRegister0(true, (short) 0, (short) 500, DigsFloat.ONE_DIG, false);
+        return repositoryModbus.readDataFromRegister0(true, (short) -1000, (short) 1000, DigsFloat.ONE_DIG, false);
     }
     public DeviceModelMB110_1TD modbusWriteDataToRegister0(final short value){
         return repositoryModbus.writeDataToRegister0(value);

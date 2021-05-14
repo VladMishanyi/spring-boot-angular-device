@@ -1,7 +1,7 @@
 package com.vk.springbootangulardevice.modbus.lib;
 
 public class TimerON extends Thread{
-    private final static long SEC = 1000;
+    private final long SEC = 1000;
 
     private boolean enable = false;
     private long time = 0;

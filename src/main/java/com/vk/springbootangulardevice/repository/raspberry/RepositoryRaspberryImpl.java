@@ -43,8 +43,10 @@ public class RepositoryRaspberryImpl implements RepositoryRaspberry{
 //        });
         gpioPinDigitalInput27.addListener((GpioPinListenerDigital) event -> {
             // display pin state on console
-            System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + event.getState());
-            modelRaspberry.setGpio27(event.getState().isHigh());
+            // need inversion because using pull_up resistors
+            boolean state = !event.getState().isHigh();
+            System.out.println(" --> GPIO PIN STATE CHANGE: " + event.getPin() + " = " + state);
+            modelRaspberry.setGpio27(state);
         });
         return modelRaspberry;
     }
