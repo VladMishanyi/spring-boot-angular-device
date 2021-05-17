@@ -34,6 +34,7 @@ public class ChainProgram extends Thread{
     private final DeviceToTableMB110_1TD deviceToTableMB110_1TD;
     private TableModelRecipe tableModelRecipe = new TableModelRecipe("empty", 1);
     private final RepositoryDatabaseRecipe repositoryDatabaseRecipe;
+    private static int couterChart = 0;
 
     @Autowired
     public ChainProgram(final ServiceMB110_1TD serviceMB110_1TD,
@@ -53,33 +54,32 @@ public class ChainProgram extends Thread{
     public void run() {
         try {
             while (!this.isInterrupted()){
-                System.out.println("1"+timerON.toString()+riseFront.toString());
-                timerON.setEnable(modelRaspberry.isGpio27());
-                System.out.println("2"+timerON.toString()+riseFront.toString());
-                timerON.setTime(tableModelRecipe.getTime() * (long) 60);
-                System.out.println("3"+timerON.toString()+riseFront.toString());
 
-                System.out.println("4"+timerON.toString()+riseFront.toString());
+                timerON.setEnable(modelRaspberry.isGpio27());
+                timerON.setTime(tableModelRecipe.getTime() * (long) 60);
                 riseFront.setInputFront(modelRaspberry.isGpio27());
 
-                System.out.println("5"+timerON.toString()+riseFront.toString());
                 if (riseFront.isOutputResult()){
                     TableModelRecipe tableModelRecipeInner = repositoryDatabaseRecipe.findLastValueByDate();
                     if (tableModelRecipeInner == null) repositoryDatabaseRecipe.saveAndFlush(tableModelRecipe);
                     if (tableModelRecipeInner != null) tableModelRecipe = tableModelRecipeInner;
                 }
 
-                System.out.println("6"+timerON.toString()+riseFront.toString());
                 if (modelRaspberry.isGpio27() && (timerON.getTime() > 0) && !timerON.isEndTime()){
-                    serviceMB110_1TD.websocketSendDevice(deviceModelMB110_1TD);
-                    TableModelMB110_1TD tableModelMB110_1TD = deviceToTableMB110_1TD.convert(deviceModelMB110_1TD);
-                    tableModelMB110_1TD.setRecipe(tableModelRecipe);
-                    serviceMB110_1TD.databaseAddTableDevice(tableModelMB110_1TD);
+                    if (couterChart >= 9){
+                        serviceMB110_1TD.websocketSendDevice(deviceModelMB110_1TD);
+                        TableModelMB110_1TD tableModelMB110_1TD = deviceToTableMB110_1TD.convert(deviceModelMB110_1TD);
+                        tableModelMB110_1TD.setRecipe(tableModelRecipe);
+                        serviceMB110_1TD.databaseAddTableDevice(tableModelMB110_1TD);
+                        couterChart = 0;
+                    }
                 }
 
                 System.out.println("7"+timerON.toString()+riseFront.toString());
-                serviceMB110_1TD.raspberryWriteGPI26(modelRaspberry.isGpio27());
-                Thread.sleep(1000);
+                serviceMB110_1TD.raspberryWriteGPI26(!modelRaspberry.isGpio27());
+                serviceMB110_1TD.raspberryWriteGPI28(!timerON.isEndTime());
+                couterChart++;
+                Thread.sleep(100);
             }
         }catch (InterruptedException e){
             String message = e.getMessage();

@@ -96,13 +96,11 @@ export class WebsocketServiceService {
 
   onListOfTablesReceive(tables: any){
     const mes = JSON.parse(tables.body);
-    this.graphics.genChart(mes);
     this.bodyMessage.newListOfTable(mes);
   }
 
   onModbusDeviceReceive(device: any){
     const mes = JSON.parse(device.body);
-    if (this.graphics.onDraw) this.graphics.drawInRealTime(mes);
     this.bodyMessage.newDevice(mes);
   }
 }

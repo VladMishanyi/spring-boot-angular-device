@@ -66,7 +66,10 @@ public class ModelRaspberry {
      * gpio27 used as INPUT.
      */
     private boolean gpio27;
-    @JsonIgnore
+    /**
+     * A internal contact enable or disable relay that manage open machine.
+     * gpio27 used as OUTPUT.
+     */
     private boolean gpio28;
     @JsonIgnore
     private boolean gpio29;

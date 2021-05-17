@@ -6,4 +6,5 @@ public interface RepositoryRaspberry {
 
     public ModelRaspberry raspberryReadGPIO27();
     public ModelRaspberry raspberryWriteGPI26(final boolean state);
+    public ModelRaspberry raspberryWriteGPI28(final boolean state);
 }

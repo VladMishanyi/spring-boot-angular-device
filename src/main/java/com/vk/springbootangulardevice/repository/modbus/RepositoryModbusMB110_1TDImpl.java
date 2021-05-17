@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -55,7 +56,7 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
                     enableBatch,
                     deviceModelMB110_1TD.getModbusLocator0h()
                     );
-            deviceModelMB110_1TD.setHoldingRegister0(listFloat.get(0));
+            deviceModelMB110_1TD.setHoldingRegister0(doingSomeMathForProperShovingCharts(listFloat.get(0)));
         }
         return deviceModelMB110_1TD;
     }
@@ -75,7 +76,7 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
                     batchRead,
                     enableBatch,
                     deviceModelMB110_1TD.getModbusLocator0h());
-            deviceModelMB110_1TD.setHoldingRegister0(listFloat.get(0));
+            deviceModelMB110_1TD.setHoldingRegister0(doingSomeMathForProperShovingCharts(listFloat.get(0)));
         }
         return deviceModelMB110_1TD;
     }
@@ -104,5 +105,9 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
             deviceModelMB110_1TD.setHoldingRegister2(value);
         }
         return deviceModelMB110_1TD;
+    }
+
+    private float doingSomeMathForProperShovingCharts(float val){
+        return Math.abs(val);
     }
 }

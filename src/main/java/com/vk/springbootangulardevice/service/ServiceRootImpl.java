@@ -76,4 +76,9 @@ public abstract class ServiceRootImpl<T extends TableModel, J extends JsonBodyLi
     public ModelRaspberry raspberryWriteGPI26(final boolean state){
         return repositoryRaspberry.raspberryWriteGPI26(state);
     }
+
+    @Override
+    public ModelRaspberry raspberryWriteGPI28(final boolean state){
+        return repositoryRaspberry.raspberryWriteGPI28(state);
+    }
 }

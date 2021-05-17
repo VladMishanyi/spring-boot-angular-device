@@ -66,6 +66,16 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.webSocketAPI._connect();
     this.currentDateTime = this.readCurrentDateTime();
     bodyMessage.dateStream$.subscribe( mes => {this.writeDateTimeFromServer(mes);});
+    bodyMessage.modbusDevice$.subscribe(mes => {
+      this.valueInRealTimeStretch = mes.holdingRegister0;
+      if (this.onDraw) this.graphics.drawInRealTime(mes);
+    });
+    bodyMessage.listOfTable$.subscribe( mes => {
+      this.graphics.genChart(mes);
+      for (let i = 0; i < mes.length - 1; i++) {
+        console.log("current date: " + mes[i].date);
+      }
+    });
   }
 
   ngOnInit() {}
@@ -137,6 +147,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   public checkTheRenderStatus() {
     this.onDraw = this.realTimeRender.nativeElement.checked;
     this.graphics.onDraw = this.onDraw;
+    console.log("test checkbox status :"+this.onDraw);
   }
 
   public clearChart() {

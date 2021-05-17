@@ -3,6 +3,7 @@ import {ChartDataSets, ChartType, Easing, InteractionMode, PointStyle, PositionT
 import {Color, Label} from "ng2-charts";
 import * as moment from "moment";
 import {saveAs} from "file-saver";
+import {TableModelMB110_1TD, TableModelRecipe} from "../objects/objectsSourse";
 
 type AxisNative = 'x' | 'y' | 'xy';
 type DistributionNative = 'linear' | 'series';
@@ -16,7 +17,7 @@ export class GraphicsService {
   public endChart: Date = new Date();
   public titleFirst = 'Объект/Киевгума/Отдел ГЭ/Температура помещения'+' з '
   public vTitle = this.titleFirst + this.startChart.toString() + ' по ' + this.endChart.toString();
-  public dataLegend1: Array<number> = [85, 72, 78, 75, 77, 75];
+  public dataLegend1: Array<number> = [0];
   public dataLegend2: Array<number> = [15, 42, 23, 102, 120, 48];
 
   public globalX: Array<string> = [];
@@ -45,13 +46,13 @@ export class GraphicsService {
       // borderSkipped?: PositionType | PositionType[] | Scriptable<PositionType>;
       // categoryPercentage?: number;
       data: this.dataLegend1,
-      fill: false,
+      fill: true,
       // hitRadius?: number | number[] | Scriptable<number>;
       // hoverBackgroundColor?: ChartColor | ChartColor[] | Scriptable<ChartColor>;
       // hoverBorderColor?: ChartColor | ChartColor[] | Scriptable<ChartColor>;
       // hoverBorderWidth?: number | number[] | Scriptable<number>;
       // hoverRadius?: number;
-      label: 'Crude oil prices',
+      label: 'stretching',
       lineTension: 0.1,
       // maxBarThickness?: number;
       // minBarLength?: number;
@@ -137,13 +138,13 @@ export class GraphicsService {
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
   public lineChartLabels: Label[] =
     [
-      moment().format('YYYY-MM-DD HH:mm:ss').toString(),
+      moment().format('YYYY-MM-DD HH:mm:ss').toString()/*,
       moment().add(1, 'hours').format('YYYY-MM-DD HH:mm:ss').toString(),
       moment().add(2, 'hours').format('YYYY-MM-DD HH:mm:ss').toString(),
       moment().add(3, 'hours').format('YYYY-MM-DD HH:mm:ss').toString(),
       moment().add(4, 'hours').format('YYYY-MM-DD HH:mm:ss').toString(),
       moment().add(5, 'hours').format('YYYY-MM-DD HH:mm:ss').toString(),
-      moment().add(6, 'hours').format('YYYY-MM-DD HH:mm:ss').toString()
+      moment().add(6, 'hours').format('YYYY-MM-DD HH:mm:ss').toString()*/
     ];
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
   linePositionType: PositionType = 'top';
@@ -559,10 +560,10 @@ export class GraphicsService {
   }
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
   public lineChartColors: Color[] = [
-    {
-      backgroundColor: 'rgba(255,255,0,0.28)',
+    // {
+      // backgroundColor: 'rgba(255,255,0,0.28)',
       // borderWidth?: number | number[];
-      borderColor: 'black',
+      // borderColor: 'black',
       // borderCapStyle?: string;
       // borderDash?: number[];
       // borderDashOffset?: number;
@@ -580,7 +581,7 @@ export class GraphicsService {
       // hoverBackgroundColor?: string | string[];
       // hoverBorderColor?: string | string[];
       // hoverBorderWidth?: number;
-    },
+    // },
   ];
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
   public lineChartLegend = true;
@@ -596,17 +597,17 @@ export class GraphicsService {
     this.vTitle = title + start + ' по ' + end;
   }
 
-  public genChart(data: any): void{
+  public genChart(data: TableModelMB110_1TD[]): void{
     let x: Array<string> = [];
     let y1: Array<number> = [];
     let y2: Array<number> = [];
-    let utcLocalDateTimeOffset = this.getUtcOffset(data[0]["date"]);
+    let utcLocalDateTimeOffset = this.getUtcOffset(data[0].date);
     for (let i: number=0; i < data.length; i++){
       if (data.hasOwnProperty(i)){
         try {
           x[i] = moment(data[i]["date"], "YYYY,MM,DD,HH,mm,ss").utcOffset(utcLocalDateTimeOffset).toDate().toString();
-          y1[i] = data[i]["holdingRegister0"];
-          y2[i] = data[i]["holdingRegister1"];
+          y1[i] = data[i].holdingRegister0;
+          y2[i] = data[i].holdingRegister0;
         }catch (err){
           console.log('Ошибка ' + err.name + ":" + err.message + "\n" + err.stack);
         }

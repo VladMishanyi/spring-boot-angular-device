@@ -21,6 +21,8 @@ public class RepositoryRaspberryImpl implements RepositoryRaspberry{
 
     private final GpioPinDigitalOutput gpioPinDigitalOutput26;
 
+    private final GpioPinDigitalOutput gpioPinDigitalOutput28;
+
     @Autowired
     public RepositoryRaspberryImpl(final ModelRaspberry modelRaspberry,
                                    final GpioController gpioController) {
@@ -28,7 +30,9 @@ public class RepositoryRaspberryImpl implements RepositoryRaspberry{
         gpioPinDigitalInput27 = gpioController.provisionDigitalInputPin(RaspiPin.GPIO_27, PinPullResistance.PULL_UP);
         gpioPinDigitalInput27.setShutdownOptions(true);
         gpioPinDigitalOutput26 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_26, "input26", PinState.HIGH);
-        gpioPinDigitalOutput26.setShutdownOptions(true, PinState.LOW);
+        gpioPinDigitalOutput26.setShutdownOptions(true, PinState.HIGH);
+        gpioPinDigitalOutput28 = gpioController.provisionDigitalOutputPin(RaspiPin.GPIO_28, "input28", PinState.HIGH);
+        gpioPinDigitalOutput26.setShutdownOptions(true, PinState.HIGH);
         this.raspberryReadGPIO27();
     }
 
@@ -59,6 +63,17 @@ public class RepositoryRaspberryImpl implements RepositoryRaspberry{
             gpioPinDigitalOutput26.low();
         }
         modelRaspberry.setGpio26(gpioPinDigitalOutput26.getState().isHigh());
+        return modelRaspberry;
+    }
+
+    @Override
+    public ModelRaspberry raspberryWriteGPI28(final boolean state) {
+        if (state) {
+            gpioPinDigitalOutput28.high();
+        } else {
+            gpioPinDigitalOutput28.low();
+        }
+        modelRaspberry.setGpio28(gpioPinDigitalOutput28.getState().isHigh());
         return modelRaspberry;
     }
 }

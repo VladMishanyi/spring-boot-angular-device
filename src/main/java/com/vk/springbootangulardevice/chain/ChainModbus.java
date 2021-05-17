@@ -37,7 +37,7 @@ public class ChainModbus extends Thread{
             while (!this.isInterrupted()){
 //                taskMB110_1TD.readModbusAndWriteToTable();
                 serviceMB110_1TD.modbusReadDataFromRegisterAll();
-                Thread.sleep(500);
+                Thread.sleep(100);
             }
         }catch (InterruptedException e){
                 String message = e.getMessage();
