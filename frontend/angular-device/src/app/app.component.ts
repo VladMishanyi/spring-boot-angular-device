@@ -26,7 +26,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   nameItem: string = "empty";
   timeItem: number = 7;
   valueInRealTimeStretch: number = 0;
-  informationInRealTime: string = "Очікую";
+  informationInRealTime: string = 'Очікую';
   contactorInRealTime: boolean = false;
   timerInRealTime: boolean = false;
 

@@ -63,7 +63,7 @@ export class WebsocketServiceService {
         entity.onContactStatusReceive(sdkEvent);
       });
 
-      entity.stompClient.subscribe(entity.topicMessageTextStatus, function(sdkEvent: any) {
+      entity.stompClient.subscribe(entity.topicMessageTextStatus, function(sdkEvent: string) {
         entity.onTextStatusReceive(sdkEvent);
       });
       // entity.stompClient.reconnect_delay = 2000;
@@ -130,8 +130,8 @@ export class WebsocketServiceService {
     this.bodyMessage.newContactStatus(mes);
   }
 
-  onTextStatusReceive(text: any){
-    const mes = JSON.parse(text.body);
+  onTextStatusReceive(text: string){
+    const mes = JSON.parse(text);
     this.bodyMessage.newTextStatus(mes);
   }
 }
