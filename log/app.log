@@ -1701,3 +1701,592 @@
 2021-05-18 11:52:53.654  INFO 4071 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-05-18 11:52:53.656  INFO 4071 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown initiated...
 2021-05-18 11:52:53.693  INFO 4071 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown completed.
+2021-05-18 12:32:19.056  INFO 1885 --- [main] .SpringBootAngularDeviceApplicationTests : Starting SpringBootAngularDeviceApplicationTests using Java 1.8.0_212 on raspberrypi with PID 1885 (started by root in /home/pi/IdeaProjects/spring-boot-angular-device)
+2021-05-18 12:32:19.083  INFO 1885 --- [main] .SpringBootAngularDeviceApplicationTests : No active profile set, falling back to default profiles: default
+2021-05-18 12:32:22.336  INFO 1885 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-18 12:32:22.600  INFO 1885 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 221 ms. Found 2 JPA repository interfaces.
+2021-05-18 12:32:25.882  INFO 1885 --- [main] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Starting...
+2021-05-18 12:32:26.812  INFO 1885 --- [main] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Start completed.
+2021-05-18 12:32:27.342  INFO 1885 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-18 12:32:27.672  INFO 1885 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-05-18 12:32:28.380  INFO 1885 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-18 12:32:29.294  INFO 1885 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-05-18 12:32:32.766  INFO 1885 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-18 12:32:32.823  INFO 1885 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-18 12:32:35.354  INFO 1885 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientInboundChannelExecutor'
+2021-05-18 12:32:35.403  INFO 1885 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2021-05-18 12:32:35.413  INFO 1885 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'brokerChannelExecutor'
+2021-05-18 12:32:36.889 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:36.894 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:36.899  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:37.019 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:37.024 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:37.034  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:37.145 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:37.148 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:37.154  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:37.261 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:37.266 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:37.269  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:37.379 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:37.399 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:37.401  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:37.507 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:37.508 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:37.509  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:37.617 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:37.618 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:37.618  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:37.727 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:37.728 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:37.729  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:37.761  INFO 1885 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2021-05-18 12:32:37.853 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:37.854 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:37.855  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:37.964 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:37.965 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:37.966  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:38.087 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:38.088 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:38.089  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:38.196 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:38.197 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:38.198  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:38.302 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:38.304 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:38.304  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:38.410 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:38.411 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:38.412  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:38.519 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:38.519 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:38.520  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:38.627 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:38.627 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:38.628  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:38.734 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:38.735 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:38.736  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:38.843 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:38.844 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:38.845  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:38.950 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:38.951 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:38.955  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:39.060 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:39.061 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:39.062  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:39.143  WARN 1885 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-18 12:32:39.169 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:39.181 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:39.182  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:39.372 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:39.373 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:39.373  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:39.503 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:39.512 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:39.513  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:39.618 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:39.622 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:39.625  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:39.733 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:39.734 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:39.737  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:39.851 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:39.853 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:39.857  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:39.967 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:39.968 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:39.971  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:40.081 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:40.084 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:40.092  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:40.236 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:40.241 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:40.243  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:40.352 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:40.354 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:40.356  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:40.465 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:40.467 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:40.468  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:40.573 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:40.573 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:40.574  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:40.684 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:40.685 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:40.686  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:40.792 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:40.793 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:40.794  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:40.904 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:40.913 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:40.914  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:41.020 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:41.021 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:41.021  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:41.125 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:41.125 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:41.125  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:41.229 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:41.230 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:41.230  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:41.336 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:41.337 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:41.337  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:41.454 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:41.456 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:41.456  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:41.560 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:41.561 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:41.562  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:41.675 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:41.676 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:41.677  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:41.782 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:41.783 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:41.784  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:41.888 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:41.889 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:41.890  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:42.037 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:42.038 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:42.039  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:42.144 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:42.148 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:42.149  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:42.255 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:42.256 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:42.256  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:42.361 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:42.362 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:42.363  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:42.467 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:42.467 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:42.468  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:42.572 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:42.573 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:42.574  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:42.680 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:42.682 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:42.683  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:42.789 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:42.792 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:42.794  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:42.903 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:42.906 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:42.907  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:43.020 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:43.023 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:43.028  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:43.189 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:43.190 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:43.193  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:43.301 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:43.304 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:43.307  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:43.414 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:43.416 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:43.417  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:43.537 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:43.541 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:43.543  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:43.679 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:43.682 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:43.685  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:43.792 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:43.797 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:43.799  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:43.905 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:43.906 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:43.907  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:44.405 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:44.407 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:44.408  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:44.513 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:44.515 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:44.515  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:44.620 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:44.622 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:44.623  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:44.731 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:44.735 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:44.742  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:44.853 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:44.856 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:44.861  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:44.971 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:44.974 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:44.978  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:45.090 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:45.092 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:45.102  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:45.221 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:45.226 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:45.231  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:45.343 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:45.346 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:45.349  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:45.454 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:45.456 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:45.457  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:45.566 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:45.567 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:45.568  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:45.672 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:45.674 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:45.675  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:45.793 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:45.794 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:45.795  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:45.901 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:45.923 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:45.949  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:46.079 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:46.086 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:46.101  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:46.210 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:46.211 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:46.212  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:46.324 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:46.332 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:46.335  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:46.442 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:46.447 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:46.451  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:46.567 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:46.570 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:46.572  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:46.683 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:46.689 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:46.700  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:46.811 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:46.814 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:46.816  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:46.923 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:46.926 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:46.928  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:47.036 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:47.038 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:47.039  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:47.203 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:47.209 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:47.213  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:47.304  INFO 1885 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2021-05-18 12:32:47.307  INFO 1885 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@703860]]
+2021-05-18 12:32:47.310  INFO 1885 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2021-05-18 12:32:47.332 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:47.336 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:47.338  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:47.382  INFO 1885 --- [main] .SpringBootAngularDeviceApplicationTests : Started SpringBootAngularDeviceApplicationTests in 29.759 seconds (JVM running for 34.041)
+2021-05-18 12:32:47.446 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:47.449 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:47.450  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:47.555 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:47.555 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:47.556  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:47.661 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:47.663 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:47.663  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:47.773 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:47.775 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:47.779  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:47.891 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:47.892 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:47.893  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:48.002 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:48.003 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:48.004  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:48.127 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:48.128 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:48.129  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:48.236 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:48.237 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:48.237  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:48.343 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:48.344 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:48.345  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:48.413  INFO 1885 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2021-05-18 12:32:48.416  INFO 1885 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@703860]]
+2021-05-18 12:32:48.424  INFO 1885 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2021-05-18 12:32:48.472 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:48.473 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:48.474  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:48.481  INFO 1885 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2021-05-18 12:32:48.486  INFO 1885 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'brokerChannelExecutor'
+2021-05-18 12:32:48.488  INFO 1885 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2021-05-18 12:32:48.492  INFO 1885 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2021-05-18 12:32:48.498  INFO 1885 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-18 12:32:48.504  INFO 1885 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown initiated...
+2021-05-18 12:32:48.581 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Init problem, slave address №16--com.serotonin.io.serial.SerialPortException: gnu.io.NoSuchPortException
+2021-05-18 12:32:48.582 ERROR 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Transport problem, slave address №16--not initialized
+2021-05-18 12:32:48.583  INFO 1885 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 12:32:48.615  INFO 1885 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown completed.
+2021-05-18 13:04:16.900  INFO 15811 --- [main] .SpringBootAngularDeviceApplicationTests : Starting SpringBootAngularDeviceApplicationTests using Java 1.8.0_212 on raspberrypi with PID 15811 (started by root in /home/pi/IdeaProjects/spring-boot-angular-device)
+2021-05-18 13:04:16.921  INFO 15811 --- [main] .SpringBootAngularDeviceApplicationTests : No active profile set, falling back to default profiles: default
+2021-05-18 13:04:21.101  INFO 15811 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-18 13:04:21.367  INFO 15811 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 218 ms. Found 2 JPA repository interfaces.
+2021-05-18 13:04:25.203  INFO 15811 --- [main] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Starting...
+2021-05-18 13:04:26.485  INFO 15811 --- [main] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Start completed.
+2021-05-18 13:04:27.057  INFO 15811 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-18 13:04:27.527  INFO 15811 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-05-18 13:04:28.674  INFO 15811 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-18 13:04:29.599  INFO 15811 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-05-18 13:04:32.961  INFO 15811 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-18 13:04:33.007  INFO 15811 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-18 13:04:36.151  INFO 15811 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientInboundChannelExecutor'
+2021-05-18 13:04:36.212  INFO 15811 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2021-05-18 13:04:36.221  INFO 15811 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'brokerChannelExecutor'
+2021-05-18 13:04:37.620  INFO 15811 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2021-05-18 13:04:37.925  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:38.027  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:38.234  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:38.285  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:38.462  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:38.513  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:38.620  WARN 15811 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-18 13:04:38.698  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:38.749  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:38.945  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:39.023  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:39.220  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:39.275  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:39.456  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:39.506  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:39.689  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:39.745  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:39.941  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:39.992  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:40.179  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:40.229  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:40.415  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:40.466  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:40.648  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:40.699  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:40.885  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:40.944  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:41.543  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:41.593  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:41.787  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:41.839  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:42.021  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:42.072  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:42.257  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:42.308  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:42.493  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:42.543  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:42.721  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:42.778  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:42.979  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:43.052  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:43.238  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:43.289  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:43.474  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:43.536  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:43.747  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:43.798  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:43.985  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:44.036  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:44.217  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:44.269  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:44.473  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:44.526  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:44.709  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:44.723  INFO 15811 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2021-05-18 13:04:44.725  INFO 15811 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@bb1c1f]]
+2021-05-18 13:04:44.728  INFO 15811 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2021-05-18 13:04:44.760  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:44.767  INFO 15811 --- [main] .SpringBootAngularDeviceApplicationTests : Started SpringBootAngularDeviceApplicationTests in 29.599 seconds (JVM running for 35.529)
+2021-05-18 13:04:44.943  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:44.994  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:45.199  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:45.250  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:45.431  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:04:45.472  INFO 15811 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2021-05-18 13:04:45.473  INFO 15811 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@bb1c1f]]
+2021-05-18 13:04:45.477  INFO 15811 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2021-05-18 13:04:45.485  INFO 15811 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:04:45.511  INFO 15811 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2021-05-18 13:04:45.556  INFO 15811 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'brokerChannelExecutor'
+2021-05-18 13:04:45.558  INFO 15811 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2021-05-18 13:04:45.559  INFO 15811 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2021-05-18 13:04:45.562  INFO 15811 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-18 13:04:45.566  INFO 15811 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown initiated...
+2021-05-18 13:04:45.619  INFO 15811 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown completed.
+2021-05-18 13:19:59.177  INFO 5299 --- [main] .SpringBootAngularDeviceApplicationTests : Starting SpringBootAngularDeviceApplicationTests using Java 1.8.0_212 on raspberrypi with PID 5299 (started by root in /home/pi/IdeaProjects/spring-boot-angular-device)
+2021-05-18 13:19:59.202  INFO 5299 --- [main] .SpringBootAngularDeviceApplicationTests : No active profile set, falling back to default profiles: default
+2021-05-18 13:20:02.147  INFO 5299 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-18 13:20:02.412  INFO 5299 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 229 ms. Found 2 JPA repository interfaces.
+2021-05-18 13:20:05.226  INFO 5299 --- [main] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Starting...
+2021-05-18 13:20:06.174  INFO 5299 --- [main] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Start completed.
+2021-05-18 13:20:06.769  INFO 5299 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-18 13:20:06.993  INFO 5299 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-05-18 13:20:07.921  INFO 5299 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-18 13:20:08.581  INFO 5299 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-05-18 13:20:11.558  INFO 5299 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-18 13:20:11.595  INFO 5299 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-18 13:20:13.992  INFO 5299 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientInboundChannelExecutor'
+2021-05-18 13:20:14.042  INFO 5299 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2021-05-18 13:20:14.050  INFO 5299 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'brokerChannelExecutor'
+2021-05-18 13:20:15.216  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:15.267  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:15.327  INFO 5299 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2021-05-18 13:20:15.468  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:15.518  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:15.710  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:15.761  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:15.943  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:15.992  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:16.035  WARN 5299 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-18 13:20:16.186  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:16.239  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:16.421  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:16.472  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:16.653  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:16.713  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:16.899  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:16.952  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:17.140  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:17.190  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:17.385  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:17.435  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:17.644  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:17.695  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:17.906  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:17.957  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:18.164  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:18.215  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:18.693  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:18.751  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:18.935  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:18.985  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:19.174  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:19.225  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:19.411  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:19.462  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:19.638  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:19.691  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:19.889  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:19.942  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:20.132  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:20.183  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:20.369  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:20.419  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:20.606  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:20.659  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:20.836  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:20.887  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:21.064  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:21.115  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:21.296  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:21.347  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:21.501  INFO 5299 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2021-05-18 13:20:21.502  INFO 5299 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@a10069]]
+2021-05-18 13:20:21.514  INFO 5299 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2021-05-18 13:20:21.539  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:21.554  INFO 5299 --- [main] .SpringBootAngularDeviceApplicationTests : Started SpringBootAngularDeviceApplicationTests in 23.722 seconds (JVM running for 28.416)
+2021-05-18 13:20:21.590  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:21.780  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:21.830  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:22.011  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:22.063  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:22.198  INFO 5299 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2021-05-18 13:20:22.199  INFO 5299 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@a10069]]
+2021-05-18 13:20:22.206  INFO 5299 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2021-05-18 13:20:22.223  INFO 5299 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2021-05-18 13:20:22.260  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:20:22.275  INFO 5299 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'brokerChannelExecutor'
+2021-05-18 13:20:22.280  INFO 5299 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2021-05-18 13:20:22.285  INFO 5299 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2021-05-18 13:20:22.289  INFO 5299 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-18 13:20:22.296  INFO 5299 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown initiated...
+2021-05-18 13:20:22.311  INFO 5299 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:20:22.337  INFO 5299 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown completed.
+2021-05-18 13:34:48.956  INFO 9651 --- [main] .SpringBootAngularDeviceApplicationTests : Starting SpringBootAngularDeviceApplicationTests using Java 1.8.0_212 on raspberrypi with PID 9651 (started by root in /home/pi/IdeaProjects/spring-boot-angular-device)
+2021-05-18 13:34:48.971  INFO 9651 --- [main] .SpringBootAngularDeviceApplicationTests : No active profile set, falling back to default profiles: default
+2021-05-18 13:34:51.753  INFO 9651 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-18 13:34:51.981  INFO 9651 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 186 ms. Found 2 JPA repository interfaces.
+2021-05-18 13:34:54.789  INFO 9651 --- [main] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Starting...
+2021-05-18 13:34:55.716  INFO 9651 --- [main] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Start completed.
+2021-05-18 13:34:56.185  INFO 9651 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-18 13:34:56.436  INFO 9651 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-05-18 13:34:57.004  INFO 9651 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-18 13:34:57.780  INFO 9651 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-05-18 13:35:00.627  INFO 9651 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-18 13:35:00.684  INFO 9651 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-18 13:35:02.996  INFO 9651 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientInboundChannelExecutor'
+2021-05-18 13:35:03.053  INFO 9651 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2021-05-18 13:35:03.063  INFO 9651 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'brokerChannelExecutor'
+2021-05-18 13:35:04.050  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:04.102  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:04.264  INFO 9651 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2021-05-18 13:35:04.296  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:04.346  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:04.548  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:04.599  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:04.796  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:04.846  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:05.016  WARN 9651 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-18 13:35:05.040  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:05.090  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:05.280  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:05.332  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:05.536  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:05.587  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:05.801  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:05.852  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:06.037  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:06.088  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:06.269  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:06.320  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:06.525  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:06.575  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:06.755  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:06.806  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:06.985  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:07.036  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:07.235  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:07.286  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:07.469  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:07.520  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:07.697  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:07.748  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:08.333  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:08.383  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:08.576  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:08.626  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:08.813  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:08.864  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:09.062  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:09.112  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:09.336  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:09.387  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:09.578  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:09.630  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:09.809  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:09.859  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:10.051  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:10.112  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:10.326  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:10.377  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:10.428  INFO 9651 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2021-05-18 13:35:10.429  INFO 9651 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@8f2363]]
+2021-05-18 13:35:10.431  INFO 9651 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2021-05-18 13:35:10.461  INFO 9651 --- [main] .SpringBootAngularDeviceApplicationTests : Started SpringBootAngularDeviceApplicationTests in 22.777 seconds (JVM running for 27.353)
+2021-05-18 13:35:10.561  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:10.613  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:10.813  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:10.866  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:11.036  INFO 9651 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2021-05-18 13:35:11.041  INFO 9651 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@8f2363]]
+2021-05-18 13:35:11.044  INFO 9651 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2021-05-18 13:35:11.051  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 13:35:11.070  INFO 9651 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2021-05-18 13:35:11.102  INFO 9651 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 13:35:11.129  INFO 9651 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'brokerChannelExecutor'
+2021-05-18 13:35:11.131  INFO 9651 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2021-05-18 13:35:11.134  INFO 9651 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2021-05-18 13:35:11.136  INFO 9651 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-18 13:35:11.144  INFO 9651 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown initiated...
+2021-05-18 13:35:11.206  INFO 9651 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown completed.
