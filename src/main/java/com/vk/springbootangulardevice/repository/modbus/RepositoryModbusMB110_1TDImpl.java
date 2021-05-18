@@ -118,7 +118,7 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
 
     private float doingSmoothing(float val, final int border) {
         int s = queue.size();
-        if ((s < 30)) queue.offer(val);
+        if ((s < border)) queue.offer(val);
         if ((s >= border) && (border <= 30)){
             float inner = (float) queue.stream().mapToDouble(x -> x).average().getAsDouble();
             queue.poll();
