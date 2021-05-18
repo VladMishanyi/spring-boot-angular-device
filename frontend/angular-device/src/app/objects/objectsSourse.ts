@@ -1,23 +1,62 @@
 export class UserService {
-  name: string = ""
-  age: number = 0;
+  private _name: string;
+  private _age: number;
 
-  constructor() {}
+  constructor(name: string, age: number) {
+    this._name = name;
+    this._age = age;
+  }
+
+
+  get name(): string {
+    return this._name;
+  }
+
+  set name(value: string) {
+    this._name = value;
+  }
+
+  get age(): number {
+    return this._age;
+  }
+
+  set age(value: number) {
+    this._age = value;
+  }
 }
 
 export class RangeDateTimeWithZone {
-  start: Date = new Date();
-  end: Date = new Date();
+  private _start: Date;
+  private _end: Date;
 
-  constructor() {}
+  constructor(start: Date, end: Date) {
+    this._start = start;
+    this._end = end;
+  }
+
+
+  get start(): Date {
+    return this._start;
+  }
+
+  set start(value: Date) {
+    this._start = value;
+  }
+
+  get end(): Date {
+    return this._end;
+  }
+
+  set end(value: Date) {
+    this._end = value;
+  }
 }
 
 export class TableModel {
   private _id: number;
-  private _date: any;
+  private _date: Date;
 
-
-  constructor(id: number, date: any) {
+  constructor(id: number, date: Date) {
     this._id = id;
     this._date = date;
   }
@@ -31,11 +70,11 @@ export class TableModel {
     this._id = value;
   }
 
-  get date(): any {
+  get date(): Date {
     return this._date;
   }
 
-  set date(value: any) {
+  set date(value: Date) {
     this._date = value;
   }
 }
@@ -44,12 +83,12 @@ export class TableModelRecipe extends TableModel{
   private _name: string;
   private _time: number;
 
-
-  constructor(id: number, date: any, name: string, time: number) {
+  constructor(id: number, date: Date, name: string, time: number) {
     super(id, date);
     this._name = name;
     this._time = time;
   }
+
 
   get name(): string {
     return this._name;
@@ -72,8 +111,7 @@ export class TableModelMB110_1TD extends TableModel{
   private _holdingRegister0: number;
   private _tableModelRecipe: TableModelRecipe;
 
-
-  constructor(id: number, date: any, holdingRegister0: number, tableModelRecipe: TableModelRecipe) {
+  constructor(id: number, date: Date, holdingRegister0: number, tableModelRecipe: TableModelRecipe) {
     super(id, date);
     this._holdingRegister0 = holdingRegister0;
     this._tableModelRecipe = tableModelRecipe;
@@ -98,16 +136,33 @@ export class TableModelMB110_1TD extends TableModel{
 }
 
 export class DeviceModelMB110_1TD{
+  private _holdingRegister0: number;
+  private _holdingRegister1: number;
+  private _holdingRegister2: number;
+  private _holdingRegister3: number;
+  private _holdingRegister4: number;
+  private _holdingRegister5: number;
+  private _holdingRegister6: number;
+  private _holdingRegister7: number;
 
-  constructor(private _holdingRegister0: number,
-              private _holdingRegister1: number,
-              private _holdingRegister2: number,
-              private _holdingRegister3: number,
-              private _holdingRegister4: number,
-              private _holdingRegister5: number,
-              private _holdingRegister6: number,
-              private _holdingRegister7: number) {
+  constructor(holdingRegister0: number,
+              holdingRegister1: number,
+              holdingRegister2: number,
+              holdingRegister3: number,
+              holdingRegister4: number,
+              holdingRegister5: number,
+              holdingRegister6: number,
+              holdingRegister7: number) {
+    this._holdingRegister0 = holdingRegister0;
+    this._holdingRegister1 = holdingRegister1;
+    this._holdingRegister2 = holdingRegister2;
+    this._holdingRegister3 = holdingRegister3;
+    this._holdingRegister4 = holdingRegister4;
+    this._holdingRegister5 = holdingRegister5;
+    this._holdingRegister6 = holdingRegister6;
+    this._holdingRegister7 = holdingRegister7;
   }
+
 
   get holdingRegister0(): number {
     return this._holdingRegister0;
@@ -174,3 +229,34 @@ export class DeviceModelMB110_1TD{
   }
 }
 
+export class JsonBoolean {
+  private _content: boolean;
+
+  constructor(content: boolean) {
+    this._content = content;
+  }
+
+  get content(): boolean {
+    return this._content;
+  }
+
+  set content(value: boolean) {
+    this._content = value;
+  }
+}
+
+export class JsonString {
+  private _content: string;
+
+  constructor(content: string) {
+    this._content = content;
+  }
+
+  get content(): string {
+    return this._content;
+  }
+
+  set content(value: string) {
+    this._content = value;
+  }
+}

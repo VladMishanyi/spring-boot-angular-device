@@ -2,6 +2,8 @@ package com.vk.springbootangulardevice.repository.websocket;
 
 import com.vk.springbootangulardevice.database.table.TableModelMB110_1TD;
 import com.vk.springbootangulardevice.modbus.device.DeviceModelMB110_1TD;
+import com.vk.springbootangulardevice.model.JsonBoolean;
+import com.vk.springbootangulardevice.model.JsonString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.messaging.core.MessageSendingOperations;
@@ -19,17 +21,17 @@ public class RepositoryWebsocketMB110_1TDImpl extends RepositoryWebsocketRootImp
     }
 
     @Override
-    public void messageTimerStatus(boolean status){
+    public void messageTimerStatus(JsonBoolean status){
         messageSendingOperationsRoot.convertAndSend("/topic/message-timer-status", status);
     }
 
     @Override
-    public void messageContactStatus(boolean status){
+    public void messageContactStatus(JsonBoolean status){
         messageSendingOperationsRoot.convertAndSend("/topic/message-contact-status", status);
     }
 
     @Override
-    public void messageTextStatus(String status){
+    public void messageTextStatus(JsonString status){
         messageSendingOperationsRoot.convertAndSend("/topic/message-text-status", status);
     }
 }

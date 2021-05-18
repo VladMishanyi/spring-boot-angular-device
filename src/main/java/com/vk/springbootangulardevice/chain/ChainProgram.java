@@ -6,10 +6,13 @@ import com.vk.springbootangulardevice.database.table.TableModelRecipe;
 import com.vk.springbootangulardevice.modbus.device.DeviceModelMB110_1TD;
 import com.vk.springbootangulardevice.modbus.lib.RiseFront;
 import com.vk.springbootangulardevice.modbus.lib.TimerON;
+import com.vk.springbootangulardevice.model.JsonBoolean;
+import com.vk.springbootangulardevice.model.JsonString;
 import com.vk.springbootangulardevice.model.ModelRaspberry;
 import com.vk.springbootangulardevice.repository.database.RepositoryDatabaseRecipe;
 import com.vk.springbootangulardevice.repository.raspberry.RepositoryRaspberry;
 import com.vk.springbootangulardevice.service.ServiceMB110_1TD;
+import com.vk.springbootangulardevice.service.ServiceRecipe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +36,7 @@ public class ChainProgram extends Thread{
     private final ModelRaspberry modelRaspberry;
     private final DeviceToTableMB110_1TD deviceToTableMB110_1TD;
     private TableModelRecipe tableModelRecipe = new TableModelRecipe("empty", 1);
-    private final RepositoryDatabaseRecipe repositoryDatabaseRecipe;
+    private final ServiceRecipe serviceRecipe;
     private static int couterChart = 0;
 
     @Autowired
@@ -41,12 +44,12 @@ public class ChainProgram extends Thread{
                         final DeviceModelMB110_1TD deviceModelMB110_1TD,
                         final ModelRaspberry modelRaspberry,
                         final DeviceToTableMB110_1TD deviceToTableMB110_1TD,
-                        final RepositoryDatabaseRecipe repositoryDatabaseRecipe) {
+                        final ServiceRecipe serviceRecipe) {
         this.serviceMB110_1TD = serviceMB110_1TD;
         this.deviceModelMB110_1TD = deviceModelMB110_1TD;
         this.modelRaspberry = modelRaspberry;
         this.deviceToTableMB110_1TD = deviceToTableMB110_1TD;
-        this.repositoryDatabaseRecipe = repositoryDatabaseRecipe;
+        this.serviceRecipe = serviceRecipe;
         this.start();
     }
 
@@ -60,8 +63,8 @@ public class ChainProgram extends Thread{
                 riseFront.setInputFront(modelRaspberry.isGpio27());
 
                 if (riseFront.isOutputResult()){
-                    TableModelRecipe tableModelRecipeInner = repositoryDatabaseRecipe.findLastValueByDate();
-                    if (tableModelRecipeInner == null) repositoryDatabaseRecipe.saveAndFlush(tableModelRecipe);
+                    TableModelRecipe tableModelRecipeInner = serviceRecipe.databaseFindLastValueByDate();
+                    if (tableModelRecipeInner == null) serviceRecipe.databaseAddTableDevice(tableModelRecipe);
                     if (tableModelRecipeInner != null) tableModelRecipe = tableModelRecipeInner;
                 }
 
@@ -78,12 +81,12 @@ public class ChainProgram extends Thread{
                 System.out.println("7"+timerON.toString()+riseFront.toString());
                 serviceMB110_1TD.raspberryWriteGPI26(!modelRaspberry.isGpio27());
                 serviceMB110_1TD.raspberryWriteGPI28(!timerON.isEndTime());
-                serviceMB110_1TD.messageTimerStatus(timerON.isEnable());
-                serviceMB110_1TD.messageContactStatus(modelRaspberry.isGpio27());
+                serviceMB110_1TD.messageTimerStatus(new JsonBoolean(timerON.isEnable()));
+                serviceMB110_1TD.messageContactStatus(new JsonBoolean(modelRaspberry.isGpio27()));
                 if (timerON.isEnable()){
-                    serviceMB110_1TD.messageTextStatus("Випробування почато");
+                    serviceMB110_1TD.messageTextStatus(new JsonString("Випробування почато"));
                 }else {
-                    serviceMB110_1TD.messageTextStatus("Очікую випробування");
+                    serviceMB110_1TD.messageTextStatus(new JsonString("Очікую випробування"));
                 }
 
                 couterChart++;

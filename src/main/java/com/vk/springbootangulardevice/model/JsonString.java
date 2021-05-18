@@ -1,15 +1,12 @@
 package com.vk.springbootangulardevice.model;
 
-import java.util.*;
-
-public class Greeting {
-
+public class JsonString {
     private String content;
 
-    public Greeting() {
+    public JsonString() {
     }
 
-    public Greeting(String content) {
+    public JsonString(String content) {
         this.content = content;
     }
 
@@ -17,4 +14,7 @@ public class Greeting {
         return content;
     }
 
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

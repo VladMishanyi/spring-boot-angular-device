@@ -6,6 +6,7 @@
 import {inject, Injectable} from '@angular/core';
 import {MessageService} from "./message.service";
 import {GraphicsService} from "./graphics.service";
+import {JsonBoolean, JsonString} from "../objects/objectsSourse";
 declare var SockJS: any;
 declare var Stomp: any;
 
@@ -22,9 +23,10 @@ export class WebsocketServiceService {
   topicMessageContactStatus = '/topic/message-contact-status';
   topicMessageTextStatus = '/topic/message-text-status';
 
-  sendChartDateRange = '/generate-chart-laboratory-reometr';
+  sendChartDateRange = '/app/generate-chart-laboratory-reometr';
   sendHello: string = '/app/hello';
   sendDateRange: string = '/app/date-to-server';
+  sendRecipeItem: string = '/app/table-recipe';
   stompClient: any;
 
   constructor(private bodyMessage: MessageService, private graphics: GraphicsService) {
@@ -63,7 +65,7 @@ export class WebsocketServiceService {
         entity.onContactStatusReceive(sdkEvent);
       });
 
-      entity.stompClient.subscribe(entity.topicMessageTextStatus, function(sdkEvent: string) {
+      entity.stompClient.subscribe(entity.topicMessageTextStatus, function(sdkEvent: any) {
         entity.onTextStatusReceive(sdkEvent);
       });
       // entity.stompClient.reconnect_delay = 2000;
@@ -85,19 +87,12 @@ export class WebsocketServiceService {
     }, 5000);
   }
 
-  /**
-   * Send message to sever via web socket
-   * @param {*} message
-   */
-  _send(message: any) {
-    console.log('calling logout api via web socket');
-    this.stompClient.send(this.sendHello, {}, JSON.stringify(message));
+  _sendRecipeItem(message: any) {
+    this.stompClient.send(this.sendRecipeItem, {}, JSON.stringify(message));
   }
 
   _sendRangeDateForChart(message: any) {
-    console.log('calling logout api via web socket');
-    this.stompClient.send(this.topicArrayTablesFromDatabase, {}, JSON.stringify(message));
-    // this.stompClient.send('/app/date-to-server', {}, message);
+    this.stompClient.send(this.sendChartDateRange, {}, JSON.stringify(message));
   }
 
   onMessageReceived(message: any) {
@@ -130,8 +125,8 @@ export class WebsocketServiceService {
     this.bodyMessage.newContactStatus(mes);
   }
 
-  onTextStatusReceive(text: string){
-    const mes = JSON.parse(text);
+  onTextStatusReceive(text: any){
+    const mes = JSON.parse(text.body);
     this.bodyMessage.newTextStatus(mes);
   }
 }
