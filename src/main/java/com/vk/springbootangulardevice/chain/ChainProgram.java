@@ -78,6 +78,14 @@ public class ChainProgram extends Thread{
                 System.out.println("7"+timerON.toString()+riseFront.toString());
                 serviceMB110_1TD.raspberryWriteGPI26(!modelRaspberry.isGpio27());
                 serviceMB110_1TD.raspberryWriteGPI28(!timerON.isEndTime());
+                serviceMB110_1TD.messageTimerStatus(timerON.isEnable());
+                serviceMB110_1TD.messageContactStatus(modelRaspberry.isGpio27());
+                if (timerON.isEnable()){
+                    serviceMB110_1TD.messageTextStatus("Випробування почато");
+                }else {
+                    serviceMB110_1TD.messageTextStatus("Очікую випробування");
+                }
+
                 couterChart++;
                 Thread.sleep(100);
             }

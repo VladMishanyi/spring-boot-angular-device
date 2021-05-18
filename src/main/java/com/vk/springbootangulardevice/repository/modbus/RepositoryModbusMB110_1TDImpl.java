@@ -9,9 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
 
 @Repository
 @ComponentScan(basePackages = {"com.vk.springbootangulardevice","com.vk.springbootangulardevice.modbus"})
@@ -26,6 +25,8 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
     private final ModbusFloat modbusFloat;
 
     private final ModbusShort modbusShort;
+    private Queue<Float> queue = new ArrayBlockingQueue<Float>(10);
+    private final int borderSize = 3;
 
     @Autowired
     public RepositoryModbusMB110_1TDImpl(final ModbusMasterSerialModel modbusMasterSerialFirst,
@@ -107,7 +108,21 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
         return deviceModelMB110_1TD;
     }
 
-    private float doingSomeMathForProperShovingCharts(float val){
+    private float doingSomeMathForProperShovingCharts(float val) {
+        return doingSmoothing(doingAbs(val), borderSize);
+    }
+
+    private float doingAbs(float val) {
         return Math.abs(val);
+    }
+
+    private float doingSmoothing(float val, final int border) {
+        int s = queue.size();
+        if ((s >= border) && (border <= 10)){
+            queue.poll();
+            queue.offer(val);
+            return (float) queue.stream().mapToDouble(x -> x).average().getAsDouble();
+        }
+        return val;
     }
 }

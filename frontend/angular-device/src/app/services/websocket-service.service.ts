@@ -18,6 +18,10 @@ export class WebsocketServiceService {
   topicLocalDateTime = '/topic/date-from-server';
   topicDeviceFromModbus = '/topic/table-model-mv110-1td';
   topicArrayTablesFromDatabase = '/topic/generate-chart-laboratory-reometr';
+  topicMessageTimerStatus = '/topic/message-timer-status';
+  topicMessageContactStatus = '/topic/message-contact-status';
+  topicMessageTextStatus = '/topic/message-text-status';
+
   sendChartDateRange = '/generate-chart-laboratory-reometr';
   sendHello: string = '/app/hello';
   sendDateRange: string = '/app/date-to-server';
@@ -49,6 +53,18 @@ export class WebsocketServiceService {
 
       entity.stompClient.subscribe(entity.topicDeviceFromModbus, function(sdkEvent: any) {
         entity.onModbusDeviceReceive(sdkEvent);
+      });
+
+      entity.stompClient.subscribe(entity.topicMessageTimerStatus, function(sdkEvent: any) {
+        entity.onTimerStatusReceive(sdkEvent);
+      });
+
+      entity.stompClient.subscribe(entity.topicMessageContactStatus, function(sdkEvent: any) {
+        entity.onContactStatusReceive(sdkEvent);
+      });
+
+      entity.stompClient.subscribe(entity.topicMessageTextStatus, function(sdkEvent: any) {
+        entity.onTextStatusReceive(sdkEvent);
       });
       // entity.stompClient.reconnect_delay = 2000;
     }, this.errorCallBack);
@@ -102,5 +118,20 @@ export class WebsocketServiceService {
   onModbusDeviceReceive(device: any){
     const mes = JSON.parse(device.body);
     this.bodyMessage.newDevice(mes);
+  }
+
+  onTimerStatusReceive(timer: any){
+    const mes = JSON.parse(timer.body);
+    this.bodyMessage.newTimerStatus(mes);
+  }
+
+  onContactStatusReceive(contact: any){
+    const mes = JSON.parse(contact.body);
+    this.bodyMessage.newContactStatus(mes);
+  }
+
+  onTextStatusReceive(text: any){
+    const mes = JSON.parse(text.body);
+    this.bodyMessage.newTextStatus(mes);
   }
 }

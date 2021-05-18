@@ -26,7 +26,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   nameItem: string = "empty";
   timeItem: number = 7;
   valueInRealTimeStretch: number = 0;
-  informationInRealTime: string = "Почато випробування";
+  informationInRealTime: string = "Очікую";
   contactorInRealTime: boolean = false;
   timerInRealTime: boolean = false;
 
@@ -63,6 +63,7 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.lineChartPlugins = graphics.lineChartPlugins;
     this.baseChart = baseChart;
     this.realTimeRender = realTimeRender;
+
     this.webSocketAPI._connect();
     this.currentDateTime = this.readCurrentDateTime();
     bodyMessage.dateStream$.subscribe( mes => {this.writeDateTimeFromServer(mes);});
@@ -75,6 +76,16 @@ export class AppComponent implements OnInit, AfterViewInit{
       for (let i = 0; i < mes.length - 1; i++) {
         console.log("current date: " + mes[i].date);
       }
+    });
+    bodyMessage.timerStatus$.subscribe( mes => {
+      this.timerInRealTime = mes;
+      this.onDraw = mes;
+    });
+    bodyMessage.contactStatus$.subscribe(mes => {
+      this.contactorInRealTime = mes;
+    });
+    bodyMessage.textStatus$.subscribe( mes => {
+      this.informationInRealTime = mes;
     });
   }
 

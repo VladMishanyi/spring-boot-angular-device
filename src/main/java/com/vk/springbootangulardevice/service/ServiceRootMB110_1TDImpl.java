@@ -64,4 +64,17 @@ public class ServiceRootMB110_1TDImpl
     public DeviceModelMB110_1TD modbusWriteDataToRegister1(final short value){
         return repositoryModbus.writeDataToRegister1(value);
     }
+
+    @Override
+    public void messageTimerStatus(boolean status){
+        repositoryWebsocket.messageTimerStatus(status);
+    }
+    @Override
+    public void messageContactStatus(boolean status){
+        repositoryWebsocket.messageContactStatus(status);
+    }
+    @Override
+    public void messageTextStatus(String status){
+        repositoryWebsocket.messageTextStatus(status);
+    }
 }
