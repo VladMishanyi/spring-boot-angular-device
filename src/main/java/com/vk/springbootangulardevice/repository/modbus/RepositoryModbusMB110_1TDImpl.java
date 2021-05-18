@@ -26,7 +26,7 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
 
     private final ModbusShort modbusShort;
     private Queue<Float> queue = new ArrayBlockingQueue<Float>(10);
-    private final int borderSize = 3;
+    private final int borderSize = 6;
 
     @Autowired
     public RepositoryModbusMB110_1TDImpl(final ModbusMasterSerialModel modbusMasterSerialFirst,

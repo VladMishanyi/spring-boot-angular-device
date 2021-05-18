@@ -14,10 +14,10 @@ export class RangeDateTimeWithZone {
 
 export class TableModel {
   private _id: number;
-  private _date: Date;
+  private _date: any;
 
 
-  constructor(id: number, date: Date) {
+  constructor(id: number, date: any) {
     this._id = id;
     this._date = date;
   }
@@ -31,11 +31,11 @@ export class TableModel {
     this._id = value;
   }
 
-  get date(): Date {
+  get date(): any {
     return this._date;
   }
 
-  set date(value: Date) {
+  set date(value: any) {
     this._date = value;
   }
 }
@@ -45,7 +45,7 @@ export class TableModelRecipe extends TableModel{
   private _time: number;
 
 
-  constructor(id: number, date: Date, name: string, time: number) {
+  constructor(id: number, date: any, name: string, time: number) {
     super(id, date);
     this._name = name;
     this._time = time;
@@ -73,7 +73,7 @@ export class TableModelMB110_1TD extends TableModel{
   private _tableModelRecipe: TableModelRecipe;
 
 
-  constructor(id: number, date: Date, holdingRegister0: number, tableModelRecipe: TableModelRecipe) {
+  constructor(id: number, date: any, holdingRegister0: number, tableModelRecipe: TableModelRecipe) {
     super(id, date);
     this._holdingRegister0 = holdingRegister0;
     this._tableModelRecipe = tableModelRecipe;
