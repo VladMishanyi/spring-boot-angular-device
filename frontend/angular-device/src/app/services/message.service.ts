@@ -41,15 +41,15 @@ export class MessageService {
     this.modbusDevice.next(device);
   }
 
-  public newTimerStatus(timer: any): void{
+  public newTimerStatus(timer: boolean): void{
     this.timerStatus.next(timer);
   }
 
-  public newContactStatus(contact: any): void{
+  public newContactStatus(contact: boolean): void{
     this.contactStatus.next(contact);
   }
 
-  public newTextStatus(text: any): void{
+  public newTextStatus(text: string): void{
     this.textStatus.next(text);
   }
 }
