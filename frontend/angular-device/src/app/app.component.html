@@ -182,7 +182,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="name-of-item">Назва екземпляру</span>
         </div>
-        <input [(ngModel)]="nameItem" type="text" class="form-control" aria-describedby="name-of-item" id="name-item" placeholder="empty">
+        <input [(ngModel)]="recipe.name" type="text" class="form-control" aria-describedby="name-of-item" id="name-item" placeholder="empty">
       </div>
     </div>
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
@@ -190,7 +190,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="label-for-time-item">Час хв.</span>
         </div>
-        <input [(ngModel)]="timeItem" type="number" class="form-control" aria-describedby="label-for-time-item" id="time-item" value="5">
+        <input [(ngModel)]="recipe.time" type="number" class="form-control" aria-describedby="label-for-time-item" id="time-item" value="5">
       </div>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">

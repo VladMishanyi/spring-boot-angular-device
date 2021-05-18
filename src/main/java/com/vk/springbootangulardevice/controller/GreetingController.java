@@ -5,6 +5,7 @@ import com.vk.springbootangulardevice.chain.ChainProgram;
 import com.vk.springbootangulardevice.chain.ChainRaspberry;
 import com.vk.springbootangulardevice.database.convertor.DeviceToTableMB110_1TD;
 import com.vk.springbootangulardevice.database.table.TableModelMB110_1TD;
+import com.vk.springbootangulardevice.database.table.TableModelRecipe;
 import com.vk.springbootangulardevice.json.JsonBodyLocalDateTimeFromChart;
 import com.vk.springbootangulardevice.modbus.device.DeviceModelMB110_1TD;
 import com.vk.springbootangulardevice.model.Greeting;
@@ -13,6 +14,7 @@ import com.vk.springbootangulardevice.model.ModelRaspberry;
 import com.vk.springbootangulardevice.repository.database.RepositoryDatabaseRecipe;
 import com.vk.springbootangulardevice.repository.raspberry.RepositoryRaspberry;
 import com.vk.springbootangulardevice.service.ServiceMB110_1TD;
+import com.vk.springbootangulardevice.service.ServiceRecipe;
 import com.vk.springbootangulardevice.tasks.TaskMB110_1TD;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.HtmlUtils;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @ComponentScan(basePackages = {"com.vk.springbootangulardevice.service"})
@@ -36,7 +39,7 @@ public class GreetingController {
     private final DeviceModelMB110_1TD deviceModelMB110_1TD;
     private final ModelRaspberry modelRaspberry;
     private final DeviceToTableMB110_1TD deviceToTableMB110_1TD;
-    private final RepositoryDatabaseRecipe repositoryDatabaseRecipe;
+    private final ServiceRecipe serviceRecipe;
 
     @Autowired
     public GreetingController(final ServiceMB110_1TD serviceMB110_1TD,
@@ -48,7 +51,7 @@ public class GreetingController {
                               final DeviceModelMB110_1TD deviceModelMB110_1TD,
                               final ModelRaspberry modelRaspberry,
                               final DeviceToTableMB110_1TD deviceToTableMB110_1TD,
-                              final RepositoryDatabaseRecipe repositoryDatabaseRecipe) {
+                              final ServiceRecipe serviceRecipe) {
         this.serviceMB110_1TD = serviceMB110_1TD;
         this.chainModbus = chainModbus;
         this.chainProgram = chainProgram;
@@ -58,7 +61,7 @@ public class GreetingController {
         this.deviceModelMB110_1TD = deviceModelMB110_1TD;
         this.modelRaspberry = modelRaspberry;
         this.deviceToTableMB110_1TD = deviceToTableMB110_1TD;
-        this.repositoryDatabaseRecipe = repositoryDatabaseRecipe;
+        this.serviceRecipe = serviceRecipe;
     }
 
     @MessageMapping("/hello")
@@ -85,6 +88,15 @@ public class GreetingController {
         return serviceMB110_1TD.databaseFindByDateBetween(jsonBodyLocalDateTimeFromChart.getStart(), jsonBodyLocalDateTimeFromChart.getEnd());
     }
 
+    @MessageMapping(value="/table-recipe")
+    public void saveNewRecipe(TableModelRecipe recipe){
+        if (Objects.nonNull(recipe)) {
+            if (Objects.nonNull(recipe.getName())){
+                serviceRecipe.databaseAddTableDevice(new TableModelRecipe(recipe.getName(),recipe.getTime()));
+            }
+        }
+    }
+
     @Scheduled(fixedRate = 1000*60)
     private void loopModbus(){
         if (!chainModbus.isAlive()){
@@ -95,7 +107,7 @@ public class GreetingController {
     @Scheduled(fixedRate = 1000*60)
     private void loopProgram(){
         if (!chainProgram.isAlive()){
-            chainProgram = new ChainProgram(serviceMB110_1TD, deviceModelMB110_1TD, modelRaspberry, deviceToTableMB110_1TD, repositoryDatabaseRecipe);
+            chainProgram = new ChainProgram(serviceMB110_1TD, deviceModelMB110_1TD, modelRaspberry, deviceToTableMB110_1TD, serviceRecipe);
         }
     }
 

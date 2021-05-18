@@ -4,6 +4,8 @@ import com.vk.springbootangulardevice.database.table.TableModelMB110_1TD;
 import com.vk.springbootangulardevice.json.JsonBodyListForTableModelMB110_1TD;
 import com.vk.springbootangulardevice.modbus.device.DeviceModelMB110_1TD;
 import com.vk.springbootangulardevice.modbus.en.DigsFloat;
+import com.vk.springbootangulardevice.model.JsonBoolean;
+import com.vk.springbootangulardevice.model.JsonString;
 import com.vk.springbootangulardevice.repository.database.RepositoryDatabaseMB110_1TD;
 import com.vk.springbootangulardevice.repository.modbus.RepositoryModbusMB110_1TD;
 import com.vk.springbootangulardevice.repository.raspberry.RepositoryRaspberry;
@@ -66,15 +68,15 @@ public class ServiceRootMB110_1TDImpl
     }
 
     @Override
-    public void messageTimerStatus(boolean status){
+    public void messageTimerStatus(JsonBoolean status){
         repositoryWebsocket.messageTimerStatus(status);
     }
     @Override
-    public void messageContactStatus(boolean status){
+    public void messageContactStatus(JsonBoolean status){
         repositoryWebsocket.messageContactStatus(status);
     }
     @Override
-    public void messageTextStatus(String status){
+    public void messageTextStatus(JsonString status){
         repositoryWebsocket.messageTextStatus(status);
     }
 }

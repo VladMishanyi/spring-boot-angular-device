@@ -3,7 +3,7 @@ import {MessageService} from "./services/message.service";
 import {WebsocketServiceService} from "./services/websocket-service.service";
 import * as moment from "moment";
 import { saveAs } from 'file-saver';
-import {RangeDateTimeWithZone, UserService} from "./objects/objectsSourse";
+import {RangeDateTimeWithZone, TableModelRecipe, UserService} from "./objects/objectsSourse";
 import {GraphicsService} from "./services/graphics.service";
 
 @Component({
@@ -13,18 +13,12 @@ import {GraphicsService} from "./services/graphics.service";
 })
 export class AppComponent implements OnInit, AfterViewInit{
   title: string = 'angular8-springboot-websocket';
-  // greeting = 'scrach';
-  // name = '';
-  // arrayMessages: Array<string> = ['first', 'second'];
-  // fromServer: any;
-  // user: UserService = {'name': 'egor', 'age': 44};
-  rangeDate: RangeDateTimeWithZone = {'start': new Date(), 'end': new Date()};
+  rangeDate: RangeDateTimeWithZone = new RangeDateTimeWithZone(new Date, new Date);
+  recipe: TableModelRecipe = new TableModelRecipe(0, new Date, 'empty', 7);
   start: Date = new Date();
   end: Date = new Date();
   onDraw: boolean = false;
   currentDateTime: string;
-  nameItem: string = "empty";
-  timeItem: number = 7;
   valueInRealTimeStretch: number = 0;
   informationInRealTime: string = 'Очікую';
   contactorInRealTime: boolean = false;
@@ -78,14 +72,14 @@ export class AppComponent implements OnInit, AfterViewInit{
       }
     });
     bodyMessage.timerStatus$.subscribe( mes => {
-      this.timerInRealTime = mes;
-      this.onDraw = mes;
+      this.timerInRealTime = mes.content;
+      this.onDraw = mes.content;
     });
     bodyMessage.contactStatus$.subscribe(mes => {
-      this.contactorInRealTime = mes;
+      this.contactorInRealTime = mes.content;
     });
     bodyMessage.textStatus$.subscribe( mes => {
-      this.informationInRealTime = mes;
+      this.informationInRealTime = mes.content;
     });
   }
 
@@ -93,7 +87,9 @@ export class AppComponent implements OnInit, AfterViewInit{
 
   ngAfterViewInit() {}
 
-  public sendNameAndTimeItem(){}
+  public sendNameAndTimeItem(){
+    this.webSocketAPI._sendRecipeItem(this.recipe);
+  }
 
   public writeDateTimeFromServer(range: RangeDateTimeWithZone): void{
     this.startChart = range.start;

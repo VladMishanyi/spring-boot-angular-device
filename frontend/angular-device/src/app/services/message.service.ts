@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Subject} from "rxjs";
-import {DeviceModelMB110_1TD, TableModelMB110_1TD} from "../objects/objectsSourse";
+import {DeviceModelMB110_1TD, JsonBoolean, JsonString, TableModelMB110_1TD} from "../objects/objectsSourse";
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +10,9 @@ export class MessageService {
   private dateSource = new Subject<any>();
   private listOfTable = new Subject<TableModelMB110_1TD[]>();
   private modbusDevice = new Subject<DeviceModelMB110_1TD>();
-  private timerStatus = new Subject<boolean>();
-  private contactStatus = new Subject<boolean>();
-  private textStatus = new Subject<string>();
+  private timerStatus = new Subject<JsonBoolean>();
+  private contactStatus = new Subject<JsonBoolean>();
+  private textStatus = new Subject<JsonString>();
 
 
   public messageStream$ = this.messageSource.asObservable();
@@ -41,15 +41,15 @@ export class MessageService {
     this.modbusDevice.next(device);
   }
 
-  public newTimerStatus(timer: boolean): void{
+  public newTimerStatus(timer: JsonBoolean): void{
     this.timerStatus.next(timer);
   }
 
-  public newContactStatus(contact: boolean): void{
+  public newContactStatus(contact: JsonBoolean): void{
     this.contactStatus.next(contact);
   }
 
-  public newTextStatus(text: string): void{
+  public newTextStatus(text: JsonString): void{
     this.textStatus.next(text);
   }
 }
