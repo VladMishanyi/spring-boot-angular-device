@@ -25,8 +25,9 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
     private final ModbusFloat modbusFloat;
 
     private final ModbusShort modbusShort;
-    private Queue<Float> queue = new ArrayBlockingQueue<Float>(30);
-    private final int borderSize = 20;
+    private final int queueSize = 100;
+    private Queue<Float> queue = new ArrayBlockingQueue<Float>(queueSize);
+    private final int borderSize = 50;
 
     @Autowired
     public RepositoryModbusMB110_1TDImpl(final ModbusMasterSerialModel modbusMasterSerialFirst,
@@ -119,7 +120,7 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
     private float doingSmoothing(float val, final int border) {
         int s = queue.size();
         if ((s < border)) queue.offer(val);
-        if ((s >= border) && (border <= 30)){
+        if ((s >= border) && (border <= queueSize)){
             float inner = (float) queue.stream().mapToDouble(x -> x).average().getAsDouble();
             queue.poll();
             System.out.println("i am in smoothing block-----size="+s+"--------value------:"+inner);
