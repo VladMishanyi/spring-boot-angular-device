@@ -28,7 +28,7 @@ public class ChainModbus extends Thread{
     public ChainModbus(final TaskMB110_1TD taskMB110_1TD, final ServiceMB110_1TD serviceMB110_1TD){
         this.taskMB110_1TD = taskMB110_1TD;
         this.serviceMB110_1TD = serviceMB110_1TD;
-        this.start();
+//        this.start();
     }
 
     @Override

@@ -8,7 +8,7 @@ import com.vk.springbootangulardevice.model.JsonBoolean;
 import com.vk.springbootangulardevice.model.JsonString;
 import com.vk.springbootangulardevice.repository.database.RepositoryDatabaseMB110_1TD;
 import com.vk.springbootangulardevice.repository.modbus.RepositoryModbusMB110_1TD;
-import com.vk.springbootangulardevice.repository.raspberry.RepositoryRaspberry;
+//import com.vk.springbootangulardevice.repository.raspberry.RepositoryRaspberry;
 import com.vk.springbootangulardevice.repository.websocket.RepositoryWebsocketMB110_1TD;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -34,18 +34,18 @@ public class ServiceRootMB110_1TDImpl
 
     private final RepositoryWebsocketMB110_1TD repositoryWebsocket;
 
-    private final RepositoryRaspberry repositoryRaspberry;
+//    private final RepositoryRaspberry repositoryRaspberry;
 
     @Autowired
     public ServiceRootMB110_1TDImpl(final RepositoryDatabaseMB110_1TD repositoryDatabase,
                                     final RepositoryModbusMB110_1TD repositoryModbus,
-                                    final RepositoryWebsocketMB110_1TD repositoryWebsocket,
-                                    final RepositoryRaspberry repositoryRaspberry) {
-        super(repositoryDatabase, repositoryModbus, repositoryWebsocket, repositoryRaspberry);
+                                    final RepositoryWebsocketMB110_1TD repositoryWebsocket/*,
+                                    final RepositoryRaspberry repositoryRaspberry*/) {
+        super(repositoryDatabase, repositoryModbus, repositoryWebsocket/*, repositoryRaspberry*/);
         this.repositoryDatabase = repositoryDatabase;
         this.repositoryModbus = repositoryModbus;
         this.repositoryWebsocket = repositoryWebsocket;
-        this.repositoryRaspberry = repositoryRaspberry;
+//        this.repositoryRaspberry = repositoryRaspberry;
     }
 
     @Transactional(readOnly = true)

@@ -10,7 +10,6 @@ import com.vk.springbootangulardevice.model.JsonString;
 import com.vk.springbootangulardevice.repository.database.RepositoryDatabaseMB110_1TD;
 import com.vk.springbootangulardevice.repository.database.RepositoryDatabaseRecipe;
 import com.vk.springbootangulardevice.repository.modbus.RepositoryModbusMB110_1TD;
-import com.vk.springbootangulardevice.repository.raspberry.RepositoryRaspberry;
 import com.vk.springbootangulardevice.repository.websocket.RepositoryWebsocketMB110_1TD;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;

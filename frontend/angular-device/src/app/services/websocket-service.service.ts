@@ -1,12 +1,6 @@
-// import * as Stomp from 'stompjs';
-// import Stomp from 'stompjs';
-// import { Client, Message, Stomp } from 'stompjs/lib/stomp.js';
-// import * as SockJS from 'sockjs-client';
-// import {  SockJS } from 'sockjs/lib/sockjs.js';
-import {inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {MessageService} from "./message.service";
 import {GraphicsService} from "./graphics.service";
-import {JsonBoolean, JsonString} from "../objects/objectsSourse";
 declare var SockJS: any;
 declare var Stomp: any;
 
@@ -14,40 +8,30 @@ declare var Stomp: any;
   providedIn: 'root'
 })
 export class WebsocketServiceService {
-  webSocketEndPoint = 'http://localhost:8080/guide-websocket';
-  topic = '/topic/greetings';
-  topicLocalDateTime = '/topic/date-from-server';
-  topicDeviceFromModbus = '/topic/table-model-mv110-1td';
-  topicArrayTablesFromDatabase = '/topic/generate-chart-laboratory-reometr';
-  topicMessageTimerStatus = '/topic/message-timer-status';
-  topicMessageContactStatus = '/topic/message-contact-status';
-  topicMessageTextStatus = '/topic/message-text-status';
+  webSocketEndPoint: string = 'http://localhost:8080/guide-websocket';
+  topic: string = '/topic/greetings';
+  topicLocalDateTime: string = '/topic/date-from-server';
+  topicDeviceFromModbus: string = '/topic/table-model-mv110-1td';
+  topicArrayTablesFromDatabase: string = '/topic/generate-chart-laboratory-reometr';
+  topicMessageTimerStatus: string = '/topic/message-timer-status';
+  topicMessageContactStatus: string = '/topic/message-contact-status';
+  topicMessageTextStatus: string = '/topic/message-text-status';
+  topicRecipeItem: string = '/topic/table-recipe';
 
-  sendChartDateRange = '/app/generate-chart-laboratory-reometr';
-  sendHello: string = '/app/hello';
-  sendDateRange: string = '/app/date-to-server';
-  sendRecipeItem: string = '/app/table-recipe';
+  appChartDateRange: string = '/app/generate-chart-laboratory-reometr';
+  appRecipeItem: string = '/app/table-recipe';
+
   stompClient: any;
 
-  constructor(private bodyMessage: MessageService, private graphics: GraphicsService) {
+  constructor(private bodyMessage: MessageService, private graphics: GraphicsService) {}
 
-  }
-
-  _connect() {
+  connect() {
     console.log('Initialize WebSocket Connection');
     const ws = new SockJS(this.webSocketEndPoint);
     this.stompClient = Stomp.over(ws);
 
     const entity = this;
     entity.stompClient.connect({}, function() {
-
-      entity.stompClient.subscribe(entity.topic, function(sdkEvent: any) {
-        entity.onMessageReceived(sdkEvent);
-      });
-
-      entity.stompClient.subscribe(entity.topicLocalDateTime, function(sdkEvent: any) {
-        entity.onDateReceived(sdkEvent);
-      });
 
       entity.stompClient.subscribe(entity.topicArrayTablesFromDatabase, function(sdkEvent: any) {
         entity.onListOfTablesReceive(sdkEvent);
@@ -68,11 +52,15 @@ export class WebsocketServiceService {
       entity.stompClient.subscribe(entity.topicMessageTextStatus, function(sdkEvent: any) {
         entity.onTextStatusReceive(sdkEvent);
       });
+
+      entity.stompClient.subscribe(entity.topicRecipeItem, function(sdkEvent: any) {
+        entity.onTableRecipeReceive(sdkEvent);
+      });
       // entity.stompClient.reconnect_delay = 2000;
     }, this.errorCallBack);
   }
 
-  _disconnect() {
+  disconnect() {
     if (this.stompClient !== null) {
       this.stompClient.disconnect();
     }
@@ -83,26 +71,16 @@ export class WebsocketServiceService {
   errorCallBack(error: string) {
     console.log('errorCallBack -> ' + error);
     setTimeout(() => {
-      this._connect();
+      this.connect();
     }, 5000);
   }
 
-  _sendRecipeItem(message: any) {
-    this.stompClient.send(this.sendRecipeItem, {}, JSON.stringify(message));
+  sendRecipeItem(message: any) {
+    this.stompClient.send(this.appRecipeItem, {}, JSON.stringify(message));
   }
 
-  _sendRangeDateForChart(message: any) {
-    this.stompClient.send(this.sendChartDateRange, {}, JSON.stringify(message));
-  }
-
-  onMessageReceived(message: any) {
-    const mes = JSON.parse(message.body).content;
-    this.bodyMessage.newMessage(mes);
-  }
-
-  onDateReceived(message: any) {
-    const mes = JSON.parse(message.body);
-    this.bodyMessage.newDate(mes);
+  sendRangeDateForChart(message: any) {
+    this.stompClient.send(this.appChartDateRange, {}, JSON.stringify(message));
   }
 
   onListOfTablesReceive(tables: any){
@@ -128,5 +106,10 @@ export class WebsocketServiceService {
   onTextStatusReceive(text: any){
     const mes = JSON.parse(text.body);
     this.bodyMessage.newTextStatus(mes);
+  }
+
+  onTableRecipeReceive(recipe: any){
+    const mes = JSON.parse(recipe.body);
+    this.bodyMessage.newRecipe(mes);
   }
 }

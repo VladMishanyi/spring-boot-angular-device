@@ -10,7 +10,7 @@ import com.vk.springbootangulardevice.model.JsonBoolean;
 import com.vk.springbootangulardevice.model.JsonString;
 import com.vk.springbootangulardevice.model.ModelRaspberry;
 import com.vk.springbootangulardevice.repository.database.RepositoryDatabaseRecipe;
-import com.vk.springbootangulardevice.repository.raspberry.RepositoryRaspberry;
+//import com.vk.springbootangulardevice.repository.raspberry.RepositoryRaspberry;
 import com.vk.springbootangulardevice.service.ServiceMB110_1TD;
 import com.vk.springbootangulardevice.service.ServiceRecipe;
 import org.slf4j.Logger;
@@ -57,6 +57,8 @@ public class ChainProgram extends Thread{
     public void run() {
         try {
             while (!this.isInterrupted()){
+                //gust for debugging
+                modelRaspberry.setGpio27(true);
 
                 timerON.setEnable(modelRaspberry.isGpio27());
                 timerON.setTime(tableModelRecipe.getTime() * (long) 60);
@@ -79,15 +81,15 @@ public class ChainProgram extends Thread{
                 }
 
                 System.out.println("7"+timerON.toString()+riseFront.toString());
-                serviceMB110_1TD.raspberryWriteGPI26(!modelRaspberry.isGpio27());
-                serviceMB110_1TD.raspberryWriteGPI28(!timerON.isEndTime());
-                serviceMB110_1TD.messageTimerStatus(new JsonBoolean(timerON.isEnable()));
-                serviceMB110_1TD.messageContactStatus(new JsonBoolean(modelRaspberry.isGpio27()));
-                if (timerON.isEnable()){
-                    serviceMB110_1TD.messageTextStatus(new JsonString("Випробування почато"));
-                }else {
-                    serviceMB110_1TD.messageTextStatus(new JsonString("Очікую випробування"));
-                }
+//                serviceMB110_1TD.raspberryWriteGPI26(!modelRaspberry.isGpio27());
+//                serviceMB110_1TD.raspberryWriteGPI28(!timerON.isEndTime());
+//                serviceMB110_1TD.messageTimerStatus(new JsonBoolean(timerON.isEnable()));
+//                serviceMB110_1TD.messageContactStatus(new JsonBoolean(modelRaspberry.isGpio27()));
+//                if (timerON.isEnable()){
+//                    serviceMB110_1TD.messageTextStatus(new JsonString("Випробування почато"));
+//                }else {
+//                    serviceMB110_1TD.messageTextStatus(new JsonString("Очікую випробування"));
+//                }
 
                 couterChart++;
                 Thread.sleep(100);

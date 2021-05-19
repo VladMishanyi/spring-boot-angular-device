@@ -3,7 +3,7 @@ import {ChartDataSets, ChartType, Easing, InteractionMode, PointStyle, PositionT
 import {Color, Label} from "ng2-charts";
 import * as moment from "moment";
 import {saveAs} from "file-saver";
-import {TableModelMB110_1TD, TableModelRecipe} from "../objects/objectsSourse";
+import {TableModelMB110_1TD, TableModelRecipe} from "../model/TableModel";
 
 type AxisNative = 'x' | 'y' | 'xy';
 type DistributionNative = 'linear' | 'series';
@@ -15,8 +15,11 @@ export class GraphicsService {
 
   public startChart: Date = new Date();
   public endChart: Date = new Date();
-  public titleFirst = 'Объект/Киевгума/Отдел ГЭ/Температура помещения'+' з '
-  public vTitle = this.titleFirst + this.startChart.toString() + ' по ' + this.endChart.toString();
+  public recipe: TableModelRecipe = new TableModelRecipe(0, new Date, 'empty', 7);
+  public vTitle: string[] = ['ITEM_NAME:  '+this.recipe.name+'               '+'ITEM_TIME:  '+this.recipe.time,
+                             'DATE_FROM:  '+this.startChart.toString()+'               '+'DATE_TO:  '+this.endChart.toString(),
+                             'RANGE_SEL:___________'+'               '+'ARC:___________'+'               '+'TEMP:___________'
+                            ];
   public dataLegend1: Array<number> = [0];
   public dataLegend2: Array<number> = [15, 42, 23, 102, 120, 48];
 
@@ -52,7 +55,7 @@ export class GraphicsService {
       // hoverBorderColor?: ChartColor | ChartColor[] | Scriptable<ChartColor>;
       // hoverBorderWidth?: number | number[] | Scriptable<number>;
       // hoverRadius?: number;
-      label: 'stretching',
+      label: 'Натяг',
       lineTension: 0.1,
       // maxBarThickness?: number;
       // minBarLength?: number;
@@ -593,8 +596,8 @@ export class GraphicsService {
 
   constructor() { }
 
-  public generateNewChartTitle(title: string, start: string, end: string) {
-    this.vTitle = title + start + ' по ' + end;
+  public generateNewChartTitle(start: string, end: string) {
+    this.vTitle[1] = 'DATE_FROM:  '+start+'               '+'DATE_TO:  '+end;
   }
 
   public genChart(data: TableModelMB110_1TD[]): void{
@@ -687,7 +690,7 @@ export class GraphicsService {
       increaseArrayX = this.globalX.slice(from,to);
       increaseArrayY1 = this.globalY1.slice(from,to);
       increaseArrayY2 = this.globalY2.slice(from,to);
-      this.generateNewChartTitle(this.titleFirst, increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
+      this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
       this.buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
     }
   }
@@ -703,7 +706,7 @@ export class GraphicsService {
       increaseArrayX = this.globalX.slice(from,to);
       increaseArrayY1 = this.globalY1.slice(from,to);
       increaseArrayY2 = this.globalY2.slice(from,to);
-      this.generateNewChartTitle(this.titleFirst, increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
+      this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
       this.buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
     }
   }
@@ -719,7 +722,7 @@ export class GraphicsService {
       increaseArrayX = this.globalX.slice(from,to);
       increaseArrayY1 = this.globalY1.slice(from,to);
       increaseArrayY2 = this.globalY1.slice(from,to);
-      this.generateNewChartTitle(this.titleFirst, increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
+      this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
       this.buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
     }
   }
@@ -735,7 +738,7 @@ export class GraphicsService {
       increaseArrayX = this.globalX.slice(from,to);
       increaseArrayY1 = this.globalY1.slice(from,to);
       increaseArrayY2 = this.globalY2.slice(from,to);
-      this.generateNewChartTitle(this.titleFirst, increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
+      this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
       this.buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
     }
   }

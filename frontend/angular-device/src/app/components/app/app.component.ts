@@ -1,10 +1,11 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {MessageService} from "./services/message.service";
-import {WebsocketServiceService} from "./services/websocket-service.service";
+import {MessageService} from "../../services/message.service";
+import {WebsocketServiceService} from "../../services/websocket-service.service";
 import * as moment from "moment";
 import { saveAs } from 'file-saver';
-import {RangeDateTimeWithZone, TableModelRecipe, UserService} from "./objects/objectsSourse";
-import {GraphicsService} from "./services/graphics.service";
+import {GraphicsService} from "../../services/graphics.service";
+import {RangeDateTimeWithZone} from "../../model/RangeDateTimeWithZone";
+import {TableModelRecipe} from "../../model/TableModel";
 
 @Component({
   selector: 'app-root',
@@ -12,17 +13,17 @@ import {GraphicsService} from "./services/graphics.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit{
-  title: string = 'angular8-springboot-websocket';
-  rangeDate: RangeDateTimeWithZone = new RangeDateTimeWithZone(new Date, new Date);
-  recipe: TableModelRecipe = new TableModelRecipe(0, new Date, 'empty', 7);
-  start: Date = new Date();
-  end: Date = new Date();
-  onDraw: boolean = false;
-  currentDateTime: string;
-  valueInRealTimeStretch: number = 0;
-  informationInRealTime: string = 'Очікую';
-  contactorInRealTime: boolean = false;
-  timerInRealTime: boolean = false;
+  public title: string = 'angular8-springboot-websocket';
+  public rangeDate: RangeDateTimeWithZone = new RangeDateTimeWithZone(new Date, new Date);
+  public recipe: TableModelRecipe = new TableModelRecipe(0, new Date, 'empty', 7);
+  public start: Date = new Date();
+  public end: Date = new Date();
+  public onDraw: boolean = false;
+  public currentDateTime: string;
+  public valueInRealTimeStretch: number = 0;
+  public informationInRealTime: string = 'Очікую';
+  public contactorInRealTime: boolean = false;
+  public timerInRealTime: boolean = false;
 
   public startChart: Date = new Date();
   public endChart: Date = new Date();
@@ -58,9 +59,8 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.baseChart = baseChart;
     this.realTimeRender = realTimeRender;
 
-    this.webSocketAPI._connect();
+    this.webSocketAPI.connect();
     this.currentDateTime = this.readCurrentDateTime();
-    bodyMessage.dateStream$.subscribe( mes => {this.writeDateTimeFromServer(mes);});
     bodyMessage.modbusDevice$.subscribe(mes => {
       this.valueInRealTimeStretch = mes.holdingRegister0;
       if (this.onDraw) this.graphics.drawInRealTime(mes);
@@ -81,6 +81,13 @@ export class AppComponent implements OnInit, AfterViewInit{
     bodyMessage.textStatus$.subscribe( mes => {
       this.informationInRealTime = mes.content;
     });
+    bodyMessage.recipeStatus$.subscribe( mes => {
+      this.recipe.id = mes.id;
+      this.recipe.date = mes.date;
+      this.recipe.name = mes.name;
+      this.recipe.time = mes.time;
+      this.graphics.recipe = this.recipe;
+    });
   }
 
   ngOnInit() {}
@@ -88,7 +95,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   ngAfterViewInit() {}
 
   public sendNameAndTimeItem(){
-    this.webSocketAPI._sendRecipeItem(this.recipe);
+    this.webSocketAPI.sendRecipeItem(this.recipe);
   }
 
   public writeDateTimeFromServer(range: RangeDateTimeWithZone): void{
@@ -115,33 +122,16 @@ export class AppComponent implements OnInit, AfterViewInit{
   public sendChartBody(): void{
     this.rangeDate.start = this.start;
     this.rangeDate.end = this.end;
-    this.webSocketAPI._sendRangeDateForChart(this.rangeDate);
+    this.webSocketAPI.sendRangeDateForChart(this.rangeDate);
   }
 
-  // public addMessage(mes: string) {
-  //   this.arrayMessages.push(mes);
-  //   console.log(this.arrayMessages.toString());
-  // }
-  //
-  // public removeMessage(index: number) {
-  //   this.arrayMessages.splice(index, 1);
-  // }
-  //
-  // public renderMessage() {
-  //   this.addMessage(this.name);
-  // }
-
   public connect() {
-    this.webSocketAPI._connect();
+    this.webSocketAPI.connect();
   }
 
   public disconnect() {
-    this.webSocketAPI._disconnect();
+    this.webSocketAPI.disconnect();
   }
-
-  // public sendMessage() {
-  //   this.webSocketAPI._send(this.name);
-  // }
 
   public checkZoomValue() {
     this.graphics.zoomChart = this.zoomChart;
