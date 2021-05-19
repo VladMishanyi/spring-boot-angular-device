@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {ElementRef, Injectable, ViewChild} from '@angular/core';
 import {ChartDataSets, ChartType, Easing, InteractionMode, PointStyle, PositionType, TimeUnit} from "chart.js";
-import {Color, Label} from "ng2-charts";
+import {BaseChartDirective, Color, Label} from "ng2-charts";
 import * as moment from "moment";
 import {saveAs} from "file-saver";
 import {TableModelMB110_1TD, TableModelRecipe} from "../model/TableModel";
@@ -15,17 +15,18 @@ export class GraphicsService {
 
   public startChart: Date = new Date();
   public endChart: Date = new Date();
-  public recipe: TableModelRecipe = new TableModelRecipe(0, new Date, 'empty', 7);
-  public vTitle: string[] = ['ITEM_NAME:  '+this.recipe.name+'               '+'ITEM_TIME:  '+this.recipe.time,
+  public recipeName: string = 'empty';
+  public recipeTime: number = 7;
+  public vTitle: string[] = ['ITEM_NAME:  '+this.recipeName+'               '+'ITEM_TIME:  '+this.recipeTime,
                              'DATE_FROM:  '+this.startChart.toString()+'               '+'DATE_TO:  '+this.endChart.toString(),
                              'RANGE_SEL:___________'+'               '+'ARC:___________'+'               '+'TEMP:___________'
                             ];
-  public dataLegend1: Array<number> = [0];
-  public dataLegend2: Array<number> = [15, 42, 23, 102, 120, 48];
+  public dataLegend1: number[] = [0];
+  // public dataLegend2: number[] = [15, 42, 23, 102, 120, 48];
 
-  public globalX: Array<string> = [];
-  public globalY1: Array<number> = [];
-  public globalY2: Array<number> = [];
+  public globalX: Date[] = [];
+  public globalY1: number[] = [];
+  // public globalY2: number[] = [];
   public increaseDecriaseZoom: number = 0;
   public leftRightPosition: number = 0;
   public bufferChart: number = 1000;
@@ -594,73 +595,87 @@ export class GraphicsService {
   public lineChartType: ChartType = 'line';
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-  constructor() { }
+  constructor() {}
 
-  public generateNewChartTitle(start: string, end: string) {
-    this.vTitle[1] = 'DATE_FROM:  '+start+'               '+'DATE_TO:  '+end;
+  public generateNewChartTitle(): void {
+    this.vTitle.length = 0;
+     let i: string[] = ['ITEM_NAME:  '+this.recipeName+'               '+'ITEM_TIME:  '+this.recipeTime,
+                        'DATE_FROM:  '+this.startChart.toString()+'               '+'DATE_TO:  '+this.endChart.toString(),
+                        'RANGE_SEL:___________'+'               '+'ARC:___________'+'               '+'TEMP:___________'];
+    this.vTitle.push(...i);
   }
 
+  // public updateGraphics(): void{
+  //   this.baseChartDirective.chart.update();
+  // }
+
   public genChart(data: TableModelMB110_1TD[]): void{
-    let x: Array<string> = [];
-    let y1: Array<number> = [];
-    let y2: Array<number> = [];
+    let x: Date[] = [];
+    let y1: number[] = [];
+    // let y2: number[] = [];
     let utcLocalDateTimeOffset = this.getUtcOffset(data[0].date);
     for (let i: number=0; i < data.length; i++){
       if (data.hasOwnProperty(i)){
         try {
-          x[i] = moment(data[i]["date"], "YYYY,MM,DD,HH,mm,ss").utcOffset(utcLocalDateTimeOffset).toDate().toString();
+          x[i] = moment(data[i].date, "YYYY-MM-DD HH:mm:ss").utcOffset(utcLocalDateTimeOffset).toDate();
           y1[i] = data[i].holdingRegister0;
-          y2[i] = data[i].holdingRegister0;
+          // y2[i] = data[i].holdingRegister0;
         }catch (err){
           console.log('Ошибка ' + err.name + ":" + err.message + "\n" + err.stack);
         }
       }
     }
-    this.globalX = x;
-    this.globalY1 = y1;
-    this.globalY2 = y2;
+    this.globalX.push(...x);
+    this.globalY1.push(...y1);
+    // this.globalY2 = y2;
     this.increaseDecriaseZoom = 0;
     this.leftRightPosition = 0;
-    this.buildChart(x, y1, y2);
+    this.buildChart(x, y1/*, y2*/);
   }
 
-  public buildChart(x: Array<string>, y1: Array<number>, y2: Array<number>) {
-    this.lineChartLabels = x;
-    this.lineChartData[0].data = y1;
-    this.lineChartData[1].data = y2;
-    // this.window.myChart.update();
+  public buildChart(x: Date[], y1: number[]/*, y2: number[]*/) {
+    for (let i = 0; i < x.length -1; i++) {
+      let s: string = x[i].toISOString();
+      this.lineChartLabels.push(s);
+    }
+    // @ts-ignore
+    this.lineChartData[0].data.push(...y1);
+    // this.lineChartData[1].data = y2;
+    // this.window.baseChart.update();
+    // this.updateGraphics();
   }
 
   public clearChart(){
-    this.globalX = [];
-    this.globalY1 = [];
-    this.globalY2 = [];
-    this.lineChartLabels = [];
+    this.globalX.length = 0;
+    this.globalY1.length = 0;
+    // this.globalY2 = [];
+    this.lineChartLabels.length = 0;
     this.lineChartData.forEach(function(dataset) {
-      dataset.data = [];
+      // @ts-ignore
+      dataset.data.length = 0;
     });
     // this.window.myLine.update();
   }
 
-  public addLastElementToChart(X1: string, Y1: number, Y2: number) {
+  public addLastElementToChart(X1: Date, Y1: number, Y2: number) {
     this.globalX.push(X1);
     this.globalY1.push(Y1);
-    this.globalY2.push(Y2);
-    this.lineChartLabels.push(X1);
+    // this.globalY2.push(Y2);
+    this.lineChartLabels.push(X1.toISOString());
     // this.lineChartData[0].data.push(Y1);
     this.dataLegend1.push(Y1);
     // this.lineChartData[1].data.push(Y1);
-    this.dataLegend2.push(Y2);
+    // this.dataLegend2.push(Y2);
     // this.window.myLine.update();
   }
 
   public removeFirstElementFromChart() {
     this.globalX.shift();
     this.globalY1.shift();
-    this.globalY2.shift();
+    // this.globalY2.shift();
     this.lineChartLabels.shift();
     this.dataLegend1.shift();
-    this.dataLegend2.shift();
+    // this.dataLegend2.shift();
     // this.lineChartData.forEach(function(dataset) {
     //   dataset.data.shift();
     // });
@@ -668,7 +683,7 @@ export class GraphicsService {
   }
 
   public drawInRealTime(parsed: any) {
-    let x = moment(new Date(), "YYYY-MM-DD HH:mm:ss").toDate().toString();
+    let x = moment(new Date(), "YYYY-MM-DD HH:mm:ss").toDate();
     let y1 = parsed.holdingRegister0;
     let y2 = parsed.holdingRegister1;
     if (this.lineChartLabels.length < this.bufferChart){
@@ -682,69 +697,77 @@ export class GraphicsService {
   public increaseChart() {
     let increaseArrayX = [];
     let increaseArrayY1 = [];
-    let increaseArrayY2 = [];
+    // let increaseArrayY2 = [];
     if ((0 < this.increaseDecriaseZoom - this.leftRightPosition) || (this.globalX.length > this.increaseDecriaseZoom - this.leftRightPosition)){
       this.increaseDecriaseZoom = this.increaseDecriaseZoom + Number(this.zoomChart);
       let from = this.increaseDecriaseZoom - this.leftRightPosition;
       let to = this.globalX.length - this.increaseDecriaseZoom - this.leftRightPosition;
       increaseArrayX = this.globalX.slice(from,to);
       increaseArrayY1 = this.globalY1.slice(from,to);
-      increaseArrayY2 = this.globalY2.slice(from,to);
-      this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
-      this.buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
+      // increaseArrayY2 = this.globalY2.slice(from,to);
+      this.startChart = increaseArrayX[0];
+      this.endChart = increaseArrayX[increaseArrayX.length - 1];
+      this.generateNewChartTitle();
+      this.buildChart(increaseArrayX, increaseArrayY1/*, increaseArrayY2*/);
     }
   }
 
   public decreaseChart() {
     let increaseArrayX = [];
     let increaseArrayY1 = [];
-    let increaseArrayY2 = [];
+    // let increaseArrayY2 = [];
     if ((0 < this.increaseDecriaseZoom - this.leftRightPosition) || (this.globalX.length > this.increaseDecriaseZoom - this.leftRightPosition)){
       this.increaseDecriaseZoom = this.increaseDecriaseZoom - Number(this.zoomChart);
       let from = this.increaseDecriaseZoom - this.leftRightPosition;
       let to = this.globalX.length - this.increaseDecriaseZoom - this.leftRightPosition;
       increaseArrayX = this.globalX.slice(from,to);
       increaseArrayY1 = this.globalY1.slice(from,to);
-      increaseArrayY2 = this.globalY2.slice(from,to);
-      this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
-      this.buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
+      // increaseArrayY2 = this.globalY2.slice(from,to);
+      this.startChart = increaseArrayX[0];
+      this.endChart = increaseArrayX[increaseArrayX.length - 1];
+      this.generateNewChartTitle();
+      this.buildChart(increaseArrayX, increaseArrayY1, /*increaseArrayY2*/);
     }
   }
 
   public leftChart() {
     let increaseArrayX = [];
     let increaseArrayY1 = [];
-    let increaseArrayY2 = [];
+    // let increaseArrayY2 = [];
     if ((0 < this.increaseDecriaseZoom - this.leftRightPosition) || (this.globalX.length > this.increaseDecriaseZoom - this.leftRightPosition)){
       this.leftRightPosition = this.leftRightPosition + Number(this.zoomChart);
       let from = this.increaseDecriaseZoom - this.leftRightPosition;
       let to = this.globalX.length - this.increaseDecriaseZoom - this.leftRightPosition;
       increaseArrayX = this.globalX.slice(from,to);
       increaseArrayY1 = this.globalY1.slice(from,to);
-      increaseArrayY2 = this.globalY1.slice(from,to);
-      this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
-      this.buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
+      // increaseArrayY2 = this.globalY1.slice(from,to);
+      this.startChart = increaseArrayX[0];
+      this.endChart = increaseArrayX[increaseArrayX.length - 1];
+      this.generateNewChartTitle();
+      this.buildChart(increaseArrayX, increaseArrayY1/*, increaseArrayY2*/);
     }
   }
 
   public rightChart() {
     let increaseArrayX = [];
     let increaseArrayY1 = [];
-    let increaseArrayY2 = [];
+    // let increaseArrayY2 = [];
     if ((0 < this.increaseDecriaseZoom - this.leftRightPosition) || (this.globalX.length > this.increaseDecriaseZoom - this.leftRightPosition)){
       this.leftRightPosition  = this.leftRightPosition  - Number(this.zoomChart);
       let from = this.increaseDecriaseZoom - this.leftRightPosition;
       let to = this.globalX.length - this.increaseDecriaseZoom - this.leftRightPosition;
       increaseArrayX = this.globalX.slice(from,to);
       increaseArrayY1 = this.globalY1.slice(from,to);
-      increaseArrayY2 = this.globalY2.slice(from,to);
-      this.generateNewChartTitle(increaseArrayX[0], increaseArrayX[increaseArrayX.length - 1]);
-      this.buildChart(increaseArrayX, increaseArrayY1, increaseArrayY2);
+      // increaseArrayY2 = this.globalY2.slice(from,to);
+      this.startChart = increaseArrayX[0];
+      this.endChart = increaseArrayX[increaseArrayX.length - 1];
+      this.generateNewChartTitle();
+      this.buildChart(increaseArrayX, increaseArrayY1/*, increaseArrayY2*/);
     }
   }
 
   public getUtcOffset(date: Date) {
-    let minutesOffset = moment(date, "YYYY,MM,DD,HH,mm,ss").parseZone().utcOffset();
+    let minutesOffset = moment(date, "YYYY-MM-DD HH:mm:ss").parseZone().utcOffset();
     let hoursOffset = minutesOffset/60;
     return minutesOffset;
   }

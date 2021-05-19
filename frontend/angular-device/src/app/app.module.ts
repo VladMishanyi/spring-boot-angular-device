@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { FormsModule } from '@angular/forms';
-import { ChartsModule } from 'ng2-charts';
+import {BaseChartDirective, ChartsModule, ThemeService} from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { ChartsModule } from 'ng2-charts';
     FormsModule,
     ChartsModule
   ],
-  providers: [{ provide: Window, useValue: window }],
+  providers: [{ provide: Window, useValue: window }, ThemeService, BaseChartDirective],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

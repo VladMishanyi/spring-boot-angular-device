@@ -6,6 +6,7 @@ import { saveAs } from 'file-saver';
 import {GraphicsService} from "../../services/graphics.service";
 import {RangeDateTimeWithZone} from "../../model/RangeDateTimeWithZone";
 import {TableModelRecipe} from "../../model/TableModel";
+import {BaseChartDirective} from "ng2-charts";
 
 @Component({
   selector: 'app-root',
@@ -59,6 +60,7 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.baseChart = baseChart;
     this.realTimeRender = realTimeRender;
 
+
     this.webSocketAPI.connect();
     this.currentDateTime = this.readCurrentDateTime();
     bodyMessage.modbusDevice$.subscribe(mes => {
@@ -67,9 +69,6 @@ export class AppComponent implements OnInit, AfterViewInit{
     });
     bodyMessage.listOfTable$.subscribe( mes => {
       this.graphics.genChart(mes);
-      for (let i = 0; i < mes.length - 1; i++) {
-        console.log("current date: " + mes[i].date);
-      }
     });
     bodyMessage.timerStatus$.subscribe( mes => {
       this.timerInRealTime = mes.content;
@@ -86,7 +85,8 @@ export class AppComponent implements OnInit, AfterViewInit{
       this.recipe.date = mes.date;
       this.recipe.name = mes.name;
       this.recipe.time = mes.time;
-      this.graphics.recipe = this.recipe;
+      this.graphics.recipeName = mes.name;
+      this.graphics.recipeTime = mes.time;
     });
   }
 
@@ -98,14 +98,14 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.webSocketAPI.sendRecipeItem(this.recipe);
   }
 
-  public writeDateTimeFromServer(range: RangeDateTimeWithZone): void{
-    this.startChart = range.start;
-    this.endChart = range.end;
-    this.start = range.start;
-    this.end = range.end;
-    this.graphics.startChart = this.startChart;
-    this.graphics.endChart = this.endChart;
-  }
+  // public writeDateTimeFromServer(range: RangeDateTimeWithZone): void{
+  //   this.startChart = range.start;
+  //   this.endChart = range.end;
+  //   this.start = range.start;
+  //   this.end = range.end;
+  //   this.graphics.startChart = this.startChart;
+  //   this.graphics.endChart = this.endChart;
+  // }
 
   public readCurrentDateTime(): string{
     return  moment().format("YYYY-MM-DD HH:mm:ss");
