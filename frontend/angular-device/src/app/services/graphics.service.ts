@@ -21,7 +21,7 @@ export class GraphicsService {
                              'DATE_FROM:  '+this.startChart.toString()+'               '+'DATE_TO:  '+this.endChart.toString(),
                              'RANGE_SEL:___________'+'               '+'ARC:___________'+'               '+'TEMP:___________'
                             ];
-  public dataLegend1: number[] = [0];
+  public dataLegend1: number[] = [0, 15, 42, 23, 102, 120, 48];
   // public dataLegend2: number[] = [15, 42, 23, 102, 120, 48];
 
   public globalX: Date[] = [];
@@ -142,13 +142,13 @@ export class GraphicsService {
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
   public lineChartLabels: Label[] =
     [
-      moment().format('YYYY-MM-DD HH:mm:ss').toString()/*,
-      moment().add(1, 'hours').format('YYYY-MM-DD HH:mm:ss').toString(),
-      moment().add(2, 'hours').format('YYYY-MM-DD HH:mm:ss').toString(),
-      moment().add(3, 'hours').format('YYYY-MM-DD HH:mm:ss').toString(),
-      moment().add(4, 'hours').format('YYYY-MM-DD HH:mm:ss').toString(),
-      moment().add(5, 'hours').format('YYYY-MM-DD HH:mm:ss').toString(),
-      moment().add(6, 'hours').format('YYYY-MM-DD HH:mm:ss').toString()*/
+      moment().format('YYYY-MM-DD HH:mm:ss'),
+      moment().add(20, 'minute').format('YYYY-MM-DD HH:mm:ss'),
+      moment().add(40, 'minute').format('YYYY-MM-DD HH:mm:ss'),
+      moment().add(60, 'minute').format('YYYY-MM-DD HH:mm:ss'),
+      moment().add(80, 'minute').format('YYYY-MM-DD HH:mm:ss'),
+      moment().add(100, 'minute').format('YYYY-MM-DD HH:mm:ss'),
+      moment().add(120, 'minute').format('YYYY-MM-DD HH:mm:ss')
     ];
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
   linePositionType: PositionType = 'top';
