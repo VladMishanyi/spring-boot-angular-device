@@ -5,8 +5,10 @@ import * as moment from "moment";
 import { saveAs } from 'file-saver';
 import {GraphicsService} from "../../services/graphics.service";
 import {RangeDateTimeWithZone} from "../../model/RangeDateTimeWithZone";
-import {TableModelRecipe} from "../../model/TableModel";
+import {TableModelMB110_1TD, TableModelRecipe} from "../../model/TableModel";
 import {BaseChartDirective} from "ng2-charts";
+import {JsonString} from "../../model/JsonString";
+import {JsonNumber} from "../../model/JsonNumber";
 
 @Component({
   selector: 'app-root',
@@ -25,6 +27,8 @@ export class AppComponent implements OnInit, AfterViewInit{
   public informationInRealTime: string = 'Очікую';
   public contactorInRealTime: boolean = false;
   public timerInRealTime: boolean = false;
+  public searchPattern: JsonString = new JsonString('');
+  public listOfRecipesByNamePattern: TableModelRecipe[] = [];
 
   public startChart: Date = new Date();
   public endChart: Date = new Date();
@@ -88,14 +92,29 @@ export class AppComponent implements OnInit, AfterViewInit{
       this.graphics.recipeName = mes.name;
       this.graphics.recipeTime = mes.time;
     });
+    bodyMessage.recipeByNamePattern$.subscribe( mes => {
+        this.listOfRecipesByNamePattern.length = 0;
+        this.listOfRecipesByNamePattern.push(...mes);
+    });
+    bodyMessage.listOfDevicesByIdReceive$.subscribe( mes => {
+      this.graphics.genChart(mes);
+    });
   }
 
   ngOnInit() {}
 
   ngAfterViewInit() {}
 
+  public generateChartbyRecipeId(id: number): void{
+    this.webSocketAPI.sendDeviceById(new JsonNumber(id));
+  }
+
   public sendNameAndTimeItem(){
     this.webSocketAPI.sendRecipeItem(this.recipe);
+  }
+
+  public sendSearchPattern(){
+    this.webSocketAPI.sendRecipeByNamePattern(this.searchPattern);
   }
 
   // public writeDateTimeFromServer(range: RangeDateTimeWithZone): void{

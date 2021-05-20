@@ -15,6 +15,8 @@ export class MessageService {
   private contactStatus = new Subject<JsonBoolean>();
   private textStatus = new Subject<JsonString>();
   private recipe = new Subject<TableModelRecipe>();
+  private listOfrecipeByNamePattern = new Subject<TableModelRecipe[]>();
+  private listOfDevicesByIdReceive = new Subject<TableModelMB110_1TD[]>();
 
   public listOfTable$ = this.listOfTable.asObservable();
   public modbusDevice$ = this.modbusDevice.asObservable();
@@ -22,6 +24,8 @@ export class MessageService {
   public contactStatus$ = this.contactStatus.asObservable();
   public textStatus$ = this.textStatus.asObservable();
   public recipeStatus$ = this.recipe.asObservable();
+  public recipeByNamePattern$ = this.listOfrecipeByNamePattern.asObservable();
+  public listOfDevicesByIdReceive$ = this.listOfDevicesByIdReceive.asObservable();
 
   constructor() {}
 
@@ -47,5 +51,13 @@ export class MessageService {
 
   public newRecipe(recipe: TableModelRecipe): void {
     this.recipe.next(recipe);
+  }
+
+  public newRecipeByNamePattern(recipe: TableModelRecipe[]): void {
+    this.listOfrecipeByNamePattern.next(recipe);
+  }
+
+  public newDeviceById(listDevices: TableModelMB110_1TD[]): void {
+    this.listOfDevicesByIdReceive.next(listDevices);
   }
 }

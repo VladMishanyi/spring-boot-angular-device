@@ -18,6 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @ComponentScan(basePackages = {"com.vk.servicesiliconezone.repository.database","com.vk.servicesiliconezone.repository.modbus"})
@@ -48,5 +50,16 @@ public class ServiceRecipeImpl implements ServiceRecipe {
     @Override
     public void databaseAddAllTableDevice(final List<TableModelRecipe> tableModelList){
         repositoryDatabase.saveAll(tableModelList);
+    }
+    @Transactional(readOnly = true)
+    @Override
+    public List<TableModelRecipe> findAllByName(String pattern){
+        return repositoryDatabase.findAllByName(pattern).stream().limit(5).collect(Collectors.toList());
+    }
+    @Transactional(readOnly = true)
+    @Override
+    public List<TableModelMB110_1TD> findByIdRecipe(Long id){
+        Optional<TableModelRecipe> r = repositoryDatabase.findById(id);
+        return r.map(TableModelRecipe::getTableModelMB110_1TDList).orElse(null);
     }
 }

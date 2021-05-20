@@ -17,9 +17,13 @@ export class WebsocketServiceService {
   topicMessageContactStatus: string = '/topic/message-contact-status';
   topicMessageTextStatus: string = '/topic/message-text-status';
   topicRecipeItem: string = '/topic/table-recipe';
+  topicRecipeByNamePattern: string = '/topic/table-recipe-by-name-pattern';
+  topicDeviceById: string = '/topic/table-device-by-id';
 
   appChartDateRange: string = '/app/generate-chart-laboratory-reometr';
   appRecipeItem: string = '/app/table-recipe';
+  appRecipeByNamePattern: string = '/app/table-recipe-by-name-pattern';
+  appDeviceById: string = '/app/table-device-by-id';
 
   stompClient: any;
 
@@ -56,6 +60,14 @@ export class WebsocketServiceService {
       entity.stompClient.subscribe(entity.topicRecipeItem, function(sdkEvent: any) {
         entity.onTableRecipeReceive(sdkEvent);
       });
+
+      entity.stompClient.subscribe(entity.topicRecipeByNamePattern, function(sdkEvent: any) {
+        entity.onRecipeByNamePatternReceive(sdkEvent);
+      });
+
+      entity.stompClient.subscribe(entity.topicDeviceById, function(sdkEvent: any) {
+        entity.onDeviceByIdReceive(sdkEvent);
+      });
       // entity.stompClient.reconnect_delay = 2000;
     }, this.errorCallBack);
   }
@@ -81,6 +93,14 @@ export class WebsocketServiceService {
 
   sendRangeDateForChart(message: any) {
     this.stompClient.send(this.appChartDateRange, {}, JSON.stringify(message));
+  }
+
+  sendRecipeByNamePattern(message: any) {
+    this.stompClient.send(this.appRecipeByNamePattern, {}, JSON.stringify(message));
+  }
+
+  sendDeviceById(message: any) {
+    this.stompClient.send(this.appDeviceById, {}, JSON.stringify(message));
   }
 
   onListOfTablesReceive(tables: any){
@@ -111,5 +131,15 @@ export class WebsocketServiceService {
   onTableRecipeReceive(recipe: any){
     const mes = JSON.parse(recipe.body);
     this.bodyMessage.newRecipe(mes);
+  }
+
+  onRecipeByNamePatternReceive(recipe: any){
+    const mes = JSON.parse(recipe.body);
+    this.bodyMessage.newRecipeByNamePattern(mes);
+  }
+
+  onDeviceByIdReceive(recipe: any){
+    const mes = JSON.parse(recipe.body);
+    this.bodyMessage.newDeviceById(mes);
   }
 }

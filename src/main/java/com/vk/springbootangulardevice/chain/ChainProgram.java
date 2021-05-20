@@ -58,7 +58,7 @@ public class ChainProgram extends Thread{
         try {
             while (!this.isInterrupted()){
                 //gust for debugging
-                modelRaspberry.setGpio27(true);
+//                modelRaspberry.setGpio27(true);
 
                 timerON.setEnable(modelRaspberry.isGpio27());
                 timerON.setTime(tableModelRecipe.getTime() * (long) 60);
@@ -80,7 +80,6 @@ public class ChainProgram extends Thread{
                     }
                 }
 
-                System.out.println("7"+timerON.toString()+riseFront.toString());
 //                serviceMB110_1TD.raspberryWriteGPI26(!modelRaspberry.isGpio27());
 //                serviceMB110_1TD.raspberryWriteGPI28(!timerON.isEndTime());
 //                serviceMB110_1TD.messageTimerStatus(new JsonBoolean(timerON.isEnable()));
