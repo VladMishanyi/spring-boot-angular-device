@@ -20,7 +20,6 @@ public class WatchDogController {
     private ChainModbus chainModbus;
     private ChainProgram chainProgram;
     //    private ChainRaspberry chainRaspberry;
-    private final TaskMB110_1TD taskMB110_1TD;
     //    private final RepositoryRaspberry repositoryRaspberry;
     private final DeviceModelMB110_1TD deviceModelMB110_1TD;
     private final ModelRaspberry modelRaspberry;
@@ -32,7 +31,6 @@ public class WatchDogController {
                               final ChainModbus chainModbus,
                               final ChainProgram chainProgram,
 //                              final ChainRaspberry chainRaspberry,
-                              final TaskMB110_1TD taskMB110_1TD,
 //                              final RepositoryRaspberry repositoryRaspberry,
                               final DeviceModelMB110_1TD deviceModelMB110_1TD,
                               final ModelRaspberry modelRaspberry,
@@ -42,7 +40,6 @@ public class WatchDogController {
         this.chainModbus = chainModbus;
         this.chainProgram = chainProgram;
 //        this.chainRaspberry = chainRaspberry;
-        this.taskMB110_1TD = taskMB110_1TD;
 //        this.repositoryRaspberry = repositoryRaspberry;
         this.deviceModelMB110_1TD = deviceModelMB110_1TD;
         this.modelRaspberry = modelRaspberry;
@@ -53,7 +50,7 @@ public class WatchDogController {
     @Scheduled(fixedRate = 1000*60)
     private void loopModbus(){
         if (!chainModbus.isAlive()){
-            chainModbus = new ChainModbus(taskMB110_1TD, serviceMB110_1TD);
+            chainModbus = new ChainModbus(serviceMB110_1TD, deviceModelMB110_1TD);
         }
     }
 

@@ -4,6 +4,7 @@ import com.vk.springbootangulardevice.database.table.TableModelMB110_1TD;
 import com.vk.springbootangulardevice.json.JsonBodyListForTableModelMB110_1TD;
 import com.vk.springbootangulardevice.modbus.device.DeviceModelMB110_1TD;
 import com.vk.springbootangulardevice.model.JsonBoolean;
+import com.vk.springbootangulardevice.model.JsonFloat;
 import com.vk.springbootangulardevice.model.JsonString;
 
 import java.time.LocalDateTime;
@@ -31,4 +32,5 @@ public interface ServiceMB110_1TD extends ServiceRoot<TableModelMB110_1TD, JsonB
     void messageTimerStatus(JsonBoolean status);
     void messageContactStatus(JsonBoolean status);
     void messageTextStatus(JsonString status);
+    void messageRealMeasuringValueFromSensor(DeviceModelMB110_1TD status);
 }

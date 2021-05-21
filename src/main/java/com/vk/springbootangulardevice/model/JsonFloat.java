@@ -3,21 +3,21 @@ package com.vk.springbootangulardevice.model;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JsonString {
-    private String content;
+public class JsonFloat {
+    private float content;
 
-    public JsonString() {
+    public JsonFloat() {
     }
 
-    public JsonString(String content) {
+    public JsonFloat(float content) {
         this.content = content;
     }
 
-    public String getContent() {
+    public float getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(float content) {
         this.content = content;
     }
 }

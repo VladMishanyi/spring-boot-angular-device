@@ -5,6 +5,7 @@ import com.vk.springbootangulardevice.json.JsonBodyListForTableModelMB110_1TD;
 import com.vk.springbootangulardevice.modbus.device.DeviceModelMB110_1TD;
 import com.vk.springbootangulardevice.modbus.en.DigsFloat;
 import com.vk.springbootangulardevice.model.JsonBoolean;
+import com.vk.springbootangulardevice.model.JsonFloat;
 import com.vk.springbootangulardevice.model.JsonString;
 import com.vk.springbootangulardevice.repository.database.RepositoryDatabaseMB110_1TD;
 import com.vk.springbootangulardevice.repository.modbus.RepositoryModbusMB110_1TD;
@@ -118,5 +119,9 @@ public class ServiceMB110_1TDImpl
     @Override
     public void messageTextStatus(JsonString status){
         repositoryWebsocket.messageTextStatus(status);
+    }
+    @Override
+    public void messageRealMeasuringValueFromSensor(DeviceModelMB110_1TD status){
+        repositoryWebsocket.messageRealMeasuringValueFromSensor(status);
     }
 }
