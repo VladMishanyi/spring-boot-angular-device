@@ -17,6 +17,7 @@ export class MessageService {
   private recipe = new Subject<TableModelRecipe>();
   private listOfrecipeByNamePattern = new Subject<TableModelRecipe[]>();
   private listOfDevicesByIdReceive = new Subject<TableModelMB110_1TD[]>();
+  private allRegistersFromModbusDevice = new Subject<DeviceModelMB110_1TD>();
 
   public listOfTable$ = this.listOfTable.asObservable();
   public modbusDevice$ = this.modbusDevice.asObservable();
@@ -26,6 +27,7 @@ export class MessageService {
   public recipeStatus$ = this.recipe.asObservable();
   public recipeByNamePattern$ = this.listOfrecipeByNamePattern.asObservable();
   public listOfDevicesByIdReceive$ = this.listOfDevicesByIdReceive.asObservable();
+  public allRegistersFromModbusDevice$ = this.allRegistersFromModbusDevice.asObservable();
 
   constructor() {}
 
@@ -59,5 +61,9 @@ export class MessageService {
 
   public newDeviceById(listDevices: TableModelMB110_1TD[]): void {
     this.listOfDevicesByIdReceive.next(listDevices);
+  }
+
+  public newAllRegistersFromModbusDevice(device: DeviceModelMB110_1TD): void {
+    this.allRegistersFromModbusDevice.next(device);
   }
 }

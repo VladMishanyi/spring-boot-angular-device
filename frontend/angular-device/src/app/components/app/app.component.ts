@@ -9,6 +9,7 @@ import {TableModelMB110_1TD, TableModelRecipe} from "../../model/TableModel";
 import {BaseChartDirective} from "ng2-charts";
 import {JsonString} from "../../model/JsonString";
 import {JsonNumber} from "../../model/JsonNumber";
+import {DeviceModelMB110_1TD} from "../../model/DeviceModelMB110_1TD";
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   public timerInRealTime: boolean = false;
   public searchPattern: JsonString = new JsonString('');
   public listOfRecipesByNamePattern: TableModelRecipe[] = [];
+  public device: DeviceModelMB110_1TD = new DeviceModelMB110_1TD(0,0,0,0,0,0,0,0);
 
   public startChart: Date = new Date();
   public endChart: Date = new Date();
@@ -98,6 +100,16 @@ export class AppComponent implements OnInit, AfterViewInit{
     });
     bodyMessage.listOfDevicesByIdReceive$.subscribe( mes => {
       this.graphics.genChart(mes);
+    });
+    bodyMessage.allRegistersFromModbusDevice$.subscribe( mes => {
+      this.device.holdingRegister0 = mes.holdingRegister0;
+      this.device.holdingRegister1 = mes.holdingRegister1;
+      this.device.holdingRegister2 = mes.holdingRegister2;
+      this.device.holdingRegister3 = mes.holdingRegister3;
+      this.device.holdingRegister4 = mes.holdingRegister4;
+      this.device.holdingRegister5 = mes.holdingRegister5;
+      this.device.holdingRegister6 = mes.holdingRegister6;
+      this.device.holdingRegister7 = mes.holdingRegister7;
     });
   }
 

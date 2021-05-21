@@ -19,6 +19,7 @@ export class WebsocketServiceService {
   topicRecipeItem: string = '/topic/table-recipe';
   topicRecipeByNamePattern: string = '/topic/table-recipe-by-name-pattern';
   topicDeviceById: string = '/topic/table-device-by-id';
+  topicAllRegistersFromModbusDevice: string = '/topic/message-all-registers-from-modbus-device';
 
   appChartDateRange: string = '/app/generate-chart-laboratory-reometr';
   appRecipeItem: string = '/app/table-recipe';
@@ -67,6 +68,10 @@ export class WebsocketServiceService {
 
       entity.stompClient.subscribe(entity.topicDeviceById, function(sdkEvent: any) {
         entity.onDeviceByIdReceive(sdkEvent);
+      });
+
+      entity.stompClient.subscribe(entity.topicAllRegistersFromModbusDevice, function(sdkEvent: any) {
+        entity.onAllRegistersFromModbusDeviceReceive(sdkEvent);
       });
       // entity.stompClient.reconnect_delay = 2000;
     }, this.errorCallBack);
@@ -141,5 +146,10 @@ export class WebsocketServiceService {
   onDeviceByIdReceive(recipe: any){
     const mes = JSON.parse(recipe.body);
     this.bodyMessage.newDeviceById(mes);
+  }
+
+  onAllRegistersFromModbusDeviceReceive(all: any){
+    const mes = JSON.parse(all.body);
+    this.bodyMessage.newAllRegistersFromModbusDevice(mes);
   }
 }

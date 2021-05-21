@@ -2,6 +2,7 @@ package com.vk.springbootangulardevice.repository.modbus;
 
 import com.serotonin.modbus4j.BatchRead;
 import com.vk.springbootangulardevice.modbus.ModbusFloat;
+import com.vk.springbootangulardevice.modbus.ModbusInteger;
 import com.vk.springbootangulardevice.modbus.ModbusShort;
 import com.vk.springbootangulardevice.modbus.device.DeviceModelMB110_1TD;
 import com.vk.springbootangulardevice.modbus.entity.ModbusMasterSerialModel;
@@ -17,13 +18,10 @@ import java.util.concurrent.ArrayBlockingQueue;
 public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
 
     private final ModbusMasterSerialModel modbusMasterSerialFirst;
-
     private final DeviceModelMB110_1TD deviceModelMB110_1TD;
-
     private final BatchRead<Integer> batchRead;
-
     private final ModbusFloat modbusFloat;
-
+    private final ModbusInteger modbusInteger;
     private final ModbusShort modbusShort;
     private final int queueSize = 300;
     private Queue<Float> queue = new ArrayBlockingQueue<Float>(queueSize);
@@ -34,12 +32,14 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
                                          final DeviceModelMB110_1TD deviceModelMB110_1TD,
                                          final BatchRead<Integer> batchRead,
                                          final ModbusFloat modbusFloat,
-                                         final ModbusShort modbusShort) {
+                                         final ModbusShort modbusShort,
+                                         final ModbusInteger modbusInteger) {
         this.modbusMasterSerialFirst = modbusMasterSerialFirst;
         this.deviceModelMB110_1TD = deviceModelMB110_1TD;
         this.batchRead = batchRead;
         this.modbusFloat = modbusFloat;
         this.modbusShort = modbusShort;
+        this.modbusInteger = modbusInteger;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
                                                      final short borderMax,
                                                      final float digsFloat,
                                                      final boolean enableBatch) {
-        if (Objects.nonNull(modbusFloat) && Objects.nonNull(modbusShort)){
+        if (Objects.nonNull(modbusFloat) && Objects.nonNull(modbusInteger)){
 
             modbusFloat.setUseBorders(useBorders, borderMax, borderMin);
             final List<Float> listFloat =  modbusFloat.readDataFromModBusDigs(
@@ -67,16 +67,16 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
             deviceModelMB110_1TD.setHoldingRegister6(listFloat.get(2));
             deviceModelMB110_1TD.setHoldingRegister7(listFloat.get(3));
 
-            modbusShort.setUseBorders(useBorders, borderMax, borderMin);
-            final List<Short> listShort =  modbusShort.readDataFromModBus(
+            modbusInteger.setUseBorders(useBorders, borderMax, borderMin);
+            final List<Integer> list =  modbusInteger.readDataFromModBus(
                     modbusMasterSerialFirst,
                     deviceModelMB110_1TD.getDeviceAddress(),
                     batchRead,
                     enableBatch,
                     deviceModelMB110_1TD.getModbusLocator3h(),
                     deviceModelMB110_1TD.getModbusLocator4h());
-            deviceModelMB110_1TD.setHoldingRegister3(listShort.get(0));
-            deviceModelMB110_1TD.setHoldingRegister4(listShort.get(1));
+            deviceModelMB110_1TD.setHoldingRegister3(list.get(0));
+            deviceModelMB110_1TD.setHoldingRegister4(list.get(1));
         }
         return deviceModelMB110_1TD;
     }
@@ -105,15 +105,15 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
                                                       final short borderMin,
                                                       final short borderMax,
                                                       final boolean enableBatch) {
-        if (Objects.nonNull(modbusShort)){
-            modbusShort.setUseBorders(useBorders, borderMax, borderMin);
-            final List<Short> listShort =  modbusShort.readDataFromModBus(
+        if (Objects.nonNull(modbusInteger)){
+            modbusInteger.setUseBorders(useBorders, borderMax, borderMin);
+            final List<Integer> list =  modbusInteger.readDataFromModBus(
                     modbusMasterSerialFirst,
                     deviceModelMB110_1TD.getDeviceAddress(),
                     batchRead,
                     enableBatch,
                     deviceModelMB110_1TD.getModbusLocator3h());
-            deviceModelMB110_1TD.setHoldingRegister3(listShort.get(0));
+            deviceModelMB110_1TD.setHoldingRegister3(list.get(0));
         }
         return deviceModelMB110_1TD;
     }
@@ -122,15 +122,15 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
                                                       final short borderMin,
                                                       final short borderMax,
                                                       final boolean enableBatch) {
-        if (Objects.nonNull(modbusShort)){
-            modbusShort.setUseBorders(useBorders, borderMax, borderMin);
-            final List<Short> listShort =  modbusShort.readDataFromModBus(
+        if (Objects.nonNull(modbusInteger)){
+            modbusInteger.setUseBorders(useBorders, borderMax, borderMin);
+            final List<Integer> list =  modbusInteger.readDataFromModBus(
                     modbusMasterSerialFirst,
                     deviceModelMB110_1TD.getDeviceAddress(),
                     batchRead,
                     enableBatch,
                     deviceModelMB110_1TD.getModbusLocator4h());
-            deviceModelMB110_1TD.setHoldingRegister4(listShort.get(0));
+            deviceModelMB110_1TD.setHoldingRegister4(list.get(0));
         }
         return deviceModelMB110_1TD;
     }
