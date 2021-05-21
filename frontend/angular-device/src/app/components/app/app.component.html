@@ -10,55 +10,87 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
     <a class="navbar-brand" href="#">Kyivguma LCC</a>
-<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--      <span class="navbar-toggler-icon"></span>-->
-<!--    </button>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
 <!--        <li class="nav-item active">-->
 <!--          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
 <!--        </li>-->
-        <li class="nav-item">
-          <a class="nav-link" href="#">Враховувати тару</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEnableDisableItemWeight" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Врах. тару
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownEnableDisableItemWeight">
+            <input type="text" class="dropdown-item disabled" value="-">
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">0-враховувати</a>
+            <a class="dropdown-item" href="#">1-не враховувати</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Чутливість сенсору</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSensitivity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Чутл. сенсору
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownSensitivity">
+            <input type="text" class="dropdown-item disabled" value="-">
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">0- 1мВ/В</a>
+            <a class="dropdown-item" href="#">1- 2мВ/В</a>
+            <a class="dropdown-item" href="#">2- 4мВ/В</a>
+            <a class="dropdown-item" href="#">3- 8мВ/В</a>
+            <a class="dropdown-item" href="#">4- 16мВ/В</a>
+            <a class="dropdown-item" href="#">5- 32мВ/В</a>
+            <a class="dropdown-item" href="#">6- 64мВ/В</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Мінімальне значення</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMinValue" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Мін. знач.
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMinValue">
+            <input type="text" class="dropdown-item disabled" value="-">
+            <div class="dropdown-divider"></div>
+            <input type="text" class="dropdown-item" value="0">
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Максимальне значення</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMaxValue" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Макс. знач.
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMaxValue">
+            <input type="text" class="dropdown-item disabled" value="-">
+            <div class="dropdown-divider"></div>
+            <input type="text" class="dropdown-item" value="0">
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Вага тари</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSetWethgt" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Вага тари
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownSetWethgt">
+            <input type="text" class="dropdown-item disabled" value="-">
+            <div class="dropdown-divider"></div>
+            <input type="text" class="dropdown-item" value="0">
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Вимір</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutoCalibrate" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Тарувати
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownAutoCalibrate">
+            <input type="text" class="dropdown-item disabled" value="-">
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">0-тарувати</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Застосувати</a>
-        </li>
-<!--        <li class="nav-item dropdown">-->
-<!--          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--            Dropdown-->
-<!--          </a>-->
-<!--          <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-<!--            <a class="dropdown-item" href="#">Action</a>-->
-<!--            <a class="dropdown-item" href="#">Another action</a>-->
-<!--            <div class="dropdown-divider"></div>-->
-<!--            <a class="dropdown-item" href="#">Something else here</a>-->
-<!--          </div>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
-<!--        </li>-->
       </ul>
-<!--      <form class="form-inline my-2 my-lg-0">-->
-<!--        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-<!--      </form>-->
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2 disabled" type="search" style="max-width: 85px" placeholder="вимір" aria-label="вимір">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Застосувати</button>
+      </form>
     </div>
   </nav>
 
@@ -246,7 +278,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row highlight-bocks">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <canvas id="baseChart" width="500" height="320" #baseChart baseChart
               [datasets]="lineChartData"

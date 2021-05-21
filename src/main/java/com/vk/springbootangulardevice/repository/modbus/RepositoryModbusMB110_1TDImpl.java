@@ -48,7 +48,8 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
                                                      final short borderMax,
                                                      final float digsFloat,
                                                      final boolean enableBatch) {
-        if (Objects.nonNull(modbusFloat)){
+        if (Objects.nonNull(modbusFloat) && Objects.nonNull(modbusShort)){
+
             modbusFloat.setUseBorders(useBorders, borderMax, borderMin);
             final List<Float> listFloat =  modbusFloat.readDataFromModBusDigs(
                     digsFloat,
@@ -56,9 +57,26 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
                     deviceModelMB110_1TD.getDeviceAddress(),
                     batchRead,
                     enableBatch,
-                    deviceModelMB110_1TD.getModbusLocator0h()
+                    deviceModelMB110_1TD.getModbusLocator0h(),
+                    deviceModelMB110_1TD.getModbusLocator5h(),
+                    deviceModelMB110_1TD.getModbusLocator6h(),
+                    deviceModelMB110_1TD.getModbusLocator7h()
                     );
             deviceModelMB110_1TD.setHoldingRegister0(doingSomeMathForProperShovingCharts(listFloat.get(0)));
+            deviceModelMB110_1TD.setHoldingRegister5(listFloat.get(1));
+            deviceModelMB110_1TD.setHoldingRegister6(listFloat.get(2));
+            deviceModelMB110_1TD.setHoldingRegister7(listFloat.get(3));
+
+            modbusShort.setUseBorders(useBorders, borderMax, borderMin);
+            final List<Short> listShort =  modbusShort.readDataFromModBus(
+                    modbusMasterSerialFirst,
+                    deviceModelMB110_1TD.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelMB110_1TD.getModbusLocator3h(),
+                    deviceModelMB110_1TD.getModbusLocator4h());
+            deviceModelMB110_1TD.setHoldingRegister3(listShort.get(0));
+            deviceModelMB110_1TD.setHoldingRegister4(listShort.get(1));
         }
         return deviceModelMB110_1TD;
     }
@@ -82,9 +100,100 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
         }
         return deviceModelMB110_1TD;
     }
+    @Override
+    public DeviceModelMB110_1TD readDataFromRegister3(final boolean useBorders,
+                                                      final short borderMin,
+                                                      final short borderMax,
+                                                      final boolean enableBatch) {
+        if (Objects.nonNull(modbusShort)){
+            modbusShort.setUseBorders(useBorders, borderMax, borderMin);
+            final List<Short> listShort =  modbusShort.readDataFromModBus(
+                    modbusMasterSerialFirst,
+                    deviceModelMB110_1TD.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelMB110_1TD.getModbusLocator3h());
+            deviceModelMB110_1TD.setHoldingRegister3(listShort.get(0));
+        }
+        return deviceModelMB110_1TD;
+    }
+    @Override
+    public DeviceModelMB110_1TD readDataFromRegister4(final boolean useBorders,
+                                                      final short borderMin,
+                                                      final short borderMax,
+                                                      final boolean enableBatch) {
+        if (Objects.nonNull(modbusShort)){
+            modbusShort.setUseBorders(useBorders, borderMax, borderMin);
+            final List<Short> listShort =  modbusShort.readDataFromModBus(
+                    modbusMasterSerialFirst,
+                    deviceModelMB110_1TD.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelMB110_1TD.getModbusLocator4h());
+            deviceModelMB110_1TD.setHoldingRegister4(listShort.get(0));
+        }
+        return deviceModelMB110_1TD;
+    }
+    @Override
+    public DeviceModelMB110_1TD readDataFromRegister5(final boolean useBorders,
+                                                      final short borderMin,
+                                                      final short borderMax,
+                                                      final float digsFloat,
+                                                      final boolean enableBatch) {
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.setUseBorders(useBorders, borderMax, borderMin);
+            final List<Float> listFloat =  modbusFloat.readDataFromModBusDigs(
+                    digsFloat,
+                    modbusMasterSerialFirst,
+                    deviceModelMB110_1TD.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelMB110_1TD.getModbusLocator5h());
+            deviceModelMB110_1TD.setHoldingRegister5(listFloat.get(0));
+        }
+        return deviceModelMB110_1TD;
+    }
+    @Override
+    public DeviceModelMB110_1TD readDataFromRegister6(final boolean useBorders,
+                                                      final short borderMin,
+                                                      final short borderMax,
+                                                      final float digsFloat,
+                                                      final boolean enableBatch) {
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.setUseBorders(useBorders, borderMax, borderMin);
+            final List<Float> listFloat =  modbusFloat.readDataFromModBusDigs(
+                    digsFloat,
+                    modbusMasterSerialFirst,
+                    deviceModelMB110_1TD.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelMB110_1TD.getModbusLocator6h());
+            deviceModelMB110_1TD.setHoldingRegister6(listFloat.get(0));
+        }
+        return deviceModelMB110_1TD;
+    }
+    @Override
+    public DeviceModelMB110_1TD readDataFromRegister7(final boolean useBorders,
+                                                      final short borderMin,
+                                                      final short borderMax,
+                                                      final float digsFloat,
+                                                      final boolean enableBatch) {
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.setUseBorders(useBorders, borderMax, borderMin);
+            final List<Float> listFloat =  modbusFloat.readDataFromModBusDigs(
+                    digsFloat,
+                    modbusMasterSerialFirst,
+                    deviceModelMB110_1TD.getDeviceAddress(),
+                    batchRead,
+                    enableBatch,
+                    deviceModelMB110_1TD.getModbusLocator7h());
+            deviceModelMB110_1TD.setHoldingRegister7(listFloat.get(0));
+        }
+        return deviceModelMB110_1TD;
+    }
 
     @Override
-    public DeviceModelMB110_1TD writeDataToRegister0(final short value) {
+    public DeviceModelMB110_1TD writeDataToRegister1(final short value) {
         if (Objects.nonNull(modbusShort)){
             modbusShort.writeDataToModBus(
                     modbusMasterSerialFirst,
@@ -97,7 +206,7 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
     }
 
     @Override
-    public DeviceModelMB110_1TD writeDataToRegister1(final short value) {
+    public DeviceModelMB110_1TD writeDataToRegister2(final short value) {
         if (Objects.nonNull(modbusShort)){
             modbusShort.writeDataToModBus(
                     modbusMasterSerialFirst,
@@ -105,6 +214,71 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
                     value,
                     deviceModelMB110_1TD.getModbusLocator2h());
             deviceModelMB110_1TD.setHoldingRegister2(value);
+        }
+        return deviceModelMB110_1TD;
+    }
+
+    @Override
+    public DeviceModelMB110_1TD writeDataToRegister3(final short value) {
+        if (Objects.nonNull(modbusShort)){
+            modbusShort.writeDataToModBus(
+                    modbusMasterSerialFirst,
+                    deviceModelMB110_1TD.getDeviceAddress(),
+                    value,
+                    deviceModelMB110_1TD.getModbusLocator3h());
+            deviceModelMB110_1TD.setHoldingRegister3(value);
+        }
+        return deviceModelMB110_1TD;
+    }
+
+    @Override
+    public DeviceModelMB110_1TD writeDataToRegister4(final short value) {
+        if (Objects.nonNull(modbusShort)){
+            modbusShort.writeDataToModBus(
+                    modbusMasterSerialFirst,
+                    deviceModelMB110_1TD.getDeviceAddress(),
+                    value,
+                    deviceModelMB110_1TD.getModbusLocator4h());
+            deviceModelMB110_1TD.setHoldingRegister4(value);
+        }
+        return deviceModelMB110_1TD;
+    }
+
+    @Override
+    public DeviceModelMB110_1TD writeDataToRegister5(final float value) {
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(
+                    modbusMasterSerialFirst,
+                    deviceModelMB110_1TD.getDeviceAddress(),
+                    value,
+                    deviceModelMB110_1TD.getModbusLocator5h());
+            deviceModelMB110_1TD.setHoldingRegister5(value);
+        }
+        return deviceModelMB110_1TD;
+    }
+
+    @Override
+    public DeviceModelMB110_1TD writeDataToRegister6(final float value) {
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(
+                    modbusMasterSerialFirst,
+                    deviceModelMB110_1TD.getDeviceAddress(),
+                    value,
+                    deviceModelMB110_1TD.getModbusLocator6h());
+            deviceModelMB110_1TD.setHoldingRegister6(value);
+        }
+        return deviceModelMB110_1TD;
+    }
+
+    @Override
+    public DeviceModelMB110_1TD writeDataToRegister7(final float value) {
+        if (Objects.nonNull(modbusFloat)){
+            modbusFloat.writeDataToModBus(
+                    modbusMasterSerialFirst,
+                    deviceModelMB110_1TD.getDeviceAddress(),
+                    value,
+                    deviceModelMB110_1TD.getModbusLocator7h());
+            deviceModelMB110_1TD.setHoldingRegister7(value);
         }
         return deviceModelMB110_1TD;
     }

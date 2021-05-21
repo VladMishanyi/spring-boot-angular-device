@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 
 @Service
 @ComponentScan(basePackages = {"com.vk.servicesiliconezone.repository.database","com.vk.servicesiliconezone.repository.modbus"})
-public class ServiceRootMB110_1TDImpl
+public class ServiceMB110_1TDImpl
         extends ServiceRootImpl<TableModelMB110_1TD,
         JsonBodyListForTableModelMB110_1TD,
         DeviceModelMB110_1TD,
@@ -37,9 +37,9 @@ public class ServiceRootMB110_1TDImpl
 //    private final RepositoryRaspberry repositoryRaspberry;
 
     @Autowired
-    public ServiceRootMB110_1TDImpl(final RepositoryDatabaseMB110_1TD repositoryDatabase,
-                                    final RepositoryModbusMB110_1TD repositoryModbus,
-                                    final RepositoryWebsocketMB110_1TD repositoryWebsocket/*,
+    public ServiceMB110_1TDImpl(final RepositoryDatabaseMB110_1TD repositoryDatabase,
+                                final RepositoryModbusMB110_1TD repositoryModbus,
+                                final RepositoryWebsocketMB110_1TD repositoryWebsocket/*,
                                     final RepositoryRaspberry repositoryRaspberry*/) {
         super(repositoryDatabase, repositoryModbus, repositoryWebsocket/*, repositoryRaspberry*/);
         this.repositoryDatabase = repositoryDatabase;
@@ -54,17 +54,57 @@ public class ServiceRootMB110_1TDImpl
         return repositoryDatabase.findLastValueByDate();
     }
 
+    @Override
     public DeviceModelMB110_1TD modbusReadDataFromRegister0(){
         return repositoryModbus.readDataFromRegister0(true, (short) -1000, (short) 1000, DigsFloat.ONE_DIG, false);
     }
-    public DeviceModelMB110_1TD modbusReadDataFromRegister1(){
-        return repositoryModbus.readDataFromRegister0(true, (short) -1000, (short) 1000, DigsFloat.ONE_DIG, false);
+    @Override
+    public DeviceModelMB110_1TD modbusReadDataFromRegister3(){
+        return repositoryModbus.readDataFromRegister3(true, (short) -1000, (short) 1000, false);
     }
-    public DeviceModelMB110_1TD modbusWriteDataToRegister0(final short value){
-        return repositoryModbus.writeDataToRegister0(value);
+    @Override
+    public DeviceModelMB110_1TD modbusReadDataFromRegister4(){
+        return repositoryModbus.readDataFromRegister4(true, (short) -1000, (short) 1000, false);
     }
+    @Override
+    public DeviceModelMB110_1TD modbusReadDataFromRegister5(){
+        return repositoryModbus.readDataFromRegister5(true, (short) -1000, (short) 1000, DigsFloat.ONE_DIG, false);
+    }
+    @Override
+    public DeviceModelMB110_1TD modbusReadDataFromRegister6(){
+        return repositoryModbus.readDataFromRegister6(true, (short) -1000, (short) 1000, DigsFloat.ONE_DIG, false);
+    }
+    @Override
+    public DeviceModelMB110_1TD modbusReadDataFromRegister7(){
+        return repositoryModbus.readDataFromRegister7(true, (short) -1000, (short) 1000, DigsFloat.ONE_DIG, false);
+    }
+    @Override
     public DeviceModelMB110_1TD modbusWriteDataToRegister1(final short value){
         return repositoryModbus.writeDataToRegister1(value);
+    }
+    @Override
+    public DeviceModelMB110_1TD modbusWriteDataToRegister2(final short value){
+        return repositoryModbus.writeDataToRegister2(value);
+    }
+    @Override
+    public DeviceModelMB110_1TD modbusWriteDataToRegister3(final short value){
+        return repositoryModbus.writeDataToRegister3(value);
+    }
+    @Override
+    public DeviceModelMB110_1TD modbusWriteDataToRegister4(final short value){
+        return repositoryModbus.writeDataToRegister4(value);
+    }
+    @Override
+    public DeviceModelMB110_1TD modbusWriteDataToRegister5(final float value){
+        return repositoryModbus.writeDataToRegister5(value);
+    }
+    @Override
+    public DeviceModelMB110_1TD modbusWriteDataToRegister6(final float value){
+        return repositoryModbus.writeDataToRegister6(value);
+    }
+    @Override
+    public DeviceModelMB110_1TD modbusWriteDataToRegister7(final float value){
+        return repositoryModbus.writeDataToRegister7(value);
     }
 
     @Override
