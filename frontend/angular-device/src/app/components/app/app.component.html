@@ -26,8 +26,8 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownEnableDisableItemWeight">
             <input type="text" class="dropdown-item disabled" value="{{device.holdingRegister3}}">
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">0-враховувати</a>
-            <a class="dropdown-item" href="#">1-не враховувати</a>
+            <a class="dropdown-item" href="#" (click)="sendWriteEnableDisableWeightOfItem(0)">0-враховувати</a>
+            <a class="dropdown-item" href="#" (click)="sendWriteEnableDisableWeightOfItem(1)">1-не враховувати</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -37,13 +37,13 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSensitivity">
             <input type="text" class="dropdown-item disabled" value="{{device.holdingRegister4}}">
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">0- 1мВ/В</a>
-            <a class="dropdown-item" href="#">1- 2мВ/В</a>
-            <a class="dropdown-item" href="#">2- 4мВ/В</a>
-            <a class="dropdown-item" href="#">3- 8мВ/В</a>
-            <a class="dropdown-item" href="#">4- 16мВ/В</a>
-            <a class="dropdown-item" href="#">5- 32мВ/В</a>
-            <a class="dropdown-item" href="#">6- 64мВ/В</a>
+            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(0)">0- 1мВ/В</a>
+            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(1)">1- 2мВ/В</a>
+            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(2)">2- 4мВ/В</a>
+            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(3)">3- 8мВ/В</a>
+            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(4)">4- 16мВ/В</a>
+            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(5)">5- 32мВ/В</a>
+            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(6)">6- 64мВ/В</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -53,7 +53,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMinValue">
             <input type="text" class="dropdown-item disabled" value="{{device.holdingRegister5}}">
             <div class="dropdown-divider"></div>
-            <input type="text" class="dropdown-item" value="0">
+            <input type="text" class="dropdown-item" [(ngModel)]="this.sensorMinValue" (keyup)="sendWriteMinBorderValueForSensor()">
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -63,7 +63,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMaxValue">
             <input type="text" class="dropdown-item disabled" value="{{device.holdingRegister6}}">
             <div class="dropdown-divider"></div>
-            <input type="text" class="dropdown-item" value="0">
+            <input type="text" class="dropdown-item" [(ngModel)]="this.sensorMaxValue" (keyup)="sendWriteMaxBorderValueForSensor()">
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -73,7 +73,8 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownSetWethgt">
             <input type="text" class="dropdown-item disabled" value="{{device.holdingRegister7}}">
             <div class="dropdown-divider"></div>
-            <input type="text" class="dropdown-item" value="0">
+            <input type="text" class="dropdown-item" [(ngModel)]="this.sensorSetWeight" (keyup)="sendWriteSetWeightItem()">
+
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -83,13 +84,35 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdownAutoCalibrate">
             <input type="text" class="dropdown-item disabled" value="{{device.holdingRegister1}}">
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">0-тарувати</a>
+            <a class="dropdown-item" href="#" (click)="sendWriteWeightOfItemAsAZero(0)">0-тарувати</a>
           </div>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2 disabled" [ngModel]="device.holdingRegister0" type="text" style="max-width: 85px" placeholder="вимір" aria-label="вимір">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Застосувати</button>
+        <input class="form-control mr-sm-2 disabled" value="{{device.holdingRegister0}}" type="text" style="max-width: 85px">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#ModalSaveToMemory">Застосувати</button>
+        <!-- Modal -->
+        <div class="modal fade" id="ModalSaveToMemory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Зберегти в посійну пямять</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Увага кількість записів в постійну пямять, обмежено ресурсом пямяті.
+                Частий запис може вивести з ладу контроллер.
+                Впевнені що хочете продовжити ?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+                <button type="button" class="btn btn-primary" (click)="sendWriteSaveAllChanges(0)">Зберегти в память</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </nav>
@@ -146,7 +169,7 @@
     <div class="input-group justify-content-center">
       <div class="form-outline mr-2 dropdown-content">
         <input [(ngModel)]="searchPattern.content" (keydown)="sendSearchPattern()" type="search" name="browser" id="browser" class="form-control"/>
-            <input type="text" *ngFor="let r of listOfRecipesByNamePattern" value="{{r.name}}" (click)="generateChartbyRecipeId(r.id)">
+            <input type="text" *ngFor="let r of listOfRecipesByNamePattern" value="{{r.name}}" (click)="sendGenerateChartByRecipeId(r.id)">
       </div>
       <button type="button" class="btn btn-primary">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">

@@ -25,7 +25,13 @@ export class WebsocketServiceService {
   appRecipeItem: string = '/app/table-recipe';
   appRecipeByNamePattern: string = '/app/table-recipe-by-name-pattern';
   appDeviceById: string = '/app/table-device-by-id';
-
+  appWriteEnableDisableWeightOfItem: string = '/write-enable-disable-weight-of-item';
+  appWriteSensitivitySensor: string = '/write-sensitivity-sensor';
+  appWriteMinBorderValueForSensor: string = '/write-min-border-value-for-sensor';
+  appWriteMaxBorderValueForSensor: string = '/write-max-border-value-for-sensor';
+  appWriteSetWeightItem: string = '/write-set-weight-item';
+  appWriteWeightOfItemAsAZero: string = 'write-weight-of-item-as-a-zero';
+  appWriteSaveAllChanges: string = '/write-save-all-changes';
   stompClient: any;
 
   constructor(private bodyMessage: MessageService, private graphics: GraphicsService) {}
@@ -107,6 +113,35 @@ export class WebsocketServiceService {
   sendDeviceById(message: any) {
     this.stompClient.send(this.appDeviceById, {}, JSON.stringify(message));
   }
+
+  sendWriteEnableDisableWeightOfItem(message: any) {
+    this.stompClient.send(this.appWriteEnableDisableWeightOfItem, {}, JSON.stringify(message));
+  }
+
+  sendWriteSensitivitySensor(message: any) {
+    this.stompClient.send(this.appWriteEnableDisableWeightOfItem, {}, JSON.stringify(message));
+  }
+
+  sendWriteMinBorderValueForSensor(message: any) {
+    this.stompClient.send(this.appWriteMinBorderValueForSensor, {}, JSON.stringify(message));
+  }
+
+  sendWriteMaxBorderValueForSensor(message: any) {
+    this.stompClient.send(this.appWriteMaxBorderValueForSensor, {}, JSON.stringify(message));
+  }
+
+  sendWriteSetWeightItem(message: any) {
+    this.stompClient.send(this.appWriteSetWeightItem, {}, JSON.stringify(message));
+  }
+
+  sendWriteWeightOfItemAsAZero(message: any) {
+    this.stompClient.send(this.appWriteWeightOfItemAsAZero, {}, JSON.stringify(message));
+  }
+
+  sendWriteSaveAllChanges(message: any) {
+    this.stompClient.send(this.appWriteSaveAllChanges, {}, JSON.stringify(message));
+  }
+
 
   onListOfTablesReceive(tables: any){
     const mes = JSON.parse(tables.body);

@@ -31,6 +31,9 @@ export class AppComponent implements OnInit, AfterViewInit{
   public searchPattern: JsonString = new JsonString('');
   public listOfRecipesByNamePattern: TableModelRecipe[] = [];
   public device: DeviceModelMB110_1TD = new DeviceModelMB110_1TD(0,0,0,0,0,0,0,0);
+  public sensorMinValue: number = 0;
+  public sensorMaxValue: number = 0;
+  public sensorSetWeight: number = 0;
 
   public startChart: Date = new Date();
   public endChart: Date = new Date();
@@ -117,31 +120,6 @@ export class AppComponent implements OnInit, AfterViewInit{
 
   ngAfterViewInit() {}
 
-  public generateChartbyRecipeId(id: number): void{
-    this.webSocketAPI.sendDeviceById(new JsonNumber(id));
-  }
-
-  public sendNameAndTimeItem(){
-    this.webSocketAPI.sendRecipeItem(this.recipe);
-  }
-
-  public sendSearchPattern(){
-    this.webSocketAPI.sendRecipeByNamePattern(this.searchPattern);
-  }
-
-  // public writeDateTimeFromServer(range: RangeDateTimeWithZone): void{
-  //   this.startChart = range.start;
-  //   this.endChart = range.end;
-  //   this.start = range.start;
-  //   this.end = range.end;
-  //   this.graphics.startChart = this.startChart;
-  //   this.graphics.endChart = this.endChart;
-  // }
-
-  public readCurrentDateTime(): string{
-    return  moment().format("YYYY-MM-DD HH:mm:ss");
-  }
-
   public valueChangeStartChart(valueStart: Date): void{
     this.start = valueStart;
   }
@@ -154,6 +132,60 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.rangeDate.start = this.start;
     this.rangeDate.end = this.end;
     this.webSocketAPI.sendRangeDateForChart(this.rangeDate);
+  }
+
+  public sendGenerateChartByRecipeId(id: number): void{
+    this.webSocketAPI.sendDeviceById(new JsonNumber(id));
+  }
+
+  public sendNameAndTimeItem(){
+    this.webSocketAPI.sendRecipeItem(this.recipe);
+  }
+
+  public sendSearchPattern(){
+    this.webSocketAPI.sendRecipeByNamePattern(this.searchPattern);
+  }
+
+  public sendWriteEnableDisableWeightOfItem(value: number): void {
+    this.webSocketAPI.sendWriteEnableDisableWeightOfItem(new JsonNumber(value));
+  }
+
+  public sendWriteSensitivitySensor(value: number): void {
+    this.webSocketAPI.sendWriteSensitivitySensor(new JsonNumber(value));
+  }
+
+  public sendWriteMinBorderValueForSensor(): void {
+    this.webSocketAPI.sendWriteMaxBorderValueForSensor(new JsonNumber(this.sensorMinValue));
+  }
+
+  public sendWriteMaxBorderValueForSensor(): void {
+    this.webSocketAPI.sendWriteMaxBorderValueForSensor(new JsonNumber(this.sensorMaxValue));
+  }
+
+  public sendWriteSetWeightItem(): void {
+    this.webSocketAPI.sendWriteSetWeightItem(new JsonNumber(this.sensorSetWeight));
+  }
+
+  public sendWriteWeightOfItemAsAZero(value: number): void {
+    this.webSocketAPI.sendWriteWeightOfItemAsAZero(new JsonNumber(value));
+  }
+
+  public sendWriteSaveAllChanges(value: number): void {
+    this.webSocketAPI.sendWriteSaveAllChanges(new JsonNumber(value));
+  }
+
+
+  // public writeDateTimeFromServer(range: RangeDateTimeWithZone): void{
+  //   this.startChart = range.start;
+  //   this.endChart = range.end;
+  //   this.start = range.start;
+  //   this.end = range.end;
+  //   this.graphics.startChart = this.startChart;
+  //   this.graphics.endChart = this.endChart;
+  // }
+
+  public readCurrentDateTime(): string{
+    return  moment().format("YYYY-MM-DD HH:mm:ss");
   }
 
   public connect() {
