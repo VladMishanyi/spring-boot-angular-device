@@ -23,6 +23,16 @@ export class GraphicsService {
                             ];
   public dataLegend1: number[] = [0, 15, 42, 23, 102, 120, 48];
   // public dataLegend2: number[] = [15, 42, 23, 102, 120, 48];
+  // public dataLegend1 = [
+  //   { x: new Date('2021-05-24 14:00:00'), y: 5 },
+  //   { x: new Date('2021-05-24 14:00:11'), y: 11 },
+  //   { x: new Date('2021-05-24 14:00:15'), y: 13 },
+  //   { x: new Date('2021-05-24 14:00:20'), y: 15 },
+  //   { x: new Date('2021-05-24 14:00:25'), y: 9 },
+  //   { x: new Date('2021-05-24 14:00:35'), y: 3 },
+  //   { x: new Date('2021-05-24 15:00:50'), y: 1 },
+  //   { x: new Date('2021-05-24 16:02:54'), y: 16 },
+  // ];
 
   public globalX: Date[] = [];
   public globalY1: number[] = [];
@@ -472,8 +482,8 @@ export class GraphicsService {
   }
   lineTimeUnit: TimeUnit = 'hour';
   lineTimeScaleX = {
-    // type?: ScaleType | string;
-    // display?: boolean;
+    type: this.lineTimeUnit,
+    display: true,
     // position?: PositionType | string;
     // gridLines?: GridLineOptions;
     // scaleLabel?: ScaleTitleOptions;
@@ -489,11 +499,11 @@ export class GraphicsService {
     // round?: TimeUnit;
     // tooltipFormat?: string;
     unit: this.lineTimeUnit,
-    // unitStepSize?: number;
+    unitStepSize: 1,
     stepSize: 1,
-    // minUnit?: TimeUnit;
+    // minUnit: this.lineTimeUnit
   }
-  currentDistribution: DistributionNative = 'series';
+  currentDistribution: DistributionNative = 'linear';
   lineChartXAxe = {
     distribution: this.currentDistribution,//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // bounds?: string;

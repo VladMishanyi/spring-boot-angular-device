@@ -14,13 +14,13 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ModbusDeviceControlle {
+public class ModbusDeviceController {
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     private final ServiceMB110_1TD serviceMB110_1TD;
     private final DeviceModelMB110_1TD deviceModelMB110_1TD;
 
     @Autowired
-    public ModbusDeviceControlle(ServiceMB110_1TD serviceMB110_1TD, DeviceModelMB110_1TD deviceModelMB110_1TD) {
+    public ModbusDeviceController(ServiceMB110_1TD serviceMB110_1TD, DeviceModelMB110_1TD deviceModelMB110_1TD) {
         this.serviceMB110_1TD = serviceMB110_1TD;
         this.deviceModelMB110_1TD = deviceModelMB110_1TD;
     }

@@ -16,7 +16,10 @@ import {BaseChartDirective, ChartsModule, ThemeService} from 'ng2-charts';
     FormsModule,
     ChartsModule
   ],
-  providers: [{ provide: Window, useValue: window }, ThemeService, BaseChartDirective],
+  providers: [
+    { provide: Window, useValue: window },
+    ThemeService,
+    BaseChartDirective],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
