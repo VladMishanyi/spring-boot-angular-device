@@ -40,7 +40,7 @@ public class ChainModbus extends Thread{
         try {
             while (!this.isInterrupted()){
                 DeviceModelMB110_1TD device = serviceMB110_1TD.modbusReadDataFromRegisterAll();
-//                serviceMB110_1TD.messageRealMeasuringValueFromSensor(device);
+                serviceMB110_1TD.messageRealMeasuringValueFromSensor(device);
                 checkQueryQueue();
                 Thread.sleep(100);
             }

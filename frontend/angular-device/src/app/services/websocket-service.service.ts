@@ -25,13 +25,13 @@ export class WebsocketServiceService {
   appRecipeItem: string = '/app/table-recipe';
   appRecipeByNamePattern: string = '/app/table-recipe-by-name-pattern';
   appDeviceById: string = '/app/table-device-by-id';
-  appWriteEnableDisableWeightOfItem: string = '/write-enable-disable-weight-of-item';
-  appWriteSensitivitySensor: string = '/write-sensitivity-sensor';
-  appWriteMinBorderValueForSensor: string = '/write-min-border-value-for-sensor';
-  appWriteMaxBorderValueForSensor: string = '/write-max-border-value-for-sensor';
-  appWriteSetWeightItem: string = '/write-set-weight-item';
-  appWriteWeightOfItemAsAZero: string = 'write-weight-of-item-as-a-zero';
-  appWriteSaveAllChanges: string = '/write-save-all-changes';
+  appWriteEnableDisableWeightOfItem: string = '/app/write-enable-disable-weight-of-item';
+  appWriteSensitivitySensor: string = '/app/write-sensitivity-sensor';
+  appWriteMinBorderValueForSensor: string = '/app/write-min-border-value-for-sensor';
+  appWriteMaxBorderValueForSensor: string = '/app/write-max-border-value-for-sensor';
+  appWriteSetWeightItem: string = '/app/write-set-weight-item';
+  appWriteWeightOfItemAsAZero: string = '/app/write-weight-of-item-as-a-zero';
+  appWriteSaveAllChanges: string = '/app/write-save-all-changes';
   stompClient: any;
 
   constructor(private bodyMessage: MessageService, private graphics: GraphicsService) {}
