@@ -40,10 +40,9 @@ import { RecipeBlockComponent } from './components/recipe-block/recipe-block.com
     FormsModule,
     ChartsModule
   ],
-  providers: [
-    { provide: Window, useValue: window },
-    ThemeService,
-    BaseChartDirective],
+  providers: [ThemeService,
+    { provide: Window, useValue: window }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

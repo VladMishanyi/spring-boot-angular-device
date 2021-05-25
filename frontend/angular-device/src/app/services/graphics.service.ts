@@ -43,8 +43,7 @@ export class GraphicsService {
   public bufferChart: number = 100000;
   public zoomChart: number = 10;
   public onDraw: boolean = false;
-
-  // @ViewChild(BaseChartDirective) baseChartDirective: BaseChartDirective;
+  // public baseChartDirective: any;
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
   public lineChartData: ChartDataSets[] = [
@@ -608,14 +607,19 @@ export class GraphicsService {
   public lineChartType: ChartType = 'line';
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-  constructor() {}
+  constructor(private window: Window) {}
 
   public generateNewChartTitle(): void {
-    this.vTitle.length = 0;
+    console.log("im debug inner block of title 1")
+    // this.vTitle.length = 0;
+    this.lineChartTitleOptions.text.length = 0;
      let i: string[] = ['ITEM_NAME:  '+this.recipeName+'                                                            '+'ITEM_TIME:  '+this.recipeTime,
                         'DATE_FROM:  '+moment(this.startChart).format('YYYY-MM-DD HH:mm:ss')+'               '+'DATE_TO:  '+moment(this.endChart).format('YYYY-MM-DD HH:mm:ss'),
                         'RANGE_SEL:___________'+'               '+'ARC:___________'+'               '+'TEMP:___________'];
-    this.vTitle.push(...i);
+    // this.vTitle.push(...i);
+    this.lineChartTitleOptions.text.push(...i);
+    this.updateGraphics();
+    console.log("im debug inner block of title 2")
   }
 
   public updateGraphics(): void{

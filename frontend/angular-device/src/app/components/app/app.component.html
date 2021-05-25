@@ -15,7 +15,18 @@
   <app-title></app-title>
   <app-search-by-name-recipe></app-search-by-name-recipe>
   <app-search-by-datetime-range (onChangeOutputStart)="start = $event" (onChangeOutputEnd)="end = $event"></app-search-by-datetime-range>
-  <app-buttons-for-generate-chart [onChangeInputStart]="start" [onChangeInputEnd]="end"></app-buttons-for-generate-chart>
+<!--  <app-buttons-for-generate-chart [onChangeInputStart]="start" [onChangeInputEnd]="end"></app-buttons-for-generate-chart>-->
+  <div class="row justify-content-center highlight-bocks">
+    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+      <input type="button" id="generateChart" name="generateChart" (click)="sendChartBody()" class="btn btn-md btn-success" value="Згенерувати">
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+      <input type="button" id="saveChart" name="saveChart" (click)="saveChart()" class="btn btn-md btn-success" value="Зберегти графік">
+    </div>
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+      <input type="button" id="removeChart" name="removeChart" (click)="clearChart()" class="btn btn-md btn-success" value="Стерти графік">
+    </div>
+  </div>
   <app-name-of-chart></app-name-of-chart>
   <app-navigation-of-chart></app-navigation-of-chart>
   <app-recipe-block></app-recipe-block>
@@ -31,8 +42,7 @@
               [colors]="lineChartColors"
               [legend]="lineChartLegend"
               [chartType]="lineChartType"
-              [plugins]="lineChartPlugins"
-      >
+              [plugins]="lineChartPlugins">
       </canvas>
     </div>
   </div>

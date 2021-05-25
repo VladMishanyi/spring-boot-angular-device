@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {TableModelRecipe} from "../../model/TableModel";
 import {WebsocketServiceService} from "../../services/websocket-service.service";
 import {MessageService} from "../../services/message.service";
@@ -10,7 +10,7 @@ import {JsonNumber} from "../../model/JsonNumber";
   templateUrl: './recipe-block.component.html',
   styleUrls: ['./recipe-block.component.css']
 })
-export class RecipeBlockComponent implements OnInit {
+export class RecipeBlockComponent implements OnInit, AfterViewInit {
   public recipe: TableModelRecipe = new TableModelRecipe(0, new Date, 'empty', 7);
 
   constructor(private webSocketAPI: WebsocketServiceService,
@@ -25,9 +25,20 @@ export class RecipeBlockComponent implements OnInit {
       this.recipe.time = mes.time;
       this.graphics.recipeName = mes.name;
       this.graphics.recipeTime = mes.time;
-      // this.graphics.generateNewChartTitle();
-      // this.graphics.updateGraphics();
+      this.graphics.generateNewChartTitle();
     });
+    this.bodyMessage.recipeLastByDate$.subscribe( mes => {
+      this.recipe.id = mes.id;
+      this.recipe.date = mes.date;
+      this.recipe.name = mes.name;
+      this.recipe.time = mes.time;
+      this.graphics.recipeName = mes.name;
+      this.graphics.recipeTime = mes.time;
+      this.graphics.generateNewChartTitle();
+    });
+  }
+
+  ngAfterViewInit() {
     this.sendRecipeLastByDate(0);
   }
 

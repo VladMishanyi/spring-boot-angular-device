@@ -27,10 +27,19 @@ export class AppComponent implements OnInit, AfterViewInit{
   public lineChartLegend: any;
   public lineChartType: any;
   public lineChartPlugins: any;
+  public rangeDate: RangeDateTimeWithZone = new RangeDateTimeWithZone(new Date, new Date);
+
+  // @ViewChild("baseChart")
+  // baseChartDirective: BaseChartDirective;
+
+  @ViewChild("baseChart")
+  baseChart: ElementRef;
 
   constructor(private webSocketAPI: WebsocketServiceService,
               private bodyMessage: MessageService,
-              private graphics: GraphicsService) {
+              private graphics: GraphicsService,
+              // baseChartDirective: BaseChartDirective,
+              baseChart: ElementRef) {
     this.lineChartData = graphics.lineChartData;
     this.lineChartLabels = graphics.lineChartLabels;
     this.lineChartOptions = graphics.lineChartOptions;
@@ -38,25 +47,20 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.lineChartLegend = graphics.lineChartLegend;
     this.lineChartType = graphics.lineChartType;
     this.lineChartPlugins = graphics.lineChartPlugins;
+    // this.baseChartDirective = baseChartDirective;
+
+    // this.graphics.baseChartDirective = baseChartDirective;
+    this.baseChart = baseChart;
   }
 
   ngOnInit() {
     this.webSocketAPI.connect();
-
     this.bodyMessage.listOfTable$.subscribe( mes => {
       this.graphics.genChart(mes);
-    });
-    this.bodyMessage.recipeLastByDate$.subscribe( mes => {
-      this.graphics.recipeName = mes.name;
-      this.graphics.recipeTime = mes.time;
-      // this.graphics.generateNewChartTitle();
-      // this.graphics.updateGraphics();
     });
     this.bodyMessage.listOfDevicesByIdReceive$.subscribe( mes => {
       this.graphics.genChart(mes);
     });
-
-
   }
 
   ngAfterViewInit() {}
@@ -78,4 +82,20 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.webSocketAPI.disconnect();
   }
 
+  public saveChart(): void {
+    this.baseChart.nativeElement.toBlob(function(blob: any) {
+      let dt = moment().format("YYYY-MM-DD HH:mm:ss");
+      saveAs(blob, dt+"_chart");
+    });
+  }
+
+  public sendChartBody(): void{
+    this.rangeDate.start = this.start;
+    this.rangeDate.end = this.end;
+    this.webSocketAPI.sendRangeDateForChart(this.rangeDate);
+  }
+
+  public clearChart() {
+    this.graphics.clearChart();
+  }
 }

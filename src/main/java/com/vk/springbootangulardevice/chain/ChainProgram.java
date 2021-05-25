@@ -58,7 +58,7 @@ public class ChainProgram extends Thread{
         try {
             while (!this.isInterrupted()){
                 //gust for debugging
-                modelRaspberry.setGpio27(true);
+//                modelRaspberry.setGpio27(true);
 
                 timerON.setEnable(modelRaspberry.isGpio27());
                 timerON.setTime(tableModelRecipe.getTime() * (long) 60);
