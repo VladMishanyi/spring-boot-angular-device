@@ -10,6 +10,9 @@ import { CreationTimeComponent } from './components/creation-time/creation-time.
 import { StretchingValueComponent } from './components/stretching-value/stretching-value.component';
 import { InfoComponent } from './components/info/info.component';
 import { ConnectorsComponent } from './components/connectors/connectors.component';
+import { TitleComponent } from './components/title/title.component';
+import { SearchByNameRecipeComponent } from './components/search-by-name-recipe/search-by-name-recipe.component';
+import { SearchByDatetimeRangeComponent } from './components/search-by-datetime-range/search-by-datetime-range.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { ConnectorsComponent } from './components/connectors/connectors.componen
     CreationTimeComponent,
     StretchingValueComponent,
     InfoComponent,
-    ConnectorsComponent
+    ConnectorsComponent,
+    TitleComponent,
+    SearchByNameRecipeComponent,
+    SearchByDatetimeRangeComponent
   ],
   imports: [
     BrowserModule,

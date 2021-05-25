@@ -11,64 +11,16 @@
   <app-creation-time></app-creation-time>
   <app-stretching-value></app-stretching-value>
   <app-info></app-info>
+  <app-connectors></app-connectors>
+  <app-title></app-title>
+  <app-search-by-name-recipe></app-search-by-name-recipe>
+  <app-search-by-datetime-range (onChangeStart)="start = $event" (onChangeEnd)="end = $event"></app-search-by-datetime-range>
 
 
-  <div class="row highlight-bocks">
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
-      <span>Кінцевий вимикач</span>
-    </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <span>{{contactorInRealTime}}</span>
-    </div>
 
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
-      <span>Таймер</span>
-    </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <span>{{timerInRealTime}}</span>
-    </div>
-  </div>
 
-  <div class="row justify-content-center highlight-bocks">
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <h4>Графік</h4>
-    </div>
-  </div>
 
-  <div class="row highlight-bocks">
-    <div class="input-group justify-content-center">
-      <div class="form-outline mr-2 dropdown-content">
-        <input [(ngModel)]="searchPattern.content" (keydown)="sendSearchPattern()" type="search" name="browser" id="browser" class="form-control" placeholder="Пошук"/>
-            <input type="text" *ngFor="let r of listOfRecipesByNamePattern" value="{{r.name}}" (click)="sendGenerateChartByRecipeId(r.id)">
-      </div>
-<!--      <button type="button" class="btn btn-primary">-->
-<!--        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">-->
-<!--          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>-->
-<!--        </svg>-->
-<!--        <i class="ml-1">Search</i>-->
-<!--      </button>-->
-    </div>
-  </div>
 
-  <div class="row highlight-bocks">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="startMark">Початок</span>
-        </div>
-        <input [ngModel]="startChart  | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="valueChangeStartChart($event)" type="datetime-local" style="width: 350px" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" >
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="endMark">Кінець</span>
-        </div>
-        <input [ngModel]="endChart | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="valueChangeEndChart($event)" type="datetime-local" style="width: 350px" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" >
-      </div>
-    </div>
-  </div>
 
   <div class="row justify-content-center highlight-bocks">
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 col-xl-3">

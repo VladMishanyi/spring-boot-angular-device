@@ -25,16 +25,6 @@ export class AppComponent implements OnInit, AfterViewInit{
   public onDraw: boolean = false;
 
 
-
-  public contactorInRealTime: boolean = false;
-  public timerInRealTime: boolean = false;
-  public searchPattern: JsonString = new JsonString('');
-  public listOfRecipesByNamePattern: TableModelRecipe[] = [];
-
-
-
-  public startChart: Date = new Date();
-  public endChart: Date = new Date();
   public bufferChart: number = 100000;
   public zoomChart: number = 10;
   public lineChartData: any;
@@ -53,8 +43,6 @@ export class AppComponent implements OnInit, AfterViewInit{
               private graphics: GraphicsService,
               baseChart: ElementRef,
               realTimeRender: ElementRef) {
-    this.startChart = graphics.startChart;
-    this.endChart = graphics.endChart;
     this.bufferChart = graphics.bufferChart;
     this.zoomChart = graphics.zoomChart;
     this.lineChartData = graphics.lineChartData;
@@ -86,13 +74,8 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.bodyMessage.listOfDevicesByIdReceive$.subscribe( mes => {
       this.graphics.genChart(mes);
     });
-
     this.bodyMessage.timerStatus$.subscribe( mes => {
-      this.timerInRealTime = mes.content;
       this.onDraw = mes.content;
-    });
-    this.bodyMessage.contactStatus$.subscribe(mes => {
-      this.contactorInRealTime = mes.content;
     });
 
     this.bodyMessage.recipeStatus$.subscribe( mes => {
@@ -105,23 +88,14 @@ export class AppComponent implements OnInit, AfterViewInit{
       // this.graphics.generateNewChartTitle();
       // this.graphics.updateGraphics();
     });
-    this.bodyMessage.recipeByNamePattern$.subscribe( mes => {
-      this.listOfRecipesByNamePattern.length = 0;
-      this.listOfRecipesByNamePattern.push(...mes);
-    });
+
 
     this.sendRecipeLastByDate(0);
   }
 
   ngAfterViewInit() {}
 
-  public valueChangeStartChart(valueStart: Date): void{
-    this.start = valueStart;
-  }
 
-  public valueChangeEndChart(valueEnd: Date): void{
-    this.end = valueEnd;
-  }
 
   public sendChartBody(): void{
     this.rangeDate.start = this.start;
@@ -129,17 +103,13 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.webSocketAPI.sendRangeDateForChart(this.rangeDate);
   }
 
-  public sendGenerateChartByRecipeId(id: number): void{
-    this.webSocketAPI.sendDeviceById(new JsonNumber(id));
-  }
+
 
   public sendNameAndTimeItem(){
     this.webSocketAPI.sendRecipeItem(this.recipe);
   }
 
-  public sendSearchPattern(){
-    this.webSocketAPI.sendRecipeByNamePattern(this.searchPattern);
-  }
+
 
 
 
