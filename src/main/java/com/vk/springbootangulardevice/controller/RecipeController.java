@@ -79,6 +79,11 @@ public class RecipeController {
         return serviceRecipe.findByIdRecipe(id.getContent());
     }
 
+    @MessageMapping(value = "/table-recipe-last-by-date")
+    @SendTo(value = "/topic/table-recipe-last-by-date")
+    public TableModelRecipe findLastByDateRecipe(JsonLong number){
+        return serviceRecipe.databaseFindLastValueByDate();
+    }
 
 
 //    @MessageMapping("/date-to-server")

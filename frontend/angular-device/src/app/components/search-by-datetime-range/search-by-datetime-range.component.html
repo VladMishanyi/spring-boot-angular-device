@@ -1,0 +1,19 @@
+<div class="row highlight-bocks">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="startMark">Початок</span>
+      </div>
+      <input [ngModel]="startChart  | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="valueChangeStartChart($event)" type="datetime-local" style="width: 350px" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" >
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="endMark">Кінець</span>
+      </div>
+      <input [ngModel]="endChart | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="valueChangeEndChart($event)" type="datetime-local" style="width: 350px" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" >
+    </div>
+  </div>
+</div>

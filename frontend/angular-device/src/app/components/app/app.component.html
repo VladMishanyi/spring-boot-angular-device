@@ -7,199 +7,15 @@
 </noscript>
 
 <div id="main-content" class="container-fluid">
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-    <a class="navbar-brand" href="#">Kyivguma LCC</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-<!--        <li class="nav-item active">-->
-<!--          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
-<!--        </li>-->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEnableDisableItemWeight" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Врах. тару
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownEnableDisableItemWeight">
-            <input type="text" class="dropdown-item disabled" value="{{device.holdingRegister3}}">
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" (click)="sendWriteEnableDisableWeightOfItem(0)">0-не враховувати</a>
-            <a class="dropdown-item" href="#" (click)="sendWriteEnableDisableWeightOfItem(1)">1-враховувати</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSensitivity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Чутл. сенсору
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownSensitivity">
-            <input type="text" class="dropdown-item disabled" value="{{device.holdingRegister4}}">
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(0)">0- 1мВ/В</a>
-            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(1)">1- 2мВ/В</a>
-            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(2)">2- 4мВ/В</a>
-            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(3)">3- 8мВ/В</a>
-            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(4)">4- 16мВ/В</a>
-            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(5)">5- 32мВ/В</a>
-            <a class="dropdown-item" href="#" (click)="sendWriteSensitivitySensor(6)">6- 64мВ/В</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMinValue" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Мін. знач.
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMinValue">
-            <input type="text" class="dropdown-item disabled" value="{{device.holdingRegister5}}">
-            <div class="dropdown-divider"></div>
-            <input type="text" class="dropdown-item" [(ngModel)]="this.sensorMinValue" (keyup)="sendWriteMinBorderValueForSensor()">
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMaxValue" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Макс. знач.
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMaxValue">
-            <input type="text" class="dropdown-item disabled" value="{{device.holdingRegister6}}">
-            <div class="dropdown-divider"></div>
-            <input type="text" class="dropdown-item" [(ngModel)]="this.sensorMaxValue" (keyup)="sendWriteMaxBorderValueForSensor()">
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSetWethgt" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Вага тари
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownSetWethgt">
-            <input type="text" class="dropdown-item disabled" value="{{device.holdingRegister7}}">
-            <div class="dropdown-divider"></div>
-            <input type="text" class="dropdown-item" [(ngModel)]="this.sensorSetWeight" (keyup)="sendWriteSetWeightItem()">
-
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAutoCalibrate" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Тарувати
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownAutoCalibrate">
-            <input type="text" class="dropdown-item disabled" value="{{device.holdingRegister1}}">
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" (click)="sendWriteWeightOfItemAsAZero(0)">0-тарувати</a>
-          </div>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2 disabled" value="{{device.holdingRegister0}}" type="text" style="max-width: 85px">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#ModalSaveToMemory">Застосувати</button>
-        <!-- Modal -->
-        <div class="modal fade" id="ModalSaveToMemory" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Зберегти в посійну пямять</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Увага кількість записів в постійну пямять, обмежено ресурсом пямяті.
-                Частий запис може вивести з ладу контроллер.
-                Впевнені що хочете продовжити ?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
-                <button type="button" class="btn btn-primary" (click)="sendWriteSaveAllChanges(0)">Зберегти в память</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </nav>
-
-  <div class="row highlight-bocks">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      <h4 class="modal-title" id="myModalLabel" style="margin-top: 40px; text-align: center;">
-        Звіт сформовано: {{currentDateTime}}
-      </h4>
-    </div>
-  </div>
-
-  <div class="row highlight-bocks">
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
-      <span style="color: black; font-size: 24px; font-weight: bold">Поточне значення натягу</span>
-    </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <span id="realTrmValue" style="color: red; font-size: 24px; font-weight: bold">{{valueInRealTimeStretch}} </span> H
-    </div>
-  </div>
-
-  <div class="row justify-content-center highlight-bocks">
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <h4>Інформація</h4>
-    </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <span>{{informationInRealTime}}</span>
-    </div>
-  </div>
-
-  <div class="row highlight-bocks">
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
-      <span>Кінцевий вимикач</span>
-    </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <span>{{contactorInRealTime}}</span>
-    </div>
-
-    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
-      <span>Таймер</span>
-    </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <span>{{timerInRealTime}}</span>
-    </div>
-  </div>
-
-  <div class="row justify-content-center highlight-bocks">
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <h4>Графік</h4>
-    </div>
-  </div>
-
-  <div class="row highlight-bocks">
-    <div class="input-group justify-content-center">
-      <div class="form-outline mr-2 dropdown-content">
-        <input [(ngModel)]="searchPattern.content" (keydown)="sendSearchPattern()" type="search" name="browser" id="browser" class="form-control"/>
-            <input type="text" *ngFor="let r of listOfRecipesByNamePattern" value="{{r.name}}" (click)="sendGenerateChartByRecipeId(r.id)">
-      </div>
-      <button type="button" class="btn btn-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-        </svg>
-        <i class="ml-1">Search</i>
-      </button>
-    </div>
-  </div>
-
-  <div class="row highlight-bocks">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="startMark">Початок</span>
-        </div>
-        <input [ngModel]="startChart  | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="valueChangeStartChart($event)" type="datetime-local" style="width: 350px" class="form-control" aria-describedby="startMark" id="startChart" name="startChart" >
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="endMark">Кінець</span>
-        </div>
-        <input [ngModel]="endChart | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="valueChangeEndChart($event)" type="datetime-local" style="width: 350px" class="form-control" aria-describedby="endMark" id="endChart" name="endChart" >
-      </div>
-    </div>
-  </div>
-
+  <app-header></app-header>
+  <app-creation-time></app-creation-time>
+  <app-stretching-value></app-stretching-value>
+  <app-info></app-info>
+  <app-connectors></app-connectors>
+  <app-title></app-title>
+  <app-search-by-name-recipe></app-search-by-name-recipe>
+  <app-search-by-datetime-range (onChangeOutputStart)="start = $event" (onChangeOutputEnd)="end = $event"></app-search-by-datetime-range>
+<!--  <app-buttons-for-generate-chart [onChangeInputStart]="start" [onChangeInputEnd]="end"></app-buttons-for-generate-chart>-->
   <div class="row justify-content-center highlight-bocks">
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 col-xl-3">
       <input type="button" id="generateChart" name="generateChart" (click)="sendChartBody()" class="btn btn-md btn-success" value="Згенерувати">
@@ -211,95 +27,11 @@
       <input type="button" id="removeChart" name="removeChart" (click)="clearChart()" class="btn btn-md btn-success" value="Стерти графік">
     </div>
   </div>
+  <app-name-of-chart></app-name-of-chart>
+  <app-navigation-of-chart></app-navigation-of-chart>
+  <app-recipe-block></app-recipe-block>
 
-  <div class="row justify-content-center highlight-bocks">
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <h4>Тред</h4>
-    </div>
-  </div>
 
-  <div class="row highlight-bocks">
-    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="bufferChartMark">Буфер графіку</span>
-        </div>
-        <input [(ngModel)]="bufferChart" (change)="checkBufferValue()" type="number" width="5" style="width: 100px;" class="form-control" aria-describedby="bufferChartMark" id="bufferChart" name="bufferChart" value="10000">
-      </div>
-    </div>
-
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <a id="increase-chart" class="btn btn-sm btn-danger" (click)="increaseChart()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
-          <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>
-        </svg>
-      </a>
-      <a id="decrease-chart" class="btn btn-sm btn-danger" (click)="decreaseChart()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-minus" viewBox="0 0 16 16">
-          <path d="M5.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
-        </svg>
-      </a>
-    </div>
-
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="zoom-chart-value">Масштаб</span>
-        </div>
-        <input [(ngModel)]="zoomChart" (change)="checkZoomValue()" type="number" width="5" class="form-control" aria-describedby="zoom-chart-value" id="zoom-chart" name="zoom-chart" value="10">
-      </div>
-    </div>
-
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <a id="left-chart" class="btn btn-sm btn-danger" (click)="leftChart()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-        </svg>
-      </a>
-      <a id="right-chart" class="btn btn-sm btn-danger" (click)="rightChart()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-        </svg>
-      </a>
-    </div>
-
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-      <h6 style="font-weight: bold;">Старт/Стоп</h6>
-    </div>
-
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-      <label class="switch">
-        <input type="checkbox" #checkboxOnRealTimeRender [checked]="onDraw" (change)="checkTheRenderStatus()" id="id_switch_tred">
-        <span class="slider round"></span>
-      </label>
-    </div>
-
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-      <a href="/frontend/angular-device/src" id="back" class="btn btn-md btn-success" (click)="disconnect()"> Назад</a>
-    </div>
-  </div>
-
-  <div class="row highlight-bocks mb-3">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="name-of-item">Назва екземпляру</span>
-        </div>
-        <input [(ngModel)]="recipe.name" type="text" class="form-control" aria-describedby="name-of-item" id="name-item" placeholder="empty">
-      </div>
-    </div>
-    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="label-for-time-item">Час хв.</span>
-        </div>
-        <input [(ngModel)]="recipe.time" type="number" class="form-control" aria-describedby="label-for-time-item" id="time-item" value="5">
-      </div>
-    </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-      <input type="button" id="send-name-and-time-item" class="btn btn-md btn-success" (click)="sendNameAndTimeItem()" value="Застсувати">
-    </div>
-  </div>
 
   <div class="row highlight-bocks">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -310,8 +42,7 @@
               [colors]="lineChartColors"
               [legend]="lineChartLegend"
               [chartType]="lineChartType"
-              [plugins]="lineChartPlugins"
-      >
+              [plugins]="lineChartPlugins">
       </canvas>
     </div>
   </div>
