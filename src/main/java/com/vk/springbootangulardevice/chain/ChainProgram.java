@@ -58,7 +58,7 @@ public class ChainProgram extends Thread{
         try {
             while (!this.isInterrupted()){
                 //gust for debugging
-//                modelRaspberry.setGpio27(true);
+                modelRaspberry.setGpio27(true);
 
                 timerON.setEnable(modelRaspberry.isGpio27());
                 timerON.setTime(tableModelRecipe.getTime() * (long) 60);
@@ -82,13 +82,13 @@ public class ChainProgram extends Thread{
 
 //                serviceMB110_1TD.raspberryWriteGPI26(!modelRaspberry.isGpio27());
 //                serviceMB110_1TD.raspberryWriteGPI28(!timerON.isEndTime());
-                serviceMB110_1TD.messageTimerStatus(new JsonBoolean(timerON.isEnable()));
-                serviceMB110_1TD.messageContactStatus(new JsonBoolean(modelRaspberry.isGpio27()));
-                if (timerON.isEnable()){
-                    serviceMB110_1TD.messageTextStatus(new JsonString("Випробування почато"));
-                }else {
-                    serviceMB110_1TD.messageTextStatus(new JsonString("Очікую випробування"));
-                }
+//                serviceMB110_1TD.messageTimerStatus(new JsonBoolean(timerON.isEnable()));
+//                serviceMB110_1TD.messageContactStatus(new JsonBoolean(modelRaspberry.isGpio27()));
+//                if (timerON.isEnable()){
+//                    serviceMB110_1TD.messageTextStatus(new JsonString("Випробування почато"));
+//                }else {
+//                    serviceMB110_1TD.messageTextStatus(new JsonString("Очікую випробування"));
+//                }
 
                 couterChart++;
                 Thread.sleep(100);

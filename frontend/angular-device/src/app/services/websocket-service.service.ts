@@ -20,6 +20,7 @@ export class WebsocketServiceService {
   topicRecipeByNamePattern: string = '/topic/table-recipe-by-name-pattern';
   topicDeviceById: string = '/topic/table-device-by-id';
   topicAllRegistersFromModbusDevice: string = '/topic/message-all-registers-from-modbus-device';
+  topicRecipeLastByDate: string = '/topic/table-recipe-last-by-date';
 
   appChartDateRange: string = '/app/generate-chart-laboratory-reometr';
   appRecipeItem: string = '/app/table-recipe';
@@ -32,6 +33,7 @@ export class WebsocketServiceService {
   appWriteSetWeightItem: string = '/app/write-set-weight-item';
   appWriteWeightOfItemAsAZero: string = '/app/write-weight-of-item-as-a-zero';
   appWriteSaveAllChanges: string = '/app/write-save-all-changes';
+  appRecipeLastByDate: string = '/app/table-recipe-last-by-date';
   stompClient: any;
 
   constructor(private bodyMessage: MessageService, private graphics: GraphicsService) {}
@@ -78,6 +80,10 @@ export class WebsocketServiceService {
 
       entity.stompClient.subscribe(entity.topicAllRegistersFromModbusDevice, function(sdkEvent: any) {
         entity.onAllRegistersFromModbusDeviceReceive(sdkEvent);
+      });
+
+      entity.stompClient.subscribe(entity.topicRecipeLastByDate, function(sdkEvent: any) {
+        entity.onRecipeLastByDateReceive(sdkEvent);
       });
       // entity.stompClient.reconnect_delay = 2000;
     }, this.errorCallBack);
@@ -142,6 +148,10 @@ export class WebsocketServiceService {
     this.stompClient.send(this.appWriteSaveAllChanges, {}, JSON.stringify(message));
   }
 
+  sendRecipeLastByDate(message: any) {
+    this.stompClient.send(this.appRecipeLastByDate, {}, JSON.stringify(message));
+  }
+
 
   onListOfTablesReceive(tables: any){
     const mes = JSON.parse(tables.body);
@@ -186,5 +196,10 @@ export class WebsocketServiceService {
   onAllRegistersFromModbusDeviceReceive(all: any){
     const mes = JSON.parse(all.body);
     this.bodyMessage.newAllRegistersFromModbusDevice(mes);
+  }
+
+  onRecipeLastByDateReceive(last: any){
+    const mes = JSON.parse(last.body);
+    this.bodyMessage.newRecipeLastByDate(mes);
   }
 }

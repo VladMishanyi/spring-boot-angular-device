@@ -4,6 +4,7 @@ import {BaseChartDirective, Color, Label} from "ng2-charts";
 import * as moment from "moment";
 import {saveAs} from "file-saver";
 import {TableModelMB110_1TD, TableModelRecipe} from "../model/TableModel";
+import {MessageService} from "./message.service";
 
 type AxisNative = 'x' | 'y' | 'xy';
 type DistributionNative = 'linear' | 'series';
@@ -21,7 +22,7 @@ export class GraphicsService {
                              'DATE_FROM:  '+moment(this.startChart).format('YYYY-MM-DD HH:mm:ss')+'               '+'DATE_TO:  '+moment(this.endChart).format('YYYY-MM-DD HH:mm:ss'),
                              'RANGE_SEL:___________'+'               '+'ARC:___________'+'               '+'TEMP:___________'
                             ];
-  public dataLegend1: number[] = [0, 15, 42, 23, 102, 120, 48];
+  public dataLegend1: number[] = [0];
   // public dataLegend2: number[] = [15, 42, 23, 102, 120, 48];
   // public dataLegend1 = [
   //   { x: new Date('2021-05-24 14:00:00'), y: 5 },
@@ -39,9 +40,11 @@ export class GraphicsService {
   // public globalY2: number[] = [];
   public increaseDecriaseZoom: number = 0;
   public leftRightPosition: number = 0;
-  public bufferChart: number = 1000;
+  public bufferChart: number = 100000;
   public zoomChart: number = 10;
   public onDraw: boolean = false;
+
+  // @ViewChild(BaseChartDirective) baseChartDirective: BaseChartDirective;
 
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
   public lineChartData: ChartDataSets[] = [
@@ -152,13 +155,13 @@ export class GraphicsService {
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
   public lineChartLabels: Label[] =
     [
-      moment().format('YYYY-MM-DD HH:mm:ss'),
+      moment().format('YYYY-MM-DD HH:mm:ss')/*,
       moment().add(20, 'minute').format('YYYY-MM-DD HH:mm:ss'),
       moment().add(40, 'minute').format('YYYY-MM-DD HH:mm:ss'),
       moment().add(60, 'minute').format('YYYY-MM-DD HH:mm:ss'),
       moment().add(80, 'minute').format('YYYY-MM-DD HH:mm:ss'),
       moment().add(100, 'minute').format('YYYY-MM-DD HH:mm:ss'),
-      moment().add(120, 'minute').format('YYYY-MM-DD HH:mm:ss')
+      moment().add(120, 'minute').format('YYYY-MM-DD HH:mm:ss')*/
     ];
   /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
   linePositionType: PositionType = 'top';
@@ -480,10 +483,10 @@ export class GraphicsService {
     quarter: 'YYYY-MM-DD HH:mm:ss',
     year: 'YYYY-MM-DD HH:mm:ss'
   }
-  lineTimeUnit: TimeUnit = 'hour';
+  lineTimeUnit: TimeUnit = 'second';
   lineTimeScaleX = {
-    type: this.lineTimeUnit,
-    display: true,
+    // type: this.lineTimeUnit,
+    // display: true,
     // position?: PositionType | string;
     // gridLines?: GridLineOptions;
     // scaleLabel?: ScaleTitleOptions;
@@ -499,7 +502,7 @@ export class GraphicsService {
     // round?: TimeUnit;
     // tooltipFormat?: string;
     unit: this.lineTimeUnit,
-    unitStepSize: 1,
+    // unitStepSize: 1,
     stepSize: 1,
     // minUnit: this.lineTimeUnit
   }
@@ -615,9 +618,10 @@ export class GraphicsService {
     this.vTitle.push(...i);
   }
 
-  // public updateGraphics(): void{
-  //   this.baseChartDirective.chart.update();
-  // }
+  public updateGraphics(): void{
+    // this.baseChartDirective.chart.update();
+    // this.window.baseChart.update();
+  }
 
   public genChart(data: TableModelMB110_1TD[]): void{
     let x: Date[] = [];
@@ -651,8 +655,7 @@ export class GraphicsService {
     // @ts-ignore
     this.lineChartData[0].data.push(...y1);
     // this.lineChartData[1].data = y2;
-    // this.window.baseChart.update();
-    // this.updateGraphics();
+    this.updateGraphics();
   }
 
   public clearChart(){
@@ -664,19 +667,19 @@ export class GraphicsService {
       // @ts-ignore
       dataset.data.length = 0;
     });
-    // this.window.myLine.update();
+    this.updateGraphics();
   }
 
   public addLastElementToChart(X1: Date, Y1: number, Y2: number) {
     this.globalX.push(X1);
     this.globalY1.push(Y1);
     // this.globalY2.push(Y2);
-    this.lineChartLabels.push(X1.toISOString());
+    this.lineChartLabels.push(X1.toString());
     // this.lineChartData[0].data.push(Y1);
     this.dataLegend1.push(Y1);
     // this.lineChartData[1].data.push(Y1);
     // this.dataLegend2.push(Y2);
-    // this.window.myLine.update();
+    this.updateGraphics();
   }
 
   public removeFirstElementFromChart() {
@@ -689,11 +692,12 @@ export class GraphicsService {
     // this.lineChartData.forEach(function(dataset) {
     //   dataset.data.shift();
     // });
-    // window.myLine.update();
+    this.updateGraphics();
   }
 
   public drawInRealTime(parsed: any) {
-    let x = moment(new Date(), "YYYY-MM-DD HH:mm:ss").toDate();
+    // let x = moment(new Date(), "YYYY-MM-DD HH:mm:ss").toDate();
+    let x = new Date();
     let y1 = parsed.holdingRegister0;
     let y2 = parsed.holdingRegister1;
     if (this.lineChartLabels.length < this.bufferChart){

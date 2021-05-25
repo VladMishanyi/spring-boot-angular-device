@@ -11,14 +11,14 @@ import java.time.LocalDateTime;
 
 public class JsonBodyLocalDateTimeFromChart {
 //    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 //    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime start;
 
 //    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 //    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)

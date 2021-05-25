@@ -23,21 +23,19 @@ export class AppComponent implements OnInit, AfterViewInit{
   public start: Date = new Date();
   public end: Date = new Date();
   public onDraw: boolean = false;
-  public currentDateTime: string;
-  public valueInRealTimeStretch: number = 0;
-  public informationInRealTime: string = 'Очікую';
+
+
+
   public contactorInRealTime: boolean = false;
   public timerInRealTime: boolean = false;
   public searchPattern: JsonString = new JsonString('');
   public listOfRecipesByNamePattern: TableModelRecipe[] = [];
-  public device: DeviceModelMB110_1TD = new DeviceModelMB110_1TD(0,0,0,0,0,0,0,0);
-  public sensorMinValue: number = 0;
-  public sensorMaxValue: number = 0;
-  public sensorSetWeight: number = 0;
+
+
 
   public startChart: Date = new Date();
   public endChart: Date = new Date();
-  public bufferChart: number = 1000;
+  public bufferChart: number = 100000;
   public zoomChart: number = 10;
   public lineChartData: any;
   public lineChartLabels: any;
@@ -69,54 +67,51 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.baseChart = baseChart;
     this.realTimeRender = realTimeRender;
 
+  }
 
+  ngOnInit() {
     this.webSocketAPI.connect();
-    this.currentDateTime = this.readCurrentDateTime();
-    bodyMessage.modbusDevice$.subscribe(mes => {
-      this.valueInRealTimeStretch = mes.holdingRegister0;
+    this.bodyMessage.modbusDevice$.subscribe(mes => {
       if (this.onDraw) this.graphics.drawInRealTime(mes);
     });
-    bodyMessage.listOfTable$.subscribe( mes => {
+    this.bodyMessage.listOfTable$.subscribe( mes => {
       this.graphics.genChart(mes);
     });
-    bodyMessage.timerStatus$.subscribe( mes => {
+    this.bodyMessage.recipeLastByDate$.subscribe( mes => {
+      this.graphics.recipeName = mes.name;
+      this.graphics.recipeTime = mes.time;
+      // this.graphics.generateNewChartTitle();
+      // this.graphics.updateGraphics();
+    });
+    this.bodyMessage.listOfDevicesByIdReceive$.subscribe( mes => {
+      this.graphics.genChart(mes);
+    });
+
+    this.bodyMessage.timerStatus$.subscribe( mes => {
       this.timerInRealTime = mes.content;
       this.onDraw = mes.content;
     });
-    bodyMessage.contactStatus$.subscribe(mes => {
+    this.bodyMessage.contactStatus$.subscribe(mes => {
       this.contactorInRealTime = mes.content;
     });
-    bodyMessage.textStatus$.subscribe( mes => {
-      this.informationInRealTime = mes.content;
-    });
-    bodyMessage.recipeStatus$.subscribe( mes => {
+
+    this.bodyMessage.recipeStatus$.subscribe( mes => {
       this.recipe.id = mes.id;
       this.recipe.date = mes.date;
       this.recipe.name = mes.name;
       this.recipe.time = mes.time;
       this.graphics.recipeName = mes.name;
       this.graphics.recipeTime = mes.time;
+      // this.graphics.generateNewChartTitle();
+      // this.graphics.updateGraphics();
     });
-    bodyMessage.recipeByNamePattern$.subscribe( mes => {
-        this.listOfRecipesByNamePattern.length = 0;
-        this.listOfRecipesByNamePattern.push(...mes);
+    this.bodyMessage.recipeByNamePattern$.subscribe( mes => {
+      this.listOfRecipesByNamePattern.length = 0;
+      this.listOfRecipesByNamePattern.push(...mes);
     });
-    bodyMessage.listOfDevicesByIdReceive$.subscribe( mes => {
-      this.graphics.genChart(mes);
-    });
-    bodyMessage.allRegistersFromModbusDevice$.subscribe( mes => {
-      this.device.holdingRegister0 = mes.holdingRegister0;
-      this.device.holdingRegister1 = mes.holdingRegister1;
-      this.device.holdingRegister2 = mes.holdingRegister2;
-      this.device.holdingRegister3 = mes.holdingRegister3;
-      this.device.holdingRegister4 = mes.holdingRegister4;
-      this.device.holdingRegister5 = mes.holdingRegister5;
-      this.device.holdingRegister6 = mes.holdingRegister6;
-      this.device.holdingRegister7 = mes.holdingRegister7;
-    });
-  }
 
-  ngOnInit() {}
+    this.sendRecipeLastByDate(0);
+  }
 
   ngAfterViewInit() {}
 
@@ -146,32 +141,10 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.webSocketAPI.sendRecipeByNamePattern(this.searchPattern);
   }
 
-  public sendWriteEnableDisableWeightOfItem(value: number): void {
-    this.webSocketAPI.sendWriteEnableDisableWeightOfItem(new JsonNumber(value));
-  }
 
-  public sendWriteSensitivitySensor(value: number): void {
-    this.webSocketAPI.sendWriteSensitivitySensor(new JsonNumber(value));
-  }
 
-  public sendWriteMinBorderValueForSensor(): void {
-    this.webSocketAPI.sendWriteMaxBorderValueForSensor(new JsonNumber(this.sensorMinValue));
-  }
-
-  public sendWriteMaxBorderValueForSensor(): void {
-    this.webSocketAPI.sendWriteMaxBorderValueForSensor(new JsonNumber(this.sensorMaxValue));
-  }
-
-  public sendWriteSetWeightItem(): void {
-    this.webSocketAPI.sendWriteSetWeightItem(new JsonNumber(this.sensorSetWeight));
-  }
-
-  public sendWriteWeightOfItemAsAZero(value: number): void {
-    this.webSocketAPI.sendWriteWeightOfItemAsAZero(new JsonNumber(value));
-  }
-
-  public sendWriteSaveAllChanges(value: number): void {
-    this.webSocketAPI.sendWriteSaveAllChanges(new JsonNumber(value));
+  public sendRecipeLastByDate(value: number): void {
+    this.webSocketAPI.sendRecipeLastByDate(new JsonNumber(value));
   }
 
 
@@ -184,9 +157,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   //   this.graphics.endChart = this.endChart;
   // }
 
-  public readCurrentDateTime(): string{
-    return  moment().format("YYYY-MM-DD HH:mm:ss");
-  }
+
 
   public connect() {
     this.webSocketAPI.connect();

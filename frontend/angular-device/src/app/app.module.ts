@@ -5,10 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { FormsModule } from '@angular/forms';
 import {BaseChartDirective, ChartsModule, ThemeService} from 'ng2-charts';
+import { HeaderComponent } from './components/header/header.component';
+import { CreationTimeComponent } from './components/creation-time/creation-time.component';
+import { StretchingValueComponent } from './components/stretching-value/stretching-value.component';
+import { InfoComponent } from './components/info/info.component';
+import { ConnectorsComponent } from './components/connectors/connectors.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    CreationTimeComponent,
+    StretchingValueComponent,
+    InfoComponent,
+    ConnectorsComponent
   ],
   imports: [
     BrowserModule,
