@@ -10,8 +10,8 @@ export class SearchByDatetimeRangeComponent implements OnInit {
   public startChart: Date = new Date();
   public endChart: Date = new Date();
 
-  @Output() onChangeStart = new EventEmitter();
-  @Output() onChangeEnd = new EventEmitter();
+  @Output() onChangeOutputStart = new EventEmitter();
+  @Output() onChangeOutputEnd = new EventEmitter();
 
   constructor(private graphics: GraphicsService) {
     this.graphics.startChart = this.startChart;
@@ -22,11 +22,11 @@ export class SearchByDatetimeRangeComponent implements OnInit {
   }
 
   public valueChangeStartChart(valueStart: Date): void{
-    this.onChangeStart.emit(valueStart);
+    this.onChangeOutputStart.emit(valueStart);
   }
 
   public valueChangeEndChart(valueEnd: Date): void{
-    this.onChangeEnd.emit(valueEnd);
+    this.onChangeOutputEnd.emit(valueEnd);
   }
 
 }

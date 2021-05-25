@@ -17,16 +17,9 @@ import {DeviceModelMB110_1TD} from "../../model/DeviceModelMB110_1TD";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit{
-  public title: string = 'angular8-springboot-websocket';
-  public rangeDate: RangeDateTimeWithZone = new RangeDateTimeWithZone(new Date, new Date);
-  public recipe: TableModelRecipe = new TableModelRecipe(0, new Date, 'empty', 7);
+  public title: string = 'Reometr';
   public start: Date = new Date();
   public end: Date = new Date();
-  public onDraw: boolean = false;
-
-
-  public bufferChart: number = 100000;
-  public zoomChart: number = 10;
   public lineChartData: any;
   public lineChartLabels: any;
   public lineChartOptions: any;
@@ -35,16 +28,9 @@ export class AppComponent implements OnInit, AfterViewInit{
   public lineChartType: any;
   public lineChartPlugins: any;
 
-  @ViewChild("baseChart") baseChart: ElementRef;
-  @ViewChild("checkboxOnRealTimeRender") realTimeRender: ElementRef;
-
   constructor(private webSocketAPI: WebsocketServiceService,
               private bodyMessage: MessageService,
-              private graphics: GraphicsService,
-              baseChart: ElementRef,
-              realTimeRender: ElementRef) {
-    this.bufferChart = graphics.bufferChart;
-    this.zoomChart = graphics.zoomChart;
+              private graphics: GraphicsService) {
     this.lineChartData = graphics.lineChartData;
     this.lineChartLabels = graphics.lineChartLabels;
     this.lineChartOptions = graphics.lineChartOptions;
@@ -52,16 +38,11 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.lineChartLegend = graphics.lineChartLegend;
     this.lineChartType = graphics.lineChartType;
     this.lineChartPlugins = graphics.lineChartPlugins;
-    this.baseChart = baseChart;
-    this.realTimeRender = realTimeRender;
-
   }
 
   ngOnInit() {
     this.webSocketAPI.connect();
-    this.bodyMessage.modbusDevice$.subscribe(mes => {
-      if (this.onDraw) this.graphics.drawInRealTime(mes);
-    });
+
     this.bodyMessage.listOfTable$.subscribe( mes => {
       this.graphics.genChart(mes);
     });
@@ -74,49 +55,11 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.bodyMessage.listOfDevicesByIdReceive$.subscribe( mes => {
       this.graphics.genChart(mes);
     });
-    this.bodyMessage.timerStatus$.subscribe( mes => {
-      this.onDraw = mes.content;
-    });
-
-    this.bodyMessage.recipeStatus$.subscribe( mes => {
-      this.recipe.id = mes.id;
-      this.recipe.date = mes.date;
-      this.recipe.name = mes.name;
-      this.recipe.time = mes.time;
-      this.graphics.recipeName = mes.name;
-      this.graphics.recipeTime = mes.time;
-      // this.graphics.generateNewChartTitle();
-      // this.graphics.updateGraphics();
-    });
 
 
-    this.sendRecipeLastByDate(0);
   }
 
   ngAfterViewInit() {}
-
-
-
-  public sendChartBody(): void{
-    this.rangeDate.start = this.start;
-    this.rangeDate.end = this.end;
-    this.webSocketAPI.sendRangeDateForChart(this.rangeDate);
-  }
-
-
-
-  public sendNameAndTimeItem(){
-    this.webSocketAPI.sendRecipeItem(this.recipe);
-  }
-
-
-
-
-
-  public sendRecipeLastByDate(value: number): void {
-    this.webSocketAPI.sendRecipeLastByDate(new JsonNumber(value));
-  }
-
 
   // public writeDateTimeFromServer(range: RangeDateTimeWithZone): void{
   //   this.startChart = range.start;
@@ -127,8 +70,6 @@ export class AppComponent implements OnInit, AfterViewInit{
   //   this.graphics.endChart = this.endChart;
   // }
 
-
-
   public connect() {
     this.webSocketAPI.connect();
   }
@@ -137,44 +78,4 @@ export class AppComponent implements OnInit, AfterViewInit{
     this.webSocketAPI.disconnect();
   }
 
-  public checkZoomValue() {
-    this.graphics.zoomChart = this.zoomChart;
-  }
-
-  public checkBufferValue() {
-    this.graphics.bufferChart = this.bufferChart;
-  }
-
-  public checkTheRenderStatus() {
-    this.onDraw = this.realTimeRender.nativeElement.checked;
-    this.graphics.onDraw = this.onDraw;
-    console.log("test checkbox status :"+this.onDraw);
-  }
-
-  public clearChart() {
-    this.graphics.clearChart();
-  }
-
-  public increaseChart() {
-    this.graphics.increaseChart();
-  }
-
-  public decreaseChart() {
-    this.graphics.decreaseChart();
-  }
-
-  public leftChart() {
-    this.graphics.leftChart();
-  }
-
-  public rightChart() {
-    this.graphics.rightChart();
-  }
-
-  public saveChart() {
-    this.baseChart.nativeElement.toBlob(function(blob: any) {
-      let dt = moment().format("YYYY-MM-DD HH:mm:ss");
-      saveAs(blob, dt+"_chart");
-    });
-  }
 }

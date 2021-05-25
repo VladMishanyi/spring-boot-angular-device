@@ -13,6 +13,10 @@ import { ConnectorsComponent } from './components/connectors/connectors.componen
 import { TitleComponent } from './components/title/title.component';
 import { SearchByNameRecipeComponent } from './components/search-by-name-recipe/search-by-name-recipe.component';
 import { SearchByDatetimeRangeComponent } from './components/search-by-datetime-range/search-by-datetime-range.component';
+import { ButtonsForGenerateChartComponent } from './components/buttons-for-generate-chart/buttons-for-generate-chart.component';
+import { NameOfChartComponent } from './components/name-of-chart/name-of-chart.component';
+import { NavigationOfChartComponent } from './components/navigation-of-chart/navigation-of-chart.component';
+import { RecipeBlockComponent } from './components/recipe-block/recipe-block.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { SearchByDatetimeRangeComponent } from './components/search-by-datetime-
     ConnectorsComponent,
     TitleComponent,
     SearchByNameRecipeComponent,
-    SearchByDatetimeRangeComponent
+    SearchByDatetimeRangeComponent,
+    ButtonsForGenerateChartComponent,
+    NameOfChartComponent,
+    NavigationOfChartComponent,
+    RecipeBlockComponent
   ],
   imports: [
     BrowserModule,
