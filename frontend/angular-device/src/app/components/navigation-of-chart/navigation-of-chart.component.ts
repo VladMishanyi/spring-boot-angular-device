@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {GraphicsService} from "../../services/graphics.service";
 import {MessageService} from "../../services/message.service";
+import {AppComponent} from "../app/app.component";
 
 @Component({
   selector: 'app-navigation-of-chart',
@@ -13,7 +14,7 @@ export class NavigationOfChartComponent implements OnInit {
   public onDraw: boolean = false;
   @ViewChild("checkboxOnRealTimeRender") realTimeRender: ElementRef;
 
-  constructor(private graphics: GraphicsService,
+  constructor(private graphics: AppComponent,
               realTimeRender: ElementRef,
               private bodyMessage: MessageService) {
     this.realTimeRender = realTimeRender;
