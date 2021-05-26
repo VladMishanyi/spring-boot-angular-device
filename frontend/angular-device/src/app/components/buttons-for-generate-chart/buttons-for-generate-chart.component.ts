@@ -5,6 +5,7 @@ import {GraphicsService} from "../../services/graphics.service";
 import {RangeDateTimeWithZone} from "../../model/RangeDateTimeWithZone";
 import {WebsocketServiceService} from "../../services/websocket-service.service";
 import {any} from "codelyzer/util/function";
+import {AppComponent} from "../app/app.component";
 
 @Component({
   selector: 'app-buttons-for-generate-chart',
@@ -18,11 +19,22 @@ export class ButtonsForGenerateChartComponent implements OnInit {
   @Input()
   onChangeInputEnd: Date = new Date();
 
-  constructor(private graphics: GraphicsService,
+  constructor(private graphics: AppComponent,
               private webSocketAPI: WebsocketServiceService,
               ) {}
 
   ngOnInit(): void {
   }
 
+  public sendChartBody(){
+    this.graphics.sendChartBody();
+  }
+
+  public saveChart(){
+    this.graphics.saveChart();
+  }
+
+  public clearChart(){
+    this.graphics.clearChart();
+  }
 }

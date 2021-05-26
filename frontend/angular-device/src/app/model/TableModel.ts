@@ -9,7 +9,7 @@ export class TableModelRecipe extends TableModel {
 }
 
 export class TableModelMB110_1TD extends TableModel{
-  constructor(public id: number, public date: Date, public holdingRegister0: number, public tableModelRecipe: TableModelRecipe) {
+  constructor(public id: number, public date: Date, public holdingRegister0: number, public recipe: TableModelRecipe) {
     super(id, date);
   }
 }

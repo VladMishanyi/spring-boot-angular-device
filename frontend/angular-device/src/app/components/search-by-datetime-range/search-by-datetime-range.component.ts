@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {GraphicsService} from "../../services/graphics.service";
+import {AppComponent} from "../app/app.component";
 
 @Component({
   selector: 'app-search-by-datetime-range',
@@ -13,7 +14,7 @@ export class SearchByDatetimeRangeComponent implements OnInit {
   @Output() onChangeOutputStart = new EventEmitter();
   @Output() onChangeOutputEnd = new EventEmitter();
 
-  constructor(private graphics: GraphicsService) {
+  constructor(private graphics: AppComponent) {
     this.graphics.startChart = this.startChart;
     this.graphics.endChart = this.endChart;
   }
@@ -23,10 +24,14 @@ export class SearchByDatetimeRangeComponent implements OnInit {
 
   public valueChangeStartChart(valueStart: Date): void{
     this.onChangeOutputStart.emit(valueStart);
+    this.graphics.startChart = valueStart;
+    this.graphics.generateNewChartTitle();
   }
 
   public valueChangeEndChart(valueEnd: Date): void{
     this.onChangeOutputEnd.emit(valueEnd);
+    this.graphics.endChart = valueEnd;
+    this.graphics.generateNewChartTitle();
   }
 
 }

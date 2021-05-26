@@ -4,6 +4,7 @@ import {WebsocketServiceService} from "../../services/websocket-service.service"
 import {MessageService} from "../../services/message.service";
 import {GraphicsService} from "../../services/graphics.service";
 import {JsonNumber} from "../../model/JsonNumber";
+import {AppComponent} from "../app/app.component";
 
 @Component({
   selector: 'app-recipe-block',
@@ -15,7 +16,7 @@ export class RecipeBlockComponent implements OnInit, AfterViewInit {
 
   constructor(private webSocketAPI: WebsocketServiceService,
               private bodyMessage: MessageService,
-              private graphics: GraphicsService) { }
+              private graphics: AppComponent) { }
 
   ngOnInit(): void {
     this.bodyMessage.recipeStatus$.subscribe( mes => {
