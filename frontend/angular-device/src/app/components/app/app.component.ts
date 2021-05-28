@@ -778,6 +778,8 @@ export class AppComponent implements OnInit, AfterViewInit{
 
   public decreaseChart() {
     let decr: number = this.increaseDecriaseZoom - Number(this.zoomChart);
+    if (this.leftRightPosition > 0) this.rightChart();
+    if (this.leftRightPosition < 0) this.leftChart();
     this.checkIncreaseDecreaseRangeChart(decr);
   }
 

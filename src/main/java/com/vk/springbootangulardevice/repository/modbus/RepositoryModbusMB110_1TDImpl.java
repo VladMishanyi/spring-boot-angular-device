@@ -7,7 +7,9 @@ import com.vk.springbootangulardevice.modbus.ModbusShort;
 import com.vk.springbootangulardevice.modbus.device.DeviceModelMB110_1TD;
 import com.vk.springbootangulardevice.modbus.entity.ModbusMasterSerialModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -15,6 +17,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 @Repository
 @ComponentScan(basePackages = {"com.vk.springbootangulardevice","com.vk.springbootangulardevice.modbus"})
+@PropertySource(value = "classpath:application.properties")
 public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
 
     private final ModbusMasterSerialModel modbusMasterSerialFirst;
@@ -25,7 +28,9 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
     private final ModbusShort modbusShort;
     private final int queueSize = 300;
     private Queue<Float> queue = new ArrayBlockingQueue<Float>(queueSize);
-    private final int borderSize = 5;
+
+    @Value("${chart.smoothing}")
+    private int borderSize;
 
     @Autowired
     public RepositoryModbusMB110_1TDImpl(final ModbusMasterSerialModel modbusMasterSerialFirst,
@@ -297,7 +302,6 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
         if ((s >= border) && (border <= queueSize)){
             float inner = (float) queue.stream().mapToDouble(x -> x).average().getAsDouble();
             queue.poll();
-            System.out.println("i am in smoothing block-----size="+s+"--------value------:"+inner);
             return inner;
         }
         return val;
