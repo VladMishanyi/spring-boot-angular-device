@@ -25,24 +25,6 @@ public class RecipeController {
         this.serviceRecipe = serviceRecipe;
     }
 
-//    @MessageMapping("/hello")
-//    @SendTo("/topic/greetings")
-//    public Greeting greeting(HelloMessage message) throws Exception {
-//        Thread.sleep(1000); // simulated delay
-//        return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
-//    }
-//
-//    @MessageMapping("/date-to-server")
-//    @SendTo("/topic/date-from-server")
-//    public JsonBodyLocalDateTimeFromChart tryToParseLocalDateTime(JsonBodyLocalDateTimeFromChart jsonBodyLocalDateTimeFromChart) throws Exception{
-//        System.out.println("---this is local date time from user :" + jsonBodyLocalDateTimeFromChart.toString());
-//        JsonBodyLocalDateTimeFromChart jbdtf = new JsonBodyLocalDateTimeFromChart();
-//            jbdtf.setStart(jsonBodyLocalDateTimeFromChart.getStart().minusMinutes(30));
-//            jbdtf.setEnd(jsonBodyLocalDateTimeFromChart.getEnd().minusMinutes(30));
-//            Thread.sleep(2000); // simulated delay
-//         return jbdtf;
-//    }
-
     @MessageMapping(value="/table-recipe")
     @SendTo("/topic/table-recipe")
     public TableModelRecipe saveNewRecipe(TableModelRecipe recipe){
@@ -84,19 +66,4 @@ public class RecipeController {
     public TableModelRecipe findLastByDateRecipe(JsonLong number){
         return serviceRecipe.databaseFindLastValueByDate();
     }
-
-
-//    @MessageMapping("/date-to-server")
-//    @SendTo("/topic/date-from-server")
-//    public User tryToParseLocalDateTime(User user) throws Exception{
-//        System.out.println("---this is local date time from user :" + user.getName() + "---" + user.getAge());
-//        Thread.sleep(2000); // simulated delay
-//        return user;
-//    }
-
-//    @MessageMapping("/date-to-server")
-//    @SendTo("/topic/date-from-server")
-//    public void tryToParseLocalDateTime(@RequestBody Map<String, Object> json){
-//        System.out.println("---this is local date time from user :" + json);
-//    }
 }

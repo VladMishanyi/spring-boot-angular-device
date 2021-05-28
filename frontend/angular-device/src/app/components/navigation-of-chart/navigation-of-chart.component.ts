@@ -42,7 +42,8 @@ export class NavigationOfChartComponent implements OnInit {
   public checkTheRenderStatus() {
     this.onDraw = this.realTimeRender.nativeElement.checked;
     this.graphics.onDraw = this.onDraw;
-    console.log("test checkbox status :"+this.onDraw);
+    if (this.onDraw) this.graphics.startChart = new Date();
+    if (!this.onDraw) this.graphics.endChart = new Date();
   }
 
   public increaseChart() {
