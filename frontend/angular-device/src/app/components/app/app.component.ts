@@ -647,9 +647,12 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   public saveChart(): void {
+    // let dt = moment().format("YYYY-MM-DD HH:mm:ss");
+    let dt = new Date();
+    let name = this.recipeName;
+    let time = this.recipeTime;
     this.refBaseChart.nativeElement.toBlob(function(blob: any) {
-      let dt = moment().format("YYYY-MM-DD HH:mm:ss");
-      saveAs(blob, dt+"_chart");
+      saveAs(blob, dt+"____"+name+"____"+time);
     });
   }
 
@@ -660,16 +663,12 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   public generateNewChartTitle(): void {
-    console.log("im debug inner block of title 1"+this.lineChartTitleOptions.text.toString());
-    // this.vTitle.length = 0;
     this.lineChartTitleOptions.text.length = 0;
     let i: string[] = ['ITEM_NAME:  '+this.recipeName+'                                                            '+'ITEM_TIME:  '+this.recipeTime,
       'DATE_FROM:  '+moment(this.startChart).format('YYYY-MM-DD HH:mm:ss')+'               '+'DATE_TO:  '+moment(this.endChart).format('YYYY-MM-DD HH:mm:ss'),
       'RANGE_SEL:___________'+'               '+'ARC:___________'+'               '+'TEMP:___________'];
-    // this.vTitle.push(...i);
     this.lineChartTitleOptions.text.push(...i);
     this.updateGraphics();
-    console.log("im debug inner block of title 1"+this.lineChartTitleOptions.text.toString());
   }
 
   public updateGraphics(): void{
@@ -680,32 +679,34 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   public genChart(data: TableModelMB110_1TD[]): void{
-    let x: Date[] = [];
-    let y1: number[] = [];
-    // let y2: number[] = [];
-    let utcLocalDateTimeOffset = this.getUtcOffset(data[0].date);
-    for (let i: number=0; i < data.length; i++){
-      if (data.hasOwnProperty(i)){
-        try {
-          x[i] = moment(data[i].date, "YYYY-MM-DD HH:mm:ss").utcOffset(utcLocalDateTimeOffset).toDate();
-          y1[i] = data[i].holdingRegister0;
-          // y2[i] = data[i].holdingRegister0;
-        }catch (err){
-          console.log('Ошибка ' + err.name + ":" + err.message + "\n" + err.stack);
+    if (data.length > 0){
+      let x: Date[] = [];
+      let y1: number[] = [];
+      // let y2: number[] = [];
+      let utcLocalDateTimeOffset = this.getUtcOffset(data[0].date);
+      for (let i: number=0; i < data.length; i++){
+        if (data.hasOwnProperty(i)){
+          try {
+            x[i] = moment(data[i].date, "YYYY-MM-DD HH:mm:ss").utcOffset(utcLocalDateTimeOffset).toDate();
+            y1[i] = data[i].holdingRegister0;
+            // y2[i] = data[i].holdingRegister0;
+          }catch (err){
+            console.log('Ошибка ' + err.name + ":" + err.message + "\n" + err.stack);
+          }
         }
       }
+      this.globalX.push(...x);
+      this.globalY1.push(...y1);
+      // this.globalY2 = y2;
+      this.increaseDecriaseZoom = 0;
+      this.leftRightPosition = 0;
+      this.buildChart(x, y1/*, y2*/);
     }
-    this.globalX.push(...x);
-    this.globalY1.push(...y1);
-    // this.globalY2 = y2;
-    this.increaseDecriaseZoom = 0;
-    this.leftRightPosition = 0;
-    this.buildChart(x, y1/*, y2*/);
   }
 
   public buildChart(x: Date[], y1: number[]/*, y2: number[]*/) {
     for (let i = 0; i < x.length -1; i++) {
-      let s: string = x[i].toISOString();
+      let s: string = x[i].toString();
       this.lineChartLabels.push(s);
     }
     // @ts-ignore
@@ -714,9 +715,19 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   public clearChart(){
+    this.increaseDecriaseZoom = 0;
+    this.leftRightPosition = 0;
     this.globalX.length = 0;
     this.globalY1.length = 0;
     // this.globalY2 = [];
+    this.lineChartLabels.length = 0;
+    this.lineChartData.forEach(function(dataset) {
+      // @ts-ignore
+      dataset.data.length = 0;
+    });
+  }
+
+  public refreshChart(){
     this.lineChartLabels.length = 0;
     this.lineChartData.forEach(function(dataset) {
       // @ts-ignore
@@ -760,76 +771,63 @@ export class AppComponent implements OnInit, AfterViewInit{
     }
   }
 
-  public increaseChart() {
-    let increaseArrayX = [];
-    let increaseArrayY1 = [];
-    // let increaseArrayY2 = [];
-    if ((0 < this.increaseDecriaseZoom - this.leftRightPosition) || (this.globalX.length > this.increaseDecriaseZoom - this.leftRightPosition)){
-      this.increaseDecriaseZoom = this.increaseDecriaseZoom + Number(this.zoomChart);
-      let from = this.increaseDecriaseZoom - this.leftRightPosition;
-      let to = this.globalX.length - this.increaseDecriaseZoom - this.leftRightPosition;
-      increaseArrayX = this.globalX.slice(from,to);
-      increaseArrayY1 = this.globalY1.slice(from,to);
-      // increaseArrayY2 = this.globalY2.slice(from,to);
-      this.startChart = increaseArrayX[0];
-      this.endChart = increaseArrayX[increaseArrayX.length - 1];
-      this.generateNewChartTitle();
-      this.buildChart(increaseArrayX, increaseArrayY1/*, increaseArrayY2*/);
-    }
+  public increaseChart(): void {
+    let incr: number = this.increaseDecriaseZoom + Number(this.zoomChart);
+    this.checkIncreaseDecreaseRangeChart(incr);
   }
 
   public decreaseChart() {
-    let increaseArrayX = [];
-    let increaseArrayY1 = [];
-    // let increaseArrayY2 = [];
-    if ((0 < this.increaseDecriaseZoom - this.leftRightPosition) || (this.globalX.length > this.increaseDecriaseZoom - this.leftRightPosition)){
-      this.increaseDecriaseZoom = this.increaseDecriaseZoom - Number(this.zoomChart);
-      let from = this.increaseDecriaseZoom - this.leftRightPosition;
-      let to = this.globalX.length - this.increaseDecriaseZoom - this.leftRightPosition;
-      increaseArrayX = this.globalX.slice(from,to);
-      increaseArrayY1 = this.globalY1.slice(from,to);
-      // increaseArrayY2 = this.globalY2.slice(from,to);
-      this.startChart = increaseArrayX[0];
-      this.endChart = increaseArrayX[increaseArrayX.length - 1];
-      this.generateNewChartTitle();
-      this.buildChart(increaseArrayX, increaseArrayY1, /*increaseArrayY2*/);
-    }
+    let decr: number = this.increaseDecriaseZoom - Number(this.zoomChart);
+    this.checkIncreaseDecreaseRangeChart(decr);
   }
 
   public leftChart() {
-    let increaseArrayX = [];
-    let increaseArrayY1 = [];
-    // let increaseArrayY2 = [];
-    if ((0 < this.increaseDecriaseZoom - this.leftRightPosition) || (this.globalX.length > this.increaseDecriaseZoom - this.leftRightPosition)){
-      this.leftRightPosition = this.leftRightPosition + Number(this.zoomChart);
-      let from = this.increaseDecriaseZoom - this.leftRightPosition;
-      let to = this.globalX.length - this.increaseDecriaseZoom - this.leftRightPosition;
-      increaseArrayX = this.globalX.slice(from,to);
-      increaseArrayY1 = this.globalY1.slice(from,to);
-      // increaseArrayY2 = this.globalY1.slice(from,to);
-      this.startChart = increaseArrayX[0];
-      this.endChart = increaseArrayX[increaseArrayX.length - 1];
-      this.generateNewChartTitle();
-      this.buildChart(increaseArrayX, increaseArrayY1/*, increaseArrayY2*/);
-    }
+    let left: number = this.leftRightPosition + Number(this.zoomChart);
+    this.checkLeftRightRangeChart(left);
   }
 
   public rightChart() {
-    let increaseArrayX = [];
-    let increaseArrayY1 = [];
-    // let increaseArrayY2 = [];
-    if ((0 < this.increaseDecriaseZoom - this.leftRightPosition) || (this.globalX.length > this.increaseDecriaseZoom - this.leftRightPosition)){
-      this.leftRightPosition  = this.leftRightPosition  - Number(this.zoomChart);
-      let from = this.increaseDecriaseZoom - this.leftRightPosition;
-      let to = this.globalX.length - this.increaseDecriaseZoom - this.leftRightPosition;
+    let right: number = this.leftRightPosition  - Number(this.zoomChart);
+    this.checkLeftRightRangeChart(right);
+  }
+
+  private checkIncreaseDecreaseRangeChart(increaseDecrease: number): void {
+    let maxIndex: number = this.globalX.length-1;
+    let from = increaseDecrease - this.leftRightPosition;
+    let to = (this.globalX.length-1)  - increaseDecrease - this.leftRightPosition;
+    if ((0 <= from) && (to <= maxIndex)) {
+      let childMiddleIndex: number = (to + from)/2;
+      if ((from < childMiddleIndex) && (childMiddleIndex < to)){
+        this.increaseDecriaseZoom = increaseDecrease;
+        this.zoomEventChart(from, to);
+      }
+    }
+  }
+
+  private checkLeftRightRangeChart(leftRight: number): void {
+    let maxIndex: number = this.globalX.length-1;
+    let from = this.increaseDecriaseZoom - leftRight;
+    let to = (this.globalX.length-1)  - this.increaseDecriaseZoom - leftRight;
+    if ((0 <= from) && (to <= maxIndex)) {
+      let childMiddleIndex: number = (to + from)/2;
+      if ((from < childMiddleIndex) && (childMiddleIndex < to)){
+        this.leftRightPosition = leftRight;
+        this.zoomEventChart(from, to);
+      }
+    }
+  }
+
+  private zoomEventChart(from: number, to: number): void {
+      let increaseArrayX = [];
+      let increaseArrayY1 = [];
       increaseArrayX = this.globalX.slice(from,to);
       increaseArrayY1 = this.globalY1.slice(from,to);
-      // increaseArrayY2 = this.globalY2.slice(from,to);
       this.startChart = increaseArrayX[0];
       this.endChart = increaseArrayX[increaseArrayX.length - 1];
+      this.refreshChart();
+      console.log("from:"+from+" to:"+to+" leftRight:"+this.leftRightPosition+" increaseDecrease:"+this.increaseDecriaseZoom);
+      this.buildChart(increaseArrayX, increaseArrayY1);
       this.generateNewChartTitle();
-      this.buildChart(increaseArrayX, increaseArrayY1/*, increaseArrayY2*/);
-    }
   }
 
   public getUtcOffset(date: Date) {

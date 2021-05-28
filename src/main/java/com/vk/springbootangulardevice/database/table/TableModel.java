@@ -29,7 +29,7 @@ public abstract class TableModel implements Serializable, Cloneable{
     @Column(name = "id")
     private long id;
 
-//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 //    @JsonFormat(pattern="yyyy-MM-ddTHH:mm:ss")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
