@@ -24,9 +24,9 @@ public class ConfigurationRoot {
 //        return new AnnotationConfigWebApplicationContext().getBean(BatchRead.class);
 //    }
 
-//    @Bean
-//    @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
-//    public GpioController gpioController(){
-//        return GpioFactory.getInstance();
-//    }
+    @Bean
+    @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
+    public GpioController gpioController(){
+        return GpioFactory.getInstance();
+    }
 }
