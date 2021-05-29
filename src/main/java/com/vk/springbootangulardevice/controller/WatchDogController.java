@@ -13,10 +13,13 @@ import com.vk.springbootangulardevice.tasks.TaskMB110_1TD;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @ComponentScan(basePackages = {"com.vk.springbootangulardevice"})
+@RequestMapping(value = "/chain")
 public class WatchDogController {
     private final ServiceMB110_1TD serviceMB110_1TD;
     private ChainModbus chainModbus;
@@ -47,6 +50,21 @@ public class WatchDogController {
         this.modelRaspberry = modelRaspberry;
         this.deviceToTableMB110_1TD = deviceToTableMB110_1TD;
         this.serviceRecipe = serviceRecipe;
+    }
+
+    @RequestMapping(value = "/modbus", method = RequestMethod.GET)
+    public boolean checkStatusModbusChain(){
+        return chainModbus.isAlive();
+    }
+
+    @RequestMapping(value = "/program", method = RequestMethod.GET)
+    public boolean checkStatusProgramChain(){
+        return chainProgram.isAlive();
+    }
+
+    @RequestMapping(value = "/raspberry", method = RequestMethod.GET)
+    public boolean checkStatusRaspberryChain(){
+        return chainRaspberry.isAlive();
     }
 
     @Scheduled(fixedRate = 1000*60)
