@@ -2290,3 +2290,104 @@
 2021-05-18 13:35:11.136  INFO 9651 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-05-18 13:35:11.144  INFO 9651 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown initiated...
 2021-05-18 13:35:11.206  INFO 9651 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown completed.
+2021-05-18 15:55:57.642  INFO 13679 --- [main] .SpringBootAngularDeviceApplicationTests : Starting SpringBootAngularDeviceApplicationTests using Java 1.8.0_212 on raspberrypi with PID 13679 (started by root in /home/pi/IdeaProjects/spring-boot-angular-device)
+2021-05-18 15:55:57.657  INFO 13679 --- [main] .SpringBootAngularDeviceApplicationTests : No active profile set, falling back to default profiles: default
+2021-05-18 15:56:01.681  INFO 13679 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-18 15:56:01.947  INFO 13679 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 234 ms. Found 2 JPA repository interfaces.
+2021-05-18 15:56:05.246  INFO 13679 --- [main] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Starting...
+2021-05-18 15:56:06.385  INFO 13679 --- [main] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Start completed.
+2021-05-18 15:56:06.925  INFO 13679 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-18 15:56:07.333  INFO 13679 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-05-18 15:56:08.236  INFO 13679 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-18 15:56:09.328  INFO 13679 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2021-05-18 15:56:12.518  INFO 13679 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-18 15:56:12.557  INFO 13679 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-18 15:56:15.251  INFO 13679 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientInboundChannelExecutor'
+2021-05-18 15:56:15.318  INFO 13679 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'clientOutboundChannelExecutor'
+2021-05-18 15:56:15.327  INFO 13679 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'brokerChannelExecutor'
+2021-05-18 15:56:16.608  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:16.660  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:16.873  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:16.889  INFO 13679 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'messageBrokerTaskScheduler'
+2021-05-18 15:56:16.924  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:17.121  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:17.172  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:17.352  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:17.403  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:17.604  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:17.655  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:17.807  WARN 13679 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-18 15:56:17.845  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:17.896  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:18.077  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:18.128  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:18.305  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:18.356  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:18.544  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:18.595  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:18.772  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:18.823  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:19.008  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:19.059  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:19.235  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:19.285  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:19.475  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:19.532  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:19.728  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:19.779  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:20.308  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:20.365  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:20.572  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:20.624  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:20.829  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:20.880  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:21.074  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:21.125  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:21.316  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:21.374  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:21.559  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:21.610  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:21.788  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:21.839  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:22.015  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:22.066  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:22.242  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:22.313  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:22.491  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:22.545  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:22.724  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:22.797  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:22.997  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:23.052  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:23.243  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:23.296  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:23.486  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:23.537  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:23.721  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:23.772  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:23.955  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:24.005  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:24.208  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:24.259  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:24.345  INFO 13679 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2021-05-18 15:56:24.346  INFO 13679 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@e5ffe]]
+2021-05-18 15:56:24.348  INFO 13679 --- [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2021-05-18 15:56:24.396  INFO 13679 --- [main] .SpringBootAngularDeviceApplicationTests : Started SpringBootAngularDeviceApplicationTests in 28.591 seconds (JVM running for 34.297)
+2021-05-18 15:56:24.447  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:24.498  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:24.693  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:24.746  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:24.940  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:24.990  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-18 15:56:25.066  INFO 13679 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2021-05-18 15:56:25.068  INFO 13679 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@e5ffe]]
+2021-05-18 15:56:25.069  INFO 13679 --- [SpringContextShutdownHook] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2021-05-18 15:56:25.088  INFO 13679 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'messageBrokerTaskScheduler'
+2021-05-18 15:56:25.156  INFO 13679 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'brokerChannelExecutor'
+2021-05-18 15:56:25.158  INFO 13679 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientOutboundChannelExecutor'
+2021-05-18 15:56:25.159  INFO 13679 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'clientInboundChannelExecutor'
+2021-05-18 15:56:25.163  INFO 13679 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-18 15:56:25.167  INFO 13679 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown initiated...
+2021-05-18 15:56:25.180  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-18 15:56:25.229  INFO 13679 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : springHikariCP - Shutdown completed.
+2021-05-18 15:56:25.231  INFO 13679 --- [Thread-3] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
