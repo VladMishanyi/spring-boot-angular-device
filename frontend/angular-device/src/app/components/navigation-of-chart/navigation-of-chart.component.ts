@@ -30,6 +30,7 @@ export class NavigationOfChartComponent implements OnInit {
       this.onDraw = mes.content;
       if (this.onDraw) this.graphics.startChart = new Date();
       if (!this.onDraw) this.graphics.endChart = new Date();
+      this.graphics.generateNewChartTitle();
     });
   }
 
