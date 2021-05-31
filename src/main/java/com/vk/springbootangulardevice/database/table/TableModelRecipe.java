@@ -1,5 +1,7 @@
 package com.vk.springbootangulardevice.database.table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -16,7 +18,8 @@ public class TableModelRecipe extends TableModel{
     @Column(name = "time", nullable = false)
     private int time;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "tableModelRecipe", orphanRemoval = true)
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "tableModelRecipe", orphanRemoval = true)
     private List<TableModelMB110_1TD> tableModelMB110_1TDList = new ArrayList<>();
 
     public TableModelRecipe(){}
@@ -56,6 +59,10 @@ public class TableModelRecipe extends TableModel{
     public void deleteMB110_1DT(TableModelMB110_1TD tableModelMB110_1TD) {
         tableModelMB110_1TDList.remove(tableModelMB110_1TD);
         tableModelMB110_1TD.setRecipe(null);
+    }
+
+    public List<TableModelMB110_1TD> getTableModelMB110_1TDList() {
+        return tableModelMB110_1TDList;
     }
 
     @Override

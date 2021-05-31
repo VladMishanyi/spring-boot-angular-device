@@ -85,9 +85,9 @@ public class DeviceModelMB110_1TD implements DeviceModel {
     @JsonIgnore
     private transient final ModbusLocator modbusLocator4h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 17, DataType.TWO_BYTE_INT_UNSIGNED);
 
-    private int holdingRegister5 = 0;
+    private float holdingRegister5 = 0F;
     @JsonIgnore
-    private transient int oldHoldingRegister5 = 0;
+    private transient float oldHoldingRegister5 = 0F;
     /**
      * This modbusLocator5h uses to set min value for sensor.
      * Marked as v.Min
@@ -98,9 +98,9 @@ public class DeviceModelMB110_1TD implements DeviceModel {
     @JsonIgnore
     private transient final ModbusLocator modbusLocator5h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 21, DataType.FOUR_BYTE_FLOAT);
 
-    private int holdingRegister6 = 0;
+    private float holdingRegister6 = 0F;
     @JsonIgnore
-    private transient int oldHoldingRegister6 = 0;
+    private transient float oldHoldingRegister6 = 0F;
     /**
      * This modbusLocator6h uses to set max value for sensor.
      * Marked as v.Max
@@ -111,9 +111,9 @@ public class DeviceModelMB110_1TD implements DeviceModel {
     @JsonIgnore
     private transient final ModbusLocator modbusLocator6h = new ModbusLocator(deviceAddress, RegisterRange.HOLDING_REGISTER, 29, DataType.FOUR_BYTE_FLOAT);
 
-    private int holdingRegister7 = 0;
+    private float holdingRegister7 = 0F;
     @JsonIgnore
-    private transient int oldHoldingRegister7 = 0;
+    private transient float oldHoldingRegister7 = 0F;
     /**
      * This modbusLocator7h uses to set weight of item.
      * Marked as P.Wgh
@@ -239,19 +239,19 @@ public class DeviceModelMB110_1TD implements DeviceModel {
         return modbusLocator4h;
     }
 
-    public int getHoldingRegister5() {
+    public float getHoldingRegister5() {
         return holdingRegister5;
     }
 
-    public void setHoldingRegister5(int holdingRegister5) {
+    public void setHoldingRegister5(float holdingRegister5) {
         this.holdingRegister5 = holdingRegister5;
     }
 
-    public int getOldHoldingRegister5() {
+    public float getOldHoldingRegister5() {
         return oldHoldingRegister5;
     }
 
-    public void setOldHoldingRegister5(int oldHoldingRegister5) {
+    public void setOldHoldingRegister5(float oldHoldingRegister5) {
         this.oldHoldingRegister5 = oldHoldingRegister5;
     }
 
@@ -259,19 +259,19 @@ public class DeviceModelMB110_1TD implements DeviceModel {
         return modbusLocator5h;
     }
 
-    public int getHoldingRegister6() {
+    public float getHoldingRegister6() {
         return holdingRegister6;
     }
 
-    public void setHoldingRegister6(int holdingRegister6) {
+    public void setHoldingRegister6(float holdingRegister6) {
         this.holdingRegister6 = holdingRegister6;
     }
 
-    public int getOldHoldingRegister6() {
+    public float getOldHoldingRegister6() {
         return oldHoldingRegister6;
     }
 
-    public void setOldHoldingRegister6(int oldHoldingRegister6) {
+    public void setOldHoldingRegister6(float oldHoldingRegister6) {
         this.oldHoldingRegister6 = oldHoldingRegister6;
     }
 
@@ -279,19 +279,19 @@ public class DeviceModelMB110_1TD implements DeviceModel {
         return modbusLocator6h;
     }
 
-    public int getHoldingRegister7() {
+    public float getHoldingRegister7() {
         return holdingRegister7;
     }
 
-    public void setHoldingRegister7(int holdingRegister7) {
+    public void setHoldingRegister7(float holdingRegister7) {
         this.holdingRegister7 = holdingRegister7;
     }
 
-    public int getOldHoldingRegister7() {
+    public float getOldHoldingRegister7() {
         return oldHoldingRegister7;
     }
 
-    public void setOldHoldingRegister7(int oldHoldingRegister7) {
+    public void setOldHoldingRegister7(float oldHoldingRegister7) {
         this.oldHoldingRegister7 = oldHoldingRegister7;
     }
 

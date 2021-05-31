@@ -62,7 +62,6 @@ public class TimerON extends Thread{
                     currentTime = 0;
                     endTime = false;
                 }
-                System.out.println(this.toString());
             }
         }catch (InterruptedException e){
             e.printStackTrace();

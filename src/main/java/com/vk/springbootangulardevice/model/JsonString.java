@@ -1,5 +1,8 @@
 package com.vk.springbootangulardevice.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class JsonString {
     private String content;
 

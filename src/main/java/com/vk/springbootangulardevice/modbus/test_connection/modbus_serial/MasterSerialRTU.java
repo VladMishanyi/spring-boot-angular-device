@@ -18,8 +18,8 @@ public class MasterSerialRTU {
 
     public static void main(String[] args) throws Exception {
         long startTime = 0;
-        final ModbusMasterSerialModel modbusMasterSerialModel = new ModbusMasterSerialModel("/dev/ttyUSB0", 9600, 8, 1, 0, 200, 1);
-//        final ModbusMasterSerialModel modbusMasterSerialModel = new ModbusMasterSerialModel("COM29", 9600, 8, 1, 0, 200, 1);
+//        final ModbusMasterSerialModel modbusMasterSerialModel = new ModbusMasterSerialModel("/dev/ttyUSB0", 9600, 8, 1, 0, 200, 1);
+        final ModbusMasterSerialModel modbusMasterSerialModel = new ModbusMasterSerialModel("COM29", 9600, 8, 1, 0, 200, 1);
 
         final ModbusShort modbusShort = new ModbusShortImpl();
         modbusShort.setUseBorders(false);
@@ -43,7 +43,18 @@ public class MasterSerialRTU {
                     deviceModelMB110_1TD.getDeviceAddress(),
                     batchRead,
                     false,
-                    deviceModelMB110_1TD.getModbusLocator0h()
+                    deviceModelMB110_1TD.getModbusLocator0h(),
+                    deviceModelMB110_1TD.getModbusLocator5h(),
+                    deviceModelMB110_1TD.getModbusLocator6h(),
+                    deviceModelMB110_1TD.getModbusLocator7h()
+            );
+            List<Integer> valShort = modbusInteger.readDataFromModBus(
+                    modbusMasterSerialModel,
+                    deviceModelMB110_1TD.getDeviceAddress(),
+                    batchRead,
+                    false,
+                    deviceModelMB110_1TD.getModbusLocator3h(),
+                    deviceModelMB110_1TD.getModbusLocator4h()
             );
 
 //            if (i == 0){
@@ -83,6 +94,7 @@ public class MasterSerialRTU {
 //
             System.out.println("Time elapsed: " + (System.currentTimeMillis() - startTime) + "ms");
             valFloat.forEach(System.out::println);
+            valShort.forEach(System.out::println);
             System.out.println("----------------------------------------------------------------------------------------");
             Thread.sleep(1000);
             i++;

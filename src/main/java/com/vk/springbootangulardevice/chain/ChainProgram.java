@@ -10,7 +10,7 @@ import com.vk.springbootangulardevice.model.JsonBoolean;
 import com.vk.springbootangulardevice.model.JsonString;
 import com.vk.springbootangulardevice.model.ModelRaspberry;
 import com.vk.springbootangulardevice.repository.database.RepositoryDatabaseRecipe;
-import com.vk.springbootangulardevice.repository.raspberry.RepositoryRaspberry;
+//import com.vk.springbootangulardevice.repository.raspberry.RepositoryRaspberry;
 import com.vk.springbootangulardevice.service.ServiceMB110_1TD;
 import com.vk.springbootangulardevice.service.ServiceRecipe;
 import org.slf4j.Logger;
@@ -78,7 +78,6 @@ public class ChainProgram extends Thread{
                     }
                 }
 
-                System.out.println("7"+timerON.toString()+riseFront.toString());
                 serviceMB110_1TD.raspberryWriteGPI26(!modelRaspberry.isGpio27());
                 serviceMB110_1TD.raspberryWriteGPI28(!timerON.isEndTime());
                 serviceMB110_1TD.messageTimerStatus(new JsonBoolean(timerON.isEnable()));

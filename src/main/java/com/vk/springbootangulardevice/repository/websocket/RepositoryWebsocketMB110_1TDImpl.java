@@ -3,6 +3,7 @@ package com.vk.springbootangulardevice.repository.websocket;
 import com.vk.springbootangulardevice.database.table.TableModelMB110_1TD;
 import com.vk.springbootangulardevice.modbus.device.DeviceModelMB110_1TD;
 import com.vk.springbootangulardevice.model.JsonBoolean;
+import com.vk.springbootangulardevice.model.JsonFloat;
 import com.vk.springbootangulardevice.model.JsonString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -33,5 +34,10 @@ public class RepositoryWebsocketMB110_1TDImpl extends RepositoryWebsocketRootImp
     @Override
     public void messageTextStatus(JsonString status){
         messageSendingOperationsRoot.convertAndSend("/topic/message-text-status", status);
+    }
+
+    @Override
+    public void messageRealMeasuringValueFromSensor(DeviceModelMB110_1TD status){
+        messageSendingOperationsRoot.convertAndSend("/topic/message-all-registers-from-modbus-device", status);
     }
 }
