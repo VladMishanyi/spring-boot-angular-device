@@ -31,7 +31,9 @@ export class AppComponent implements OnInit, AfterViewInit{
   public endChart: Date = new Date();
   public recipeName: string = 'empty';
   public recipeTime: number = 7;
-  public vTitle: string[] = [];
+  public vTitle: string[] = ['ITEM_NAME:  '+this.recipeName+'                                                            '+'ITEM_TIME:  '+this.recipeTime,
+    'DATE_FROM:  '+moment(this.startChart).format('YYYY-MM-DD HH:mm:ss')+'               '+'DATE_TO:  '+moment(this.endChart).format('YYYY-MM-DD HH:mm:ss'),
+    'RANGE_SEL:___________'+'               '+'ARC:___________'+'               '+'TEMP:___________'];
   public dataLegend1: number[] = [0];
   // public dataLegend2: number[] = [15, 42, 23, 102, 120, 48];
 
