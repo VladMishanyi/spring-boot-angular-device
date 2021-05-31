@@ -15779,3 +15779,216 @@
 2021-05-28 15:49:04.172  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
 2021-05-28 15:49:04.258  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
 2021-05-28 15:49:04.363  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:04.545  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:04.755  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:04.837  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:04.941  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:05.120  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:05.331  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:05.425  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:05.529  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:05.712  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:05.924  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:06.011  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:06.115  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:06.298  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:06.506  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:06.589  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:06.695  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:06.906  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:07.124  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:07.313  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:07.417  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:07.616  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:08.073  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:08.232  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:08.337  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:08.583  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:08.800  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:08.891  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:08.995  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:09.180  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:09.480  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:09.563  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:09.668  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:09.851  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:10.060  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:10.142  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:10.247  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:10.432  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:10.640  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:10.725  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:10.831  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:11.011  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:11.220  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:11.307  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:11.411  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:11.596  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:11.727  INFO 6004 --- [MessageBroker-4] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 72], outboundChannel[pool size = 8, active threads = 0, queued tasks = 0, completed tasks = 54194], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 4, completed tasks = 422]
+2021-05-28 15:49:11.804  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:11.885  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:11.989  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:12.191  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:12.402  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:12.485  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:12.591  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:12.777  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:12.985  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:13.064  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:13.168  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:13.345  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:13.556  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:13.634  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:13.740  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:13.927  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:14.134  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:14.220  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:14.324  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:14.512  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:14.720  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:14.824  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:14.927  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:15.110  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:15.321  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:15.400  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:15.505  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:15.687  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:15.897  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:15.982  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:16.085  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:16.267  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:16.477  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:16.555  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:16.660  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:16.841  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:17.053  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:17.136  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:17.240  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:17.423  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:17.632  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:17.712  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:17.817  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:18.003  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:18.212  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:18.291  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:18.396  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:18.579  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:18.788  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:18.871  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:18.975  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:19.165  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:19.373  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:19.452  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:19.555  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:19.739  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:19.949  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:20.028  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:20.133  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:20.314  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:20.522  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:20.605  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:20.710  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:20.895  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:21.104  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:21.187  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:21.292  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:21.469  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:21.679  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:21.763  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:21.868  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:22.048  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:22.256  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:22.336  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:22.439  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:22.627  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:22.835  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:22.917  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:23.022  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:23.202  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:23.412  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:23.494  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:23.598  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:23.785  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:23.994  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:24.078  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:24.183  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:24.363  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:24.572  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:24.658  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:24.763  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:24.951  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:25.158  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:25.247  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:25.352  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:25.536  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:25.745  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:25.832  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:25.936  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:26.119  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:26.469  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:26.548  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:26.651  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:26.835  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:27.043  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:27.125  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:27.232  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:27.411  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:27.621  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:27.700  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:27.806  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:27.987  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:28.195  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:28.276  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:28.380  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:28.565  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:28.775  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:28.851  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:28.956  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:29.135  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:29.346  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:29.422  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:29.527  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:29.702  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:29.914  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:29.989  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:30.094  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:30.273  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:30.482  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:30.565  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:30.671  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:30.855  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:31.064  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:31.149  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:31.251  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:31.434  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:31.642  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:31.717  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:31.822  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:32.008  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:32.217  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:32.295  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:32.401  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:32.582  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:32.793  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:32.877  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:32.983  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:33.165  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:33.373  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:33.454  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:33.559  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:33.741  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:33.950  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:34.028  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:34.132  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:34.317  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:34.524  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:34.607  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:34.712  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:34.890  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:35.099  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:35.178  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:35.283  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16
+2021-05-28 15:49:35.467  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Listen slave address №16--true
+2021-05-28 15:49:35.679  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusFloatImpl             : ModBus Close connection, slave address №16
+2021-05-28 15:49:35.759  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Listen slave address №16--true
+2021-05-28 15:49:35.863  INFO 6004 --- [Thread-15] c.v.s.modbus.ModbusIntegerImpl           : ModBus Close connection, slave address №16

@@ -682,14 +682,12 @@ export class AppComponent implements OnInit, AfterViewInit{
     if (data.length > 0){
       let x: Date[] = [];
       let y1: number[] = [];
-      // let y2: number[] = [];
       let utcLocalDateTimeOffset = this.getUtcOffset(data[0].date);
       for (let i: number=0; i < data.length; i++){
         if (data.hasOwnProperty(i)){
           try {
             x[i] = moment(data[i].date, "YYYY-MM-DD HH:mm:ss").utcOffset(utcLocalDateTimeOffset).toDate();
             y1[i] = data[i].holdingRegister0;
-            // y2[i] = data[i].holdingRegister0;
           }catch (err){
             console.log('Ошибка ' + err.name + ":" + err.message + "\n" + err.stack);
           }
