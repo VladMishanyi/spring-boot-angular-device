@@ -289,21 +289,32 @@ public class RepositoryModbusMB110_1TDImpl implements RepositoryModbusMB110_1TD{
     }
 
     private float doingSomeMathForProperShovingCharts(float val) {
-        return doingSmoothing(doingAbs(val), borderSize);
+        return doingMaxSmoothing(doingAbs(val), borderSize);
     }
 
     private float doingAbs(float val) {
         return Math.abs(val);
     }
 
-    private float doingSmoothing(float val, final int border) {
+    private float doingAverageSmoothing(float val, final int border) {
         int s = queue.size();
-        if ((s < border)) queue.offer(val);
-        if ((s >= border) && (border <= queueSize)){
-            float inner = (float) queue.stream().mapToDouble(x -> x).average().getAsDouble();
+        queue.offer(val);
+        float inner = (float) queue.stream().mapToDouble(x -> x).average().getAsDouble();
+        if (s >= border){
             queue.poll();
-            return inner;
         }
-        return val;
+        return inner;
+    }
+
+    private float doingMaxSmoothing(float val, final int border) {
+        int s = queue.size();
+        queue.offer(val);
+        float inner = queue.stream().max(Float::compare).get();
+        if (s >= border){
+            queue.poll();
+            System.out.println("try to send info from max smoothing : "+"size :"+s+" inner :"+inner+" val :"+val);
+        }
+        System.out.println("try to send info from max smoothing : "+"size :"+s+" border :"+border+" val :"+val+" queueSize :"+queueSize);
+        return inner;
     }
 }

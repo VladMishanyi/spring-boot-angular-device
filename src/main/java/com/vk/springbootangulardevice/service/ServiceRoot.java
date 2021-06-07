@@ -26,7 +26,7 @@ public interface ServiceRoot<T extends TableModel, J extends JsonBodyListRoot<T>
 
     D modbusReadDataFromRegisterAll();
 
-    public ModelRaspberry raspberryReadGPIO27();
-    public ModelRaspberry raspberryWriteGPI26(final boolean state);
-    public ModelRaspberry raspberryWriteGPI28(final boolean state);
+//    public ModelRaspberry raspberryReadGPIO27();
+//    public ModelRaspberry raspberryWriteGPI26(final boolean state);
+//    public ModelRaspberry raspberryWriteGPI28(final boolean state);
 }
