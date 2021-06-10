@@ -60,27 +60,27 @@ public class ServiceMB110_1TDImpl
 
     @Override
     public DeviceModelMB110_1TD modbusReadDataFromRegister0(){
-        return repositoryModbus.readDataFromRegister0(true, (short) -1000, (short) 1000, DigsFloat.ONE_DIG, false);
+        return repositoryModbus.readDataFromRegister0(true, (short) -20000, (short) 20000, DigsFloat.ONE_DIG, false);
     }
     @Override
     public DeviceModelMB110_1TD modbusReadDataFromRegister3(){
-        return repositoryModbus.readDataFromRegister3(true, (short) -1000, (short) 1000, false);
+        return repositoryModbus.readDataFromRegister3(true, (short) -20000, (short) 20000, false);
     }
     @Override
     public DeviceModelMB110_1TD modbusReadDataFromRegister4(){
-        return repositoryModbus.readDataFromRegister4(true, (short) -1000, (short) 1000, false);
+        return repositoryModbus.readDataFromRegister4(true, (short) -20000, (short) 20000, false);
     }
     @Override
     public DeviceModelMB110_1TD modbusReadDataFromRegister5(){
-        return repositoryModbus.readDataFromRegister5(true, (short) -1000, (short) 1000, DigsFloat.ONE_DIG, false);
+        return repositoryModbus.readDataFromRegister5(true, (short) -20000, (short) 20000, DigsFloat.ONE_DIG, false);
     }
     @Override
     public DeviceModelMB110_1TD modbusReadDataFromRegister6(){
-        return repositoryModbus.readDataFromRegister6(true, (short) -1000, (short) 1000, DigsFloat.ONE_DIG, false);
+        return repositoryModbus.readDataFromRegister6(true, (short) -20000, (short) 20000, DigsFloat.ONE_DIG, false);
     }
     @Override
     public DeviceModelMB110_1TD modbusReadDataFromRegister7(){
-        return repositoryModbus.readDataFromRegister7(true, (short) -1000, (short) 1000, DigsFloat.ONE_DIG, false);
+        return repositoryModbus.readDataFromRegister7(true, (short) -20000, (short) 20000, DigsFloat.ONE_DIG, false);
     }
     @Override
     public DeviceModelMB110_1TD modbusWriteDataToRegister1(final short value){

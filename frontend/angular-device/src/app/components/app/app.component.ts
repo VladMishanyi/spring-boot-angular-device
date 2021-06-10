@@ -69,7 +69,7 @@ export class AppComponent implements OnInit, AfterViewInit{
       // borderSkipped?: PositionType | PositionType[] | Scriptable<PositionType>;
       // categoryPercentage?: number;
       data: this.dataLegend1,
-      fill: true,
+      fill: false,
       // hitRadius?: number | number[] | Scriptable<number>;
       // hoverBackgroundColor?: ChartColor | ChartColor[] | Scriptable<ChartColor>;
       // hoverBorderColor?: ChartColor | ChartColor[] | Scriptable<ChartColor>;

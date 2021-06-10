@@ -125,7 +125,7 @@ export class WebsocketServiceService {
   }
 
   sendWriteSensitivitySensor(message: any) {
-    this.stompClient.send(this.appWriteEnableDisableWeightOfItem, {}, JSON.stringify(message));
+    this.stompClient.send(this.appWriteSensitivitySensor, {}, JSON.stringify(message));
   }
 
   sendWriteMinBorderValueForSensor(message: any) {
